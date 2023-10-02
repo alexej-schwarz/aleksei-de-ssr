@@ -1,0 +1,9 @@
+<audio
+  #audioElement
+  *ngIf="src"
+  controls
+  preload="metadata"
+>
+  <source src="{{ src }}" type="audio/mpeg">
+  Ваш браузер не поддерживает аудиоэлемент.
+</audio>

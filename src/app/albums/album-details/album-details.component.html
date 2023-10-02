@@ -1,0 +1,51 @@
+<ng-container *ngIf="albumDetails$ | async as albumDetails">
+  <div class="grid-container">
+    <h2>
+      <ng-container *ngIf="albumDetails.author">{{ albumDetails.author }} - </ng-container>
+      {{ albumDetails.title }}
+      <ng-container *ngIf="albumDetails.releaseYear"> - {{ albumDetails.releaseYear }} г.</ng-container>
+    </h2>
+    <div class="grid-row float">
+      <div class="grid-col image left">
+        <app-image
+          [src]="albumDetails.coverImageSrc"
+          [alt]="'обложка альбома «' + albumDetails.title + '»'"
+        ></app-image>
+      </div>
+
+      <div class="grid-col">
+        <ng-container *ngIf="albumDetails.members">
+          <p>Участники:</p>
+          <div class="members-wrapper">
+            <ul>
+              <li *ngFor="let member of albumDetails.members">
+                <strong *ngIf="!member.link">{{ member.name }}</strong>
+                <a [href]="member.link" *ngIf="member.link">
+                  <strong>{{ member.name }}</strong>
+                </a>
+                <span *ngIf="member.description"> - {{ member.description }}</span>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="albumDetails.description?.length">
+          <p *ngFor="let description of albumDetails.description">
+            {{ description }}
+          </p>
+        </ng-container>
+      </div>
+
+      <ol *ngIf="albumDetails?.tracks" class="grid-col tracks">
+        <li *ngFor="let track of (albumDetails.tracks)">
+          <h3>{{ track.title }}</h3>
+          <app-audio *ngIf="track.url" [src]="track.url"></app-audio>
+          <app-author
+            *ngIf="track.author"
+            [author]="track.author"
+            [class]="{ 'top-line': !track.url }"
+          ></app-author>
+        </li>
+      </ol>
+    </div>
+  </div>
+</ng-container>

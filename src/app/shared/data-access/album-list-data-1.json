@@ -1,0 +1,32 @@
+{
+  "razbityj-fonar" : {
+    "author": "Алексей Шварц",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/razbityj-fonar-cover-front-web.jpg`",
+    "releaseYear": 1999,
+    "title": "Разбитый фонарь"
+  },
+  "domashnij-albom" : {
+    "author": "Алексей Шварц",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/domashnij-albom-cover-front-web.jpg`",
+    "releaseYear": 2004,
+    "title": "Домашний альбом"
+  },
+  "knizhnyj-albom" : {
+    "author": "Алексей Шварц",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/knizhnyj-albom-cover-front-web.jpg`",
+    "releaseYear": 2007,
+    "title": "Книжный альбом"
+  },
+  "zhizn" : {
+    "author": "Алексей Шварц",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/zhizn-cover-front-web.png`",
+    "releaseYear": 2023,
+    "title": "Жизнь"
+  },
+  "tam-gde-menja-ne-zhdut" : {
+    "author": "Ук-Руп Аха-Пеци",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/urap-tam-gde-menja-ne-zhdut.jpg`",
+    "releaseYear": 1995,
+    "title": "Там, где меня не ждут"
+  }
+}

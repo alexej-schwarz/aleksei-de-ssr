@@ -1,0 +1,37 @@
+.grid-col {
+  width: var(--col-3-width);
+  display: flex;
+  &.fixed {
+    width: var(--col-12-width);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  width: 100%;
+  padding: var(--grid-spacer);
+  margin: var(--grid-spacer) 0;
+  border: 1px solid lightgrey;
+  box-shadow: 1px 4px 9px -2px darkgray;
+  background-color: white;
+  border-radius: 4px;
+  .fixed & {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    padding-left: 0;
+    padding-right: 0;
+
+    .card-image,
+    .card-body {
+      padding: 0 var(--grid-spacer);
+    }
+    .card-image {
+      width: 33.33%;
+    }
+    .card-body {
+      width: 66.66%;
+    }
+  }
+}

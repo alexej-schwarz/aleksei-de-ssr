@@ -1,0 +1,32 @@
+ul {
+  align-items: baseline;
+}
+
+li {
+  margin: 0;
+  padding-top: calc(var(--v-spacer) / 2);
+  padding-bottom: calc(var(--v-spacer) / 2);
+  will-change: background-color;
+  transition: background-color var(--nav-menu-items-transition);
+
+  a {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    will-change: color;
+    transition: color var(--nav-menu-items-transition);
+    &:focus,
+    &:hover,
+    &.active {
+      text-decoration: none;
+    }
+  }
+
+  &.active {
+    background-color: #fff;
+    a {
+      color: #000;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "jb-otrazhenija" : {
+    "author": "Jurassic Blues",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/jb-otrazhenija-cover-front-web.jpg`",
+    "releaseYear": 2005,
+    "title": "Отражения"
+  },
+  "jb-azbuka-vetra" : {
+    "author": "Jurassic Blues",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/jb-azbuka-vetra-cover-front-web.jpg`",
+    "releaseYear": 2010,
+    "title": "Азбука ветра"
+  },
+  "trava-festival-stadtallendorf" : {
+    "author": "Трава",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/trava-festival-stattalendorf-cover-front-web.jpg`",
+    "releaseYear": 2002,
+    "title": "Фестиваль в Штадталлендорфе"
+  },
+  "trava-invalidy" : {
+    "author": "Балет в Траве",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/trava-invalidy-cover-front-web.jpg`",
+    "releaseYear": 2003,
+    "title": "Инвалиды"
+  },
+  "trava-eshhjo-odin" : {
+    "author": "Трава",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/trava-eshhjo-odin-cover-front-web.jpg`",
+    "releaseYear": 2004,
+    "title": "Ещё один"
+  },
+  "trava-kgs" : {
+    "author": "Трава",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/trava-krov-govno-i-samokat-cover-front-web.jpg`",
+    "releaseYear": 2006,
+    "title": "Кровь, Говно и Самокат"
+  },
+  "trava-pesni-pesenki-i-pljaski" : {
+    "author": "Трава",
+    "coverImageSrc": "",
+    "releaseYear": 2020,
+    "title": "Песни, песенки и пляски"
+  },
+  "delo-vremeni-vsjo-eto-bylo" : {
+    "author": "Дело Времени",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/delo-vremeni-vsjo-eto-bylo-cover-front-web.jpg`",
+    "releaseYear": 2021,
+    "title": "Всё это было"
+  },
+  "vyhod-vennmk" : {
+    "author": "Выход",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/vyhod-wennmk-cover-front-web.jpg`",
+    "releaseYear": 2005,
+    "title": "Всё ещё не могу кончить"
+  },
+  "perelygin-akustika" : {
+    "author": "Павел Перелыгин",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/perelygin-akustika-cover-front-web.jpg`",
+    "releaseYear": 1999,
+    "title": "Акустика"
+  },
+  "perelygin-jluws" : {
+    "author": "Павел Перелыгин",
+    "coverImageSrc": "xxx",
+    "releaseYear": 2004,
+    "title": "Я люблю умирать во сне"
+  },
+  "hkb-in-the-beginning" : {
+    "author": "Hamburg Klezmer Band",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/hamburg-klezmer-band-in-the-beginning-cover-front-web.jpg`",
+    "releaseYear": 2011,
+    "title": "In the beginning"
+  },
+  "prospekt-kalinina-karusel" : {
+    "author": "Проспект Калинина",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/prospekt-kalinina-karusel-cover-front-web.jpg`",
+    "releaseYear": 2012,
+    "title": "Карусель"
+  },
+  "kassovyj-apparat-po-parku-gu" : {
+    "author": "Кассовый аппарат",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/kassovyj-apparat-po-parku-gu-cover-front-web.jpg`",
+    "releaseYear": 1994,
+    "title": "По парку гу"
+  },
+  "kassovyj-apparat-eto-ne-my" : {
+    "author": "Кассовый аппарат",
+    "coverImageSrc": "",
+    "releaseYear": 1994,
+    "title": "Это не мы"
+  },
+  "kassovyj-apparat-unplugged" : {
+    "author": "Кассовый аппарат",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/kassovyj-apparat-unplugged-cover-front-web.jpg`",
+    "releaseYear": 1994,
+    "title": "Унплуггед"
+  },
+  "perelygin-schwarz-kolichestvo-900" : {
+    "author": "Перелыгин и Шварц",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/kolichestvo-900-cover-front-web.jpg`",
+    "releaseYear": 1996,
+    "title": "Количество 900"
+  },
+  "urich-za-gorizont" : {
+    "author": "Женя Урих",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/urich-za-gorizont-cover-front-web.jpg`",
+    "releaseYear": 2011,
+    "title": "За горизонт"
+  },
+  "macuk-vremena-goda-i-sutok" : {
+    "author": "'Стас Мацюк",
+    "coverImageSrc": "`${environment.dataHostUrl}/img/albums/macuk-vremena-goda-i-sutok-cover-front-web.jpg`",
+    "releaseYear": 2011,
+    "title": "Времена года и суток"
+  }
+}

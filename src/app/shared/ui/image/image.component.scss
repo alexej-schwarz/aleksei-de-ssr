@@ -1,0 +1,29 @@
+.wrapper-image {
+  margin: 0;
+  padding: 0 0 100%;
+  display: block;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+img,
+.place-holder {
+  position: absolute;
+  width: 100%;
+}
+.place-holder {
+  font-size: 80%;
+  color:  var(--darkgray);
+  background-color: var(--lightgrey);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  span {
+    width: 80%;
+  }
+}

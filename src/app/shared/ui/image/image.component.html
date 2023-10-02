@@ -1,0 +1,15 @@
+<div
+  class="wrapper-image"
+  [style.width]="width$ | async"
+  [style.padding-bottom]="paddingBottom$ | async"
+>
+  <ng-template [ngIf]="imgSrc$ | async" [ngIfElse]="loggedOut">
+    <img src="{{ src }}" alt="{{ alt }}" />
+  </ng-template>
+
+  <ng-template #loggedOut>
+    <div class="place-holder">
+      <span>{{ alt + (alt ? ' ' : '') + 'отсутствует'}}</span>
+    </div>
+  </ng-template>
+</div>
