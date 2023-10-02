@@ -3,7 +3,7 @@
     <li
       *ngFor="let album of albums"
       class="grid-col"
-      [class]="{ fixed: album.fixed }"
+      [class]="{ fixed: album.fixed || !album.id }"
       routerLinkActive="active"
       ariaCurrentWhenActive="page"
     >

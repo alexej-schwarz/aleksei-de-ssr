@@ -74,7 +74,8 @@ export const UNPLUGGED: Track[] = [
     author: {
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-10-kamennye-pticy.mp3`
   },
   {
     title: 'Сонный воздух',
@@ -82,7 +83,7 @@ export const UNPLUGGED: Track[] = [
       music: 'Олег Мовчан',
       text: 'Олег Мовчан'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged--11-sonwozduh-short.mp3`
+    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-11-sonwozduh-short.mp3`
   },
   {
     title: 'Разбитый фонарь',

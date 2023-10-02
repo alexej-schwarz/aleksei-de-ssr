@@ -5,6 +5,7 @@ h2 {
   width: 100%;
   &.image {
     width: var(--col-4-width);
+    margin-bottom: var(--h-spacer);
   }
 }
 .members-wrapper {
