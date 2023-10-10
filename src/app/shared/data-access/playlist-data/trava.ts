@@ -1,4 +1,5 @@
 import { Track } from '../../interfaces/album'
+import { environment } from "../../../../environments/environment"
 export const KGS: Track[] = [
   {
     title: 'Хулиганы',
@@ -67,20 +68,55 @@ export const KGS: Track[] = [
 
 export const INVALIDY: Track[] = [
   {
+    title: 'Солнышко Красное',
+    author: {
+      music: 'Трава'
+    },
+    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-01-solnyshko-krasnoe.mp3`
+  },
+  {
+    title: 'без названия',
+    author: {
+      music: 'Трава'
+    }
+  },
+  {
+    title: 'Всё Хорошо (концовка)',
+    author: {
+      music: 'Трава'
+    },
+    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-03-vsjo-horosho-instr.mp3`
+  },
+  {
     title: 'Оса На Языке',
     author: {
       music: 'Трава',
       text: 'Монь'
+    },
+    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-04-assa.mp3`
+  },
+  {
+    title: 'без названия',
+    author: {
+      music: 'Трава'
     }
   },
   {
     title: 'Едут Мимо Поезда',
     author: {
       music: 'Трава'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-06-poezda.mp3`
   },
   {
     title: 'Вот и Кончилась Трава',
+    author: {
+      music: 'Трава'
+    },
+    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-07-konchilas-trava.mp3`
+  },
+  {
+    title: 'Блюз',
     author: {
       music: 'Трава'
     }

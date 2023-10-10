@@ -6,6 +6,7 @@ import {
 } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
 import { CommonModule } from '@angular/common'
+import { LazyLoadImageModule } from "ng-lazyload-image"
 @Component({
   selector: 'app-image',
   templateUrl: './image.component.html',
@@ -30,7 +31,7 @@ export class ImageComponent implements OnInit {
   }
 }
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, LazyLoadImageModule],
   declarations: [ImageComponent],
   exports: [ImageComponent]
 })

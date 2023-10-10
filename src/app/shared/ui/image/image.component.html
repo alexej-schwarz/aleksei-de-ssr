@@ -4,7 +4,7 @@
   [style.padding-bottom]="paddingBottom$ | async"
 >
   <ng-template [ngIf]="imgSrc$ | async" [ngIfElse]="loggedOut">
-    <img src="{{ src }}" alt="{{ alt }}" />
+    <img alt="{{ alt }}" [lazyLoad]="src || ''" />
   </ng-template>
 
   <ng-template #loggedOut>

@@ -1,9 +1,9 @@
 <ng-container *ngIf="albumDetails$ | async as albumDetails">
   <div class="grid-container">
     <h2>
-      <ng-container *ngIf="albumDetails.author">{{ albumDetails.author }} - </ng-container>
-      {{ albumDetails.title }}
-      <ng-container *ngIf="albumDetails.releaseYear"> - {{ albumDetails.releaseYear }} г.</ng-container>
+      <ng-container *ngIf="albumDetails.author"><span>{{ albumDetails.author }} </span><wbr/></ng-container>
+      <span>«</span>{{ albumDetails.title }}<span>»</span>
+      <ng-container *ngIf="albumDetails.releaseYear"><wbr/><span> {{ albumDetails.releaseYear }}&nbsp;г.</span></ng-container>
     </h2>
     <div class="grid-row float">
       <div class="grid-col image left">

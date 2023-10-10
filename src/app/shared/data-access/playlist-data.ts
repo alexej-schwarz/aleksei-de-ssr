@@ -109,7 +109,6 @@ export const ZHIZN: Track[] = [
     url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/12-chetwero-a-schwarz.mp3`
   }
 ]
-
 export const KNIZHNYJ_ALBOM: Track[] = [
   {
     title: 'Если бы я',
@@ -207,7 +206,6 @@ export const KNIZHNYJ_ALBOM: Track[] = [
     url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/12-schwarz-more-remix.mp3`
   }
 ]
-
 export const DOMASHNIJ_ALBOM: Track[] = [
   {
     title: 'Мы твёрдо по жизни хотели идти...',
@@ -285,7 +283,6 @@ export const DOMASHNIJ_ALBOM: Track[] = [
     url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-10-bonus-long.mp3`
   }
 ]
-
 export const RAZBITYJ_FONAR: Track[] = [
   {
     title: 'Грусть',
@@ -344,7 +341,6 @@ export const RAZBITYJ_FONAR: Track[] = [
     url: `${environment.dataHostUrl}/audio/schwarz/1999-razbityj-fonar/07-schwarz-po-doroge.mp3`
   }
 ]
-
 export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
   {
     title: 'Домой',
@@ -419,21 +415,13 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
     url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/10-wesna.mp3`
   }
 ]
-
 export const JB_AZBUKA_VETRA = AZBUKA_VETRA
-
 export const JB_OTRAZHENIJA = OTRAZHENIJA
-
 // export const PESNI_PESENKI_I_PLJASKI_TRAVA = PESNI_PESENKI_I_PLJASKI
-
 export const TRAVA_KGS = KGS
-
 export const TRAVA_INVALIDY = INVALIDY
-
 export const TRAVA_ESHHJO_ODIN = ESHHJO_ODIN
-
 export const TRAVA_FESTIVAL_STADTALLENDORF = FESTIVAL_STADTALLENDORF
-
 export const VYHOD_VENNMK: Track[] = [
   {
     title: 'Когда Ты Скажешь «Пойдём»',
@@ -591,7 +579,6 @@ export const VYHOD_VENNMK: Track[] = [
   },
 
 ]
-
 export const PERELYGIN_JLUWS: Track[] = [
   {
     title: 'Запой',
@@ -626,7 +613,6 @@ export const PERELYGIN_JLUWS: Track[] = [
     url: `${environment.dataHostUrl}/audio/perelygin/2003-jluws/perelygin-jluws-04-snom-ognjom.mp3`
   }
 ]
-
 export const PERELYGIN_AKUSTIKA: Track[] = [
   {
     title: 'Блядская любовь',
@@ -701,73 +687,80 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
     url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-09-vstretilis-s-toboj.mp3`
   }
 ]
-
 export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
   {
     title: 'Ленинградское утро',
     author: {
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-01-leningradskoe-utro.mp3`
   },
   {
     title: 'Чужие среди чужих',
     author: {
       music: 'Андрей Макаревич',
       text: 'Андрей Макаревич'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-02-chuzhie-sredi-chuzhih.mp3`
   },
   {
     title: 'Река',
     author: {
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-03-reka.mp3`
   },
   {
     title: 'Про злую любовь',
     author: {
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-04-pro-zluju-ljubov.mp3`
   },
   {
     title: 'Осень',
     author: {
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-05-osen.mp3`
   },
   {
-    title: 'Кадриль',
+    title: 'Кадриль (посвящение Шварцу)',
     author: {
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-06-kadril.mp3`
   },
   {
     title: 'Снова один',
     author: {
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-07-snova-odin.mp3`
   },
   {
     title: 'Касыда о последнем пороге',
     author: {
       music: 'Игорь Воленко',
       text: 'Олег Ладыженский'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-08-kasyda-o-poslednem-poroge.mp3`
   },
   {
     title: 'Романтический мальчик',
     author: {
       music: 'Стас Мацюк',
       text: 'Никита Блинов'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-09-romanticheskij-malchik.mp3`
   }
 ]
-
 export const DELO_VREMENI_VSJO_ETO_BYLO: Track[] = [
   {
     title: 'Всё это было',
@@ -805,7 +798,6 @@ export const DELO_VREMENI_VSJO_ETO_BYLO: Track[] = [
     }
   }
 ]
-
 export const HKB_IN_THE_BEGINNING: Track[] = [
   { title: 'Yikhes and Perenica' },
   { title: 'Hoffmans Hora' },
@@ -823,7 +815,6 @@ export const HKB_IN_THE_BEGINNING: Track[] = [
   { title: 'Heyser Bulgar' },
   { title: 'Boyberiker Nign' }
 ]
-
 export const PERELYGIN_SCHWARZ_KOLICHESTVO_900: Track[] = [
   {
     title: 'Грусть',
@@ -1014,7 +1005,6 @@ export const PERELYGIN_SCHWARZ_KOLICHESTVO_900: Track[] = [
     }
   }
 ]
-
 export const URICH_ZA_GORIZONT: Track[] = [
   {
     title: 'Великий город',
@@ -1094,7 +1084,6 @@ export const URICH_ZA_GORIZONT: Track[] = [
     }
   }
 ]
-
 export const PROSPEKT_KALININA_KARUSEL: Track[] = [
   {
     title: 'Добрый вечер',

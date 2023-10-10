@@ -2,11 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  EventEmitter,
   NgModule,
   OnDestroy,
   OnInit,
-  Output,
   Renderer2
 } from '@angular/core'
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser'
@@ -14,14 +12,15 @@ import { Data, PreloadAllModules, RouterModule } from '@angular/router'
 import { MainMenuComponent } from './ui/header/main-menu/main-menu.component'
 import { HeaderComponent } from './ui/header/header.component'
 import { Platform } from '@ionic/angular'
+import { LazyLoadImageModule } from 'ng-lazyload-image'
 import {
+  BehaviorSubject,
   debounceTime,
   filter, map, mergeMap,
   Subject,
   takeUntil,
   tap
 } from 'rxjs'
-import { pluck } from 'rxjs/operators'
 import { HttpClientModule } from '@angular/common/http'
 import { TruncatePipeModule } from './shared/pipes/truncate.pipe'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
@@ -34,8 +33,8 @@ import { MetaService } from './shared/data-access/meta/meta-service'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, OnDestroy {
-  @Output() test = new EventEmitter<string>()
-  title = 'app-root'
+  titleSmall$ = new BehaviorSubject(false)
+  allPlatformName = [ 'desktop', 'tablet', 'mobile' ]
   platformName = ''
   destroy$ = new Subject()
   constructor(
@@ -52,6 +51,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     this.initPlatformName().then(() => {
+      this.allPlatformName.forEach(className => {
+        this.renderer.removeClass(this.element.nativeElement, className)
+      })
       this.renderer.addClass(this.element.nativeElement, this.platformName)
       this.setOrientationCSSClass()
       this.platform.resize.pipe(
@@ -63,7 +65,7 @@ export class AppComponent implements OnInit, OnDestroy {
     })
     this.router.events
       .pipe(
-        filter((event) => event instanceof NavigationEnd),
+        filter((e) => e instanceof NavigationEnd),
         map(() => this.activatedRoute),
         map((route) => {
           while (route.firstChild) {
@@ -73,7 +75,10 @@ export class AppComponent implements OnInit, OnDestroy {
         }),
         filter((route) => route.outlet === 'primary'),
         mergeMap((route) => route.data),
-        tap(({ title,description }: Data) => {
+        tap(({ titleSmall }: Data) => {
+          this.titleSmall$.next(!!titleSmall)
+        }),
+        tap(({ title, description }: Data) => {
           this.metaService.updateTitle(title)
           this.metaService.updateDescription(description)
         })
@@ -81,7 +86,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   private initPlatformName = async () => {
     const width = this.platform.width()
-    this.platformName = 'desktop'
+    if (this.platform.is('desktop')) {
+      this.platformName = 'desktop'
+    }
     if (this.platform.is('mobile')) {
       this.platformName = 'tablet'
       /** 912 portrait = Surface Pro 7 (Tablet) */
@@ -111,6 +118,7 @@ export class AppComponent implements OnInit, OnDestroy {
     BrowserModule,
     HttpClientModule,
     TruncatePipeModule,
+    LazyLoadImageModule,
     RouterModule.forRoot([
     {
       path: 'home',
@@ -133,7 +141,8 @@ export class AppComponent implements OnInit, OnDestroy {
       loadChildren: () => import('./albums/album-details/album-details.component').then(m => m.AlbumDetailsComponentModule),
       data: {
         title: 'Алексей Шварц - дискография',
-        description: 'сольные альбомы и альбомы с участием Алексея Шварца'
+        description: 'сольные альбомы и альбомы с участием Алексея Шварца',
+        titleSmall: true
       }
     },
     {

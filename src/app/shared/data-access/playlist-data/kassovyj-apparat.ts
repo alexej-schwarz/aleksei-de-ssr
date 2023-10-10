@@ -128,7 +128,8 @@ export const PO_PARKU_GU: Track[] = [
     author: {
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1994-po-parku-gu/kassovyj-apparat-po-parku-gu-02-detskie-shutki.mp3`
   },
   {
     title: 'Новое утро',
@@ -156,7 +157,8 @@ export const PO_PARKU_GU: Track[] = [
     author: {
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
-    }
+    },
+    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1994-po-parku-gu/kassovyj-apparat-po-parku-gu-06-skolko-ne-pljashi.mp3`
   },
   {
     title: 'Ты хотел бы',

@@ -1,5 +1,9 @@
 h2 {
   margin-inline-start: var(--detail-title-margin-inline-start);
+  span {
+    font-weight: 500;
+    font-size: 90%;
+  }
 }
 .grid-col {
   width: 100%;
