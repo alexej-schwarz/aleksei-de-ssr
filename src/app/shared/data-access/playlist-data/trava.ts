@@ -75,7 +75,7 @@ export const INVALIDY: Track[] = [
     url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-01-solnyshko-krasnoe.mp3`
   },
   {
-    title: 'без названия',
+    title: 'Не Пей Эту Воду',
     author: {
       music: 'Трава'
     }
