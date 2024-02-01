@@ -1,4 +1,4 @@
-import { Track } from '../interfaces/album'
+import { Track } from '../../models/album'
 import { PO_PARKU_GU, UNPLUGGED } from './playlist-data/kassovyj-apparat'
 import { AZBUKA_VETRA, OTRAZHENIJA } from './playlist-data/jb'
 import {

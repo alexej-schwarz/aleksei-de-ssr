@@ -1,4 +1,4 @@
-import { Track } from '../../interfaces/album'
+import { Track } from '../../../models/album'
 export const AZBUKA_VETRA: Track[] = [
   {
     title: 'Азбука ветра',

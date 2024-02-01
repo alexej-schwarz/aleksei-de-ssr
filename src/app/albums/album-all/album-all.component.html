@@ -1,9 +1,0 @@
-<div class="grid-container">
-  <h2>Дискография</h2>
-  <ng-container *ngIf="vm$ | async as albumAll">
-    <ng-container *ngFor="let albumList of albumAll">
-      <h3>{{ albumList.title }}</h3>
-      <app-album-list [albumList]="albumList.list"></app-album-list>
-    </ng-container>
-  </ng-container>
-</div>

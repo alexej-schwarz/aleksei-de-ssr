@@ -1,4 +1,4 @@
-import { Album } from '../interfaces/album'
+import { Album } from '../../models/album'
 import { environment } from '../../../environments/environment'
 
 export const ALBUM_LIST_DATA_1: Album[] = [

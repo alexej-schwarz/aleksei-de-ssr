@@ -1,4 +1,4 @@
-import { Track } from '../../interfaces/album'
+import { Track } from '../../../models/album'
 import { environment } from "../../../../environments/environment"
 export const KGS: Track[] = [
   {
@@ -75,7 +75,7 @@ export const INVALIDY: Track[] = [
     url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-01-solnyshko-krasnoe.mp3`
   },
   {
-    title: 'Не Пей Эту Воду ',
+    title: 'Не Пей Эту Воду',
     author: {
       music: 'Трава'
     }

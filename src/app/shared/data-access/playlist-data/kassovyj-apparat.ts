@@ -1,4 +1,4 @@
-import { Track } from '../../interfaces/album'
+import { Track } from '../../../models/album'
 import { environment } from '../../../../environments/environment'
 export const UNPLUGGED: Track[] = [
   {

@@ -1,0 +1,32 @@
+<ng-container *ngIf="albumList as albums">
+  <ul *ngIf="albums?.length" class="grid-row">
+    <li
+      *ngFor="let album of albums"
+      class="grid-col"
+      [class]="{ fixed: album.fixed || !album.id }"
+      routerLinkActive="active"
+      ariaCurrentWhenActive="page"
+    >
+      <a routerLink="/albums/{{ album.id }}" class="card">
+        <div class="card-body">
+          <p class="card-header">
+            <span class="author">{{ album.author }}</span>&nbsp;
+            <span class="year" *ngIf="!!album?.releaseYear">{{ album.releaseYear }}</span>
+            <br />
+            <span class="title">{{ album.title }}</span>
+          </p>
+          <div *ngIf="album.fixed" class="card-description">
+            {{ album.description?.[0] | truncate: 440 }}
+          </div>
+        </div>
+        <div class="card-image">
+          <app-image
+            [src]="album.coverImageSrc"
+            [alt]="'обложка альбома «' + album.title + '»'"
+            [lazyLoading]="true"
+          ></app-image>
+        </div>
+      </a>
+    </li>
+  </ul>
+</ng-container>
