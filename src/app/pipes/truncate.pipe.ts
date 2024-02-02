@@ -1,6 +1,7 @@
-import { NgModule, Pipe, PipeTransform } from '@angular/core'
+import { Pipe, PipeTransform } from '@angular/core'
 @Pipe({
-  name: 'truncate'
+  name: 'truncate',
+  standalone: true
 })
 export class TruncatePipe implements PipeTransform {
   transform(value = '', limit = 100, ellipsis = ' …') {
@@ -8,9 +9,3 @@ export class TruncatePipe implements PipeTransform {
     return value.length > limit && limit >= limitWithSpase ? value.substr(0, limitWithSpase) + ellipsis : value
   }
 }
-
-@NgModule({
-  declarations: [TruncatePipe],
-  exports: [TruncatePipe],
-})
-export class TruncatePipeModule {}

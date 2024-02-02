@@ -9,7 +9,7 @@ import { AlbumService } from '../../../services/album.service'
 import { ImageComponentModule } from '../../../components/image/image.component'
 import { AlbumListComponent } from '../../../components/album-list/album-list.component'
 import { combineLatest, map } from 'rxjs'
-import { TruncatePipeModule } from '../../../pipes/truncate.pipe'
+import { TruncatePipe } from '../../../pipes/truncate.pipe'
 import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../../data/album-data'
 
 @Component({
@@ -52,7 +52,7 @@ export class AlbumAllListPage {
       },
     ]),
     ImageComponentModule,
-    TruncatePipeModule
+    TruncatePipe
   ],
   declarations: [
     AlbumAllListPage,

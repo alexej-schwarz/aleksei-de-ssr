@@ -22,7 +22,7 @@ import {
   tap
 } from 'rxjs'
 import { HttpClientModule } from '@angular/common/http'
-import { TruncatePipeModule } from './pipes/truncate.pipe'
+import { TruncatePipe } from './pipes/truncate.pipe'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { MetaService } from './services/meta.service'
 
@@ -117,7 +117,7 @@ export class AppComponent implements OnInit, OnDestroy {
   imports: [
     BrowserModule,
     HttpClientModule,
-    TruncatePipeModule,
+    TruncatePipe,
     LazyLoadImageModule,
     RouterModule.forRoot([
     {
