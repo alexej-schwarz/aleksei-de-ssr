@@ -1,5 +1,16 @@
 <app-header />
 <main>
-  <h1 class="grid-container" [class]="{ small: titleSmall$.value }">Алексей Шварц</h1>
+  <div class="grid-container title-block">
+    <button
+      *ngIf="hasBackButton"
+      type="button"
+      (click)="goBack()"
+      class="back-button"
+    >
+      <span class="icon" aria-hidden="true">&blacktriangleleft;</span>
+      <span class="text" [class]="{ 'sr-only': platformName === 'mobile'}">назад</span>
+    </button>
+    <h1 class="grid-container" [class]="{ small: isTitleSmall }">Алексей Шварц</h1>
+  </div>
   <router-outlet />
 </main>

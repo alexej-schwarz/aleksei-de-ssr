@@ -54,7 +54,7 @@ app-author {
     &:before,
     h3 {
       font-size: 1.2rem;
-      line-height: 1.4;
+      line-height: var(--line-height-default);
     }
     h3 {
       margin: 0;

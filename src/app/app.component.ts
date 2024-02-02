@@ -8,15 +8,16 @@ import {
   Renderer2
 } from '@angular/core'
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser'
-import { Data, PreloadAllModules, RouterModule } from '@angular/router'
+import { PreloadAllModules, RouterModule } from '@angular/router'
 import { MainMenuComponent } from './components/header/main-menu/main-menu.component'
 import { HeaderComponent } from './components/header/header.component'
 import { Platform } from '@ionic/angular'
 import { LazyLoadImageModule } from 'ng-lazyload-image'
 import {
-  BehaviorSubject,
   debounceTime,
-  filter, map, mergeMap,
+  filter,
+  map,
+  mergeMap,
   Subject,
   takeUntil,
   tap
@@ -25,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { TruncatePipe } from './pipes/truncate.pipe'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { MetaService } from './services/meta.service'
+import { routes } from './app.routes'
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-root',
@@ -33,17 +36,19 @@ import { MetaService } from './services/meta.service'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit, OnDestroy {
-  titleSmall$ = new BehaviorSubject(false)
-  allPlatformName = [ 'desktop', 'tablet', 'mobile' ]
+  private allPlatformName = [ 'desktop', 'tablet', 'mobile' ]
   platformName = ''
+  isTitleSmall= false
   destroy$ = new Subject()
+  hasBackButton = false
   constructor(
     public platform: Platform,
     private element: ElementRef,
     private renderer: Renderer2,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private metaService: MetaService
+    private metaS: MetaService,
+    private location: Location
   ) {}
   ngOnDestroy(){
     this.destroy$.next(undefined)
@@ -75,12 +80,16 @@ export class AppComponent implements OnInit, OnDestroy {
         }),
         filter((route) => route.outlet === 'primary'),
         mergeMap((route) => route.data),
-        tap(({ titleSmall }: Data) => {
-          this.titleSmall$.next(!!titleSmall)
-        }),
-        tap(({ title, description }: Data) => {
-          this.metaService.updateTitle(title)
-          this.metaService.updateDescription(description)
+        tap(({
+            description,
+            hasBackButton,
+            isTitleSmall,
+            title
+          }) => {
+          this.isTitleSmall = isTitleSmall
+          this.hasBackButton = hasBackButton
+          this.metaS.updateTitle(title)
+          this.metaS.updateDescription(description)
         })
       ).subscribe()
   }
@@ -106,6 +115,10 @@ export class AppComponent implements OnInit, OnDestroy {
       ? this.renderer.addClass(this.element.nativeElement, 'landscape')
       : this.renderer.removeClass(this.element.nativeElement, 'landscape')
   }
+
+  goBack = () => {
+    this.location.back()
+  }
 }
 
 @NgModule({
@@ -119,42 +132,9 @@ export class AppComponent implements OnInit, OnDestroy {
     HttpClientModule,
     TruncatePipe,
     LazyLoadImageModule,
-    RouterModule.forRoot([
-    {
-      path: 'home',
-      loadChildren: () => import('./pages/home/home.page').then(m => m.HomeComponentModule),
-      data: {
-        title: 'Алексей Шварц',
-        description: 'музыкант, композитор, автор песен'
-      }
-    },
-    {
-      path: 'albums',
-      loadChildren: () => import('./pages/albums/album-all-list/album-all-list.page').then(m => m.AlbumAllListPageModule),
-      data: {
-        title: 'Алексей Шварц - дискография',
-        description: 'сольные альбомы и альбомы с участием Алексея Шварца'
-      }
-    },
-    {
-      path: 'albums/:id',
-      loadChildren: () => import('./pages/albums/album-details/album-details.component').then(m => m.AlbumDetailsComponentModule),
-      data: {
-        title: 'Алексей Шварц - дискография',
-        description: 'сольные альбомы и альбомы с участием Алексея Шварца',
-        titleSmall: true
-      }
-    },
-    {
-      path: '',
-      redirectTo: 'home',
-      pathMatch: 'full'
-    }
-], { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabledBlocking' })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabledBlocking' })
   ],
   providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor() {}
-}
+export class AppModule {}

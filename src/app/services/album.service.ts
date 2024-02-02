@@ -56,7 +56,7 @@ export class AlbumService {
     const albumList$: BehaviorSubject<Album[]> = new BehaviorSubject([
       { id: '' , author: '', title: '', coverImageSrc: '', releaseYear: 0 }
     ])
-    const albumFromList = from(albumListDataArray).pipe(
+    const albumFromList$ = from(albumListDataArray).pipe(
       tap(album => {
         const descriptionById = this.getAlbumDescriptionById(album.id).pipe(
           tap(description => {
@@ -71,7 +71,7 @@ export class AlbumService {
         descriptionById.subscribe()
       })
     )
-    albumFromList.subscribe()
+    albumFromList$.subscribe()
     return albumList$.pipe(
       map(albumList => {
         const albumListFixed = albumList

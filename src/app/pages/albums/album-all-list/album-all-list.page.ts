@@ -19,8 +19,8 @@ import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../../data/album-data'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AlbumAllListPage {
-  albumListSchwarz$ = this.albumService.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1)
-  albumListOther$ = this.albumService.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2)
+  albumListSchwarz$ = this.albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1)
+  albumListOther$ = this.albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2)
 
   vm$ = combineLatest([
     this.albumListSchwarz$,
@@ -38,7 +38,7 @@ export class AlbumAllListPage {
   )
   // trackByFn: any = (index: number, item: Album[]) => item.id
   constructor(
-    public albumService: AlbumService
+    public albumS: AlbumService
   ) {}
 }
 @NgModule({

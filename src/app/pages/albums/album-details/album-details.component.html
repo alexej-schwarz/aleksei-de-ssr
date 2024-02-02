@@ -20,7 +20,7 @@
             <ul>
               <li *ngFor="let member of albumDetails.members">
                 <strong *ngIf="!member.link">{{ member.name }}</strong>
-                <a [href]="member.link" *ngIf="member.link">
+                <a [href]="member.link" *ngIf="member.link" target="_blank">
                   <strong>{{ member.name }}</strong>
                 </a>
                 <span *ngIf="member.description"> - {{ member.description }}</span>

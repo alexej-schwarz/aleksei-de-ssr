@@ -17,9 +17,9 @@ export class AlbumDetailsComponent {
     concatMap((params) => {
       const id = params.get('id') as string
       return combineLatest([
-        this.albumService.getAlbumById(id),
-        this.albumService.getAlbumPlaylistById(id),
-        this.albumService.getAlbumDescriptionById(id)
+        this.albumS.getAlbumById(id),
+        this.albumS.getAlbumPlaylistById(id),
+        this.albumS.getAlbumDescriptionById(id)
       ])
     }),
     map(([album, tracks, description]) => (
@@ -29,7 +29,7 @@ export class AlbumDetailsComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private albumService: AlbumService
+    private albumS: AlbumService
   ) {}
 }
 @NgModule({

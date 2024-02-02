@@ -2,3 +2,35 @@ h1.small {
   font-size: 1rem;
   text-align: end;
 }
+
+.title-block {
+  display: flex;
+  align-items: baseline;
+}
+
+.back-button {
+  border: none;
+  display: flex;
+  font-weight: bold;
+  background-color: transparent;
+  line-height: var(--line-height-default);
+  font-size: var(--font-size-default);
+  align-items: center;
+  margin-left: -4px;
+  margin-right: -4px;
+
+  .text,
+  .icon {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .text {
+    text-decoration: underline;
+  }
+
+  .icon {
+    text-decoration: none;
+    font-size: calc(2 * var(--font-size-default));
+  }
+}

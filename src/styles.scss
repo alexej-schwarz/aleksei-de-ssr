@@ -4,8 +4,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--default-font-family);
-  font-size: var(--default-font-size);
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-default);
 }
 
 * {
@@ -15,6 +15,18 @@ body {
 ul {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .grid {
@@ -61,4 +73,8 @@ ul {
       }
     }
   }
+}
+
+button {
+  cursor: pointer;
 }

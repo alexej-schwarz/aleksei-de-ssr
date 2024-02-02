@@ -1,4 +1,7 @@
 :root {
+  --line-height-default: 1.4;
+  --font-size-default: 1rem;
+
   --v-spacer: 24px;
   --n-v-spacer: calc(-1 * var(--v-spacer));
   --h-spacer: 24px;
@@ -35,12 +38,10 @@
   --detail-title-margin-inline-start: var(--col-4-width);
   --details-dotted-display: block;
 
-  --default-font-size: 1rem;
-
   --card-transition: 100ms ease;
   --nav-menu-items-transition: 200ms linear;
 
-  --default-font-family: "Open Sans", sans-serif;
+  --font-family-default: "Open Sans", sans-serif;
 
   .tablet {
     --v-spacer: 12px;
@@ -60,6 +61,8 @@
   }
 
   .mobile {
+    --font-size-default: 1.2rem;
+
     --v-spacer: 12px;
     --n-v-spacer: calc(-1 * var(--v-spacer));
     --h-spacer: 12px;
@@ -84,8 +87,6 @@
 
     --detail-title-margin-inline-start: 0;
     --details-dotted-display: none;
-
-    --default-font-size: 1.2rem;
 
     &.landscape {
       --col-3-width: 50%;
