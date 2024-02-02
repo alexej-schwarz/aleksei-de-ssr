@@ -1,5 +1,5 @@
-import { Track } from '../../interfaces/album'
-import { environment } from '../../../../environments/environment'
+import { environment } from '../../../environments/environment'
+import { Track } from '../../types/albom.type'
 export const UNPLUGGED: Track[] = [
   {
     title: 'Маленькой ёлочке',

@@ -1,4 +1,4 @@
-import { AlbumDescription } from '../interfaces/album'
+import { AlbumDescription } from '../types/albom.type'
 
 export const TRAVA_FESTIVAL_STADTALLENDORF: AlbumDescription = {
   description: [

@@ -3,7 +3,8 @@ import {
   Component,
   Input
 } from '@angular/core'
-import { Album } from '../../../shared/interfaces/album'
+import { Album } from '../../types/albom.type'
+
 
 @Component({
   selector: 'app-album-list',
@@ -13,5 +14,4 @@ import { Album } from '../../../shared/interfaces/album'
 })
 export class AlbumListComponent {
   @Input() albumList: Album[] = []
-  constructor() {}
 }

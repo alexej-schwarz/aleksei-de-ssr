@@ -5,20 +5,20 @@ import {
   NgModule
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
-import { AlbumService } from '../../shared/data-access/album-service'
-import { ImageComponentModule } from '../../shared/ui/image/image.component'
-import { AlbumListComponent } from './album-list/album-list.component'
-import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../shared/data-access/album-data'
+import { AlbumService } from '../../../services/album.service'
+import { ImageComponentModule } from '../../../components/image/image.component'
+import { AlbumListComponent } from '../../../components/album-list/album-list.component'
 import { combineLatest, map } from 'rxjs'
-import { TruncatePipeModule } from '../../shared/pipes/truncate.pipe'
+import { TruncatePipeModule } from '../../../pipes/truncate.pipe'
+import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../../data/album-data'
 
 @Component({
   selector: 'app-album-all',
-  templateUrl: 'album-all.component.html',
-  styleUrls: ['album-all.component.scss'],
+  templateUrl: 'album-all-list.page.html',
+  styleUrls: ['album-all-list.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AlbumAllComponent {
+export class AlbumAllListPage {
   albumListSchwarz$ = this.albumService.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1)
   albumListOther$ = this.albumService.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2)
 
@@ -48,15 +48,15 @@ export class AlbumAllComponent {
     RouterModule.forChild([
       {
         path: '',
-        component: AlbumAllComponent
+        component: AlbumAllListPage
       },
     ]),
     ImageComponentModule,
     TruncatePipeModule
   ],
   declarations: [
-    AlbumAllComponent,
+    AlbumAllListPage,
     AlbumListComponent
   ]
 })
-export class AlbumAllComponentModule {}
+export class AlbumAllListPageModule {}

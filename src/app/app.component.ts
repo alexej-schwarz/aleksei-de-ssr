@@ -9,8 +9,8 @@ import {
 } from '@angular/core'
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser'
 import { Data, PreloadAllModules, RouterModule } from '@angular/router'
-import { MainMenuComponent } from './ui/header/main-menu/main-menu.component'
-import { HeaderComponent } from './ui/header/header.component'
+import { MainMenuComponent } from './components/header/main-menu/main-menu.component'
+import { HeaderComponent } from './components/header/header.component'
 import { Platform } from '@ionic/angular'
 import { LazyLoadImageModule } from 'ng-lazyload-image'
 import {
@@ -22,9 +22,9 @@ import {
   tap
 } from 'rxjs'
 import { HttpClientModule } from '@angular/common/http'
-import { TruncatePipeModule } from './shared/pipes/truncate.pipe'
+import { TruncatePipeModule } from './pipes/truncate.pipe'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
-import { MetaService } from './shared/data-access/meta/meta-service'
+import { MetaService } from './services/meta.service'
 
 @Component({
   selector: 'app-root',
@@ -122,7 +122,7 @@ export class AppComponent implements OnInit, OnDestroy {
     RouterModule.forRoot([
     {
       path: 'home',
-      loadChildren: () => import('./home/home.component').then(m => m.HomeComponentModule),
+      loadChildren: () => import('./pages/home/home.page').then(m => m.HomeComponentModule),
       data: {
         title: 'Алексей Шварц',
         description: 'музыкант, композитор, автор песен'
@@ -130,7 +130,7 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       path: 'albums',
-      loadChildren: () => import('./albums/album-all/album-all.component').then(m => m.AlbumAllComponentModule),
+      loadChildren: () => import('./pages/albums/album-all-list/album-all-list.page').then(m => m.AlbumAllListPageModule),
       data: {
         title: 'Алексей Шварц - дискография',
         description: 'сольные альбомы и альбомы с участием Алексея Шварца'
@@ -138,7 +138,7 @@ export class AppComponent implements OnInit, OnDestroy {
     },
     {
       path: 'albums/:id',
-      loadChildren: () => import('./albums/album-details/album-details.component').then(m => m.AlbumDetailsComponentModule),
+      loadChildren: () => import('./pages/albums/album-details/album-details.component').then(m => m.AlbumDetailsComponentModule),
       data: {
         title: 'Алексей Шварц - дискография',
         description: 'сольные альбомы и альбомы с участием Алексея Шварца',

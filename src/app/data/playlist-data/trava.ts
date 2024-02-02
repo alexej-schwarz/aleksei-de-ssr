@@ -1,5 +1,6 @@
-import { Track } from '../../interfaces/album'
-import { environment } from "../../../../environments/environment"
+import { Track } from '../../types/albom.type'
+import { environment } from '../../../environments/environment'
+
 export const KGS: Track[] = [
   {
     title: 'Хулиганы',

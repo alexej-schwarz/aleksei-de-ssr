@@ -1,4 +1,3 @@
-import { Album, AlbumDescription, Track } from '../interfaces/album'
 import { Injectable } from '@angular/core'
 import {
   BehaviorSubject,
@@ -9,6 +8,8 @@ import {
   tap
 } from 'rxjs'
 
+import { Album, AlbumDescription, Track } from '../types/albom.type'
+
 @Injectable({
   providedIn: 'root',
 })
@@ -18,7 +19,7 @@ export class AlbumService {
     const allAlbum: Album[] = []
     const allAlbum$: Subject<Album | undefined> = new Subject()
 
-    import('./album-data').then(album => {
+    import('../data/album-data').then(album => {
       Object.values(album).forEach(albumList => {
         if (albumList) {
           allAlbum.push(...albumList)
@@ -30,14 +31,14 @@ export class AlbumService {
   }
   getAlbumPlaylistById = (albumId: string) => {
     const playList$: Subject<Track[] | undefined> = new Subject()
-    import('./playlist-data').then(tracks => {
+    import('../data/playlist-data').then(tracks => {
       playList$.next(this.findEntryById(tracks, albumId))
     })
     return playList$
   }
   getAlbumDescriptionById = (albumId: string) => {
     const description$: Subject<AlbumDescription | undefined> = new Subject()
-    import('./album-description-data').then(descriptions => {
+    import('../data/album-description-data').then(descriptions => {
       description$.next(this.findEntryById(descriptions, albumId))
     })
     return description$

@@ -1,5 +1,6 @@
-import { Album } from '../interfaces/album'
-import { environment } from '../../../environments/environment'
+
+import { environment } from '../../environments/environment'
+import { Album } from '../types/albom.type'
 
 export const ALBUM_LIST_DATA_1: Album[] = [
   {
