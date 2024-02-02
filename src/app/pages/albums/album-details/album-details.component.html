@@ -10,7 +10,7 @@
         <app-image
           [src]="albumDetails.coverImageSrc"
           [alt]="'обложка альбома «' + albumDetails.title + '»'"
-        ></app-image>
+        />
       </div>
 
       <div class="grid-col">
@@ -38,12 +38,12 @@
       <ol *ngIf="albumDetails?.tracks" class="grid-col tracks">
         <li *ngFor="let track of (albumDetails.tracks)">
           <h3>{{ track.title }}</h3>
-          <app-audio *ngIf="track.url" [src]="track.url"></app-audio>
+          <app-audio *ngIf="track.url" [src]="track.url" />
           <app-author
             *ngIf="track.author"
             [author]="track.author"
             [class]="{ 'top-line': !track.url }"
-          ></app-author>
+          />
         </li>
       </ol>
     </div>
