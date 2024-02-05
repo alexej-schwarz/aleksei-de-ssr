@@ -10,7 +10,7 @@
         <app-image
           [src]="albumDetails.coverImageSrc"
           [alt]="'обложка альбома «' + albumDetails.title + '»'"
-        />
+        ></app-image>
       </div>
 
       <div class="grid-col">
@@ -43,7 +43,7 @@
             *ngIf="track.author"
             [author]="track.author"
             [class]="{ 'top-line': !track.url }"
-          />
+          ></app-author>
         </li>
       </ol>
     </div>

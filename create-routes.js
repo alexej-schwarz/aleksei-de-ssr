@@ -1,6 +1,6 @@
-var ALBUM_LIST_DATA_1 = require('./src/app/shared/data-access/album-list-data-1.json')
-var ALBUM_LIST_DATA_2 = require('./src/app/shared/data-access/album-list-data-2.json')
-var fs = require("fs")
+var ALBUM_LIST_DATA_1 = require('./src/app/data/album-list-data-1.json')
+var ALBUM_LIST_DATA_2 = require('./src/app/data/album-list-data-2.json')
+var fs = require('fs')
 var fileContent = ''
 function extendFileContentFromObj(obj) {
   Object.keys(obj).map(function(id) {
@@ -13,6 +13,6 @@ extendFileContentFromObj(ALBUM_LIST_DATA_1)
 extendFileContentFromObj(ALBUM_LIST_DATA_2)
 fs.writeFile('routes.txt', fileContent, function(err) {
     if (err) throw err
-    console.log("routes.txt ist fertig!")
+    console.log('routes.txt ist fertig!')
   }
 )
