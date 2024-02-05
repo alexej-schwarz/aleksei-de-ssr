@@ -1,14 +1,15 @@
 header {
   background-color: #000;
 }
-.grid-container {
-  & > .grid-row {
-    align-items: flex-end;
-  }
+
+.grid-container > .grid-row {
+  align-items: flex-end;
 }
+
 .logo {
   padding-top: var(--grid-spacer);
   padding-bottom: var(--grid-spacer);
+
   img {
     display: block;
   }

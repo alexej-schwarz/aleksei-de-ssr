@@ -1,11 +1,12 @@
 h1.small {
   font-size: 1rem;
   text-align: end;
+  margin-inline-start: auto;
 }
 
 .title-block {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }
 
 .back-button {

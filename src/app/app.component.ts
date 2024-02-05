@@ -132,7 +132,14 @@ export class AppComponent implements OnInit, OnDestroy {
     HttpClientModule,
     TruncatePipe,
     LazyLoadImageModule,
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabledBlocking' })
+    RouterModule.forRoot(
+      routes,
+      {
+        preloadingStrategy: PreloadAllModules,
+        initialNavigation: 'enabledBlocking',
+        scrollPositionRestoration: 'enabled'
+      }
+    )
   ],
   providers: [ provideClientHydration() ],
   bootstrap: [AppComponent]
