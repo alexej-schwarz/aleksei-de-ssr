@@ -1,16 +1,29 @@
-<app-header />
-<main>
-  <div class="grid-container title-block">
-    <button
-      *ngIf="hasBackButton"
-      type="button"
-      (click)="goBack()"
-      class="back-button"
-    >
-      <span class="icon" aria-hidden="true">&blacktriangleleft;</span>
-      <span class="text" [class]="{ 'sr-only': platformName === 'mobile'}">назад</span>
-    </button>
-    <h1 [class]="{ small: isTitleSmall }">Алексей Шварц</h1>
-  </div>
-  <router-outlet></router-outlet>
-</main>
+<div (window:resize)="onResize()" [class]="platformName" [class.landscape]="isLandscape">
+  <app-header />
+  <main>
+    <div class="grid-container title-block">
+      <button
+        *ngIf="hasBackButton"
+        type="button"
+        (click)="goBack()"
+        class="back-button"
+      >
+        <span class="icon" aria-hidden="true">&blacktriangleleft;</span>
+        <span class="text" [class]="{ 'sr-only': platformName === 'mobile'}">назад</span>
+      </button>
+      <h1 [class]="{ small: isTitleSmall }">Алексей Шварц</h1>
+    </div>
+    <router-outlet></router-outlet>
+
+    <div class="grid-container title-block" *ngIf="hasBackButton">
+      <button
+        type="button"
+        (click)="goBack()"
+        class="back-button"
+      >
+        <span class="icon" aria-hidden="true">&blacktriangleleft;</span>
+        <span class="text" [class]="{ 'sr-only': platformName === 'mobile'}">назад</span>
+      </button>
+    </div>
+  </main>
+</div>

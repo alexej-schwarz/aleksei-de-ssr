@@ -47,17 +47,12 @@
     --v-spacer: 12px;
     --n-v-spacer: calc(-1 * var(--v-spacer));
     --h-spacer: 12px;
-    --n-h-spacer: -24px;
+    --n-h-spacer: calc(-1 * var(--h-spacer));
 
     --grid-spacer: calc(var(--h-spacer) / 2);
     --grid-n-spacer: calc(var(--n-h-spacer) / 2);
     --col-3-width: 33.33%;
     --col-9-width: 66.66%;
-
-    &.landscape {
-      //--col-4-width: 33.33%;
-      //--col-8-width: 66.66%;
-    }
   }
 
   .mobile {

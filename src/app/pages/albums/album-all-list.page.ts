@@ -5,12 +5,12 @@ import {
   NgModule
 } from '@angular/core'
 import { RouterModule } from '@angular/router'
-import { AlbumService } from '../../../services/album.service'
-import { ImageComponentModule } from '../../../components/image/image.component'
-import { AlbumListComponent } from '../../../components/album-list/album-list.component'
+import { AlbumService } from '../../services/album.service'
+import { ImageComponentModule } from '../../components/image/image.component'
+import { AlbumListComponent } from '../../components/album-list/album-list.component'
 import { combineLatest, map } from 'rxjs'
-import { TruncatePipe } from '../../../pipes/truncate.pipe'
-import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../../data/album-data'
+import { TruncatePipe } from '../../pipes/truncate.pipe'
+import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../data/album-data'
 
 @Component({
   selector: 'app-album-all',

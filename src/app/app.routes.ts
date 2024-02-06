@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'albums',
-    loadChildren: () => import('./pages/albums/album-all-list/album-all-list.page').then(m => m.AlbumAllListPageModule),
+    loadChildren: () => import('./pages/albums/album-all-list.page').then(m => m.AlbumAllListPageModule),
     data: {
       title: 'Алексей Шварц - дискография',
       description: 'сольные альбомы и альбомы с участием Алексея Шварца'
