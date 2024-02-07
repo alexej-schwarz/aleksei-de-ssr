@@ -1,13 +1,13 @@
-import { PO_PARKU_GU, UNPLUGGED } from './playlist-data/kassovyj-apparat'
-import { AZBUKA_VETRA, OTRAZHENIJA } from './playlist-data/jb'
+import { PO_PARKU_GU, UNPLUGGED } from './playlist/kassovyj-apparat'
+import { AZBUKA_VETRA, OTRAZHENIJA } from './playlist/jb'
 import {
   KGS,
   INVALIDY,
   ESHHJO_ODIN,
   FESTIVAL_STADTALLENDORF
-} from './playlist-data/trava'
-import { environment } from '../../environments/environment'
-import { Track } from '../types/albom.type'
+} from './playlist/trava'
+import { environment } from '../../../environments/environment'
+import { Track } from '../../types/album.type'
 
 export const KASSOVYJ_APPARAT_PO_PARKU_GU = PO_PARKU_GU
 export const KASSOVYJ_APPARAT_UNPLUGGED = UNPLUGGED

@@ -8,6 +8,8 @@ li {
   padding-bottom: calc(var(--v-spacer) / 2);
   will-change: background-color;
   transition: background-color var(--nav-menu-items-transition);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 
   a {
     display: block;
@@ -26,7 +28,7 @@ li {
   &.active {
     background-color: #fff;
     a {
-      color: #000;
+      color: var(--darkgray);
     }
   }
 }

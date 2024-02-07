@@ -1,4 +1,4 @@
-import { Track } from '../../types/albom.type'
+import { Track } from '../../../types/album.type'
 
 export const AZBUKA_VETRA: Track[] = [
   {

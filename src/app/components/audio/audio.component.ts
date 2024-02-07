@@ -4,6 +4,7 @@ import {
   ElementRef,
   Input,
   NgModule,
+  OnDestroy,
   ViewChild
 } from '@angular/core'
 import { CommonModule } from '@angular/common'
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common'
   templateUrl: './audio.component.html',
   styleUrls: ['./audio.component.scss']
 })
-export class AudioComponent implements AfterViewInit {
+export class AudioComponent implements AfterViewInit, OnDestroy {
   @Input() src: string | undefined | unknown
   audio: HTMLAudioElement | undefined
   @ViewChild('audioElement') set playerRef(ref: ElementRef<HTMLAudioElement>) {
@@ -29,6 +30,11 @@ export class AudioComponent implements AfterViewInit {
   ngAfterViewInit() {
     if (this.audio) {
       this.audio.addEventListener('play', this.pauseAllAudios)
+    }
+  }
+  ngOnDestroy() {
+    if (this.audio) {
+      this.audio.removeEventListener('play', this.pauseAllAudios)
     }
   }
 }

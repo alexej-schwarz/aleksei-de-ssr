@@ -1,5 +1,5 @@
-import { Track } from '../../types/albom.type'
-import { environment } from '../../../environments/environment'
+import { Track } from '../../../types/album.type'
+import { environment } from '../../../../environments/environment'
 
 export const KGS: Track[] = [
   {

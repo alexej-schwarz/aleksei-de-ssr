@@ -136,6 +136,6 @@ export class AppComponent implements OnInit, OnDestroy {
   bootstrap: [AppComponent],
   providers: [
     provideClientHydration()
-  ],
+  ]
 })
 export class AppModule {}

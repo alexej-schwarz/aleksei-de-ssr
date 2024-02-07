@@ -1,5 +1,5 @@
-var ALBUM_LIST_DATA_1 = require('./src/app/data/album-list-data-1.json')
-var ALBUM_LIST_DATA_2 = require('./src/app/data/album-list-data-2.json')
+var ALBUM_LIST_DATA_1 = require('./src/app/data/audio/album-list-1.json')
+var ALBUM_LIST_DATA_2 = require('./src/app/data/audio/album-list-2.json')
 var fs = require('fs')
 var fileContent = ''
 function extendFileContentFromObj(obj) {

@@ -1,6 +1,6 @@
 import { Component, Input, NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { Author } from '../../types/albom.type'
+import { Author } from '../../types/album.type'
 
 @Component({
   selector: 'app-author',

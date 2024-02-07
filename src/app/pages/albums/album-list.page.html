@@ -1,0 +1,38 @@
+<div class="grid-container">
+  <h2>Дискография</h2>
+  <ng-container *ngIf="vm$ | async as albumAll">
+    <ng-container *ngFor="let albumGroup of albumAll">
+      <h3>{{ albumGroup.title }}</h3>
+
+      <ul *ngIf="albumGroup.list.length" class="grid-row">
+        <li
+          *ngFor="let album of albumGroup.list"
+          class="grid-col"
+          [class]="{ fixed: album.fixed || !album.id }"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <a routerLink="/albums/{{ album.id }}" class="card">
+            <div class="card-body">
+              <p class="card-header">
+                <span class="author">{{ album.author }}</span>&nbsp;
+                <span class="year" *ngIf="!!album?.releaseYear">{{ album.releaseYear }}</span>
+                <br />
+                <span class="title">{{ album.title }}</span>
+              </p>
+              <div *ngIf="album.fixed" class="card-description">
+                {{ album.description?.[0] | truncate: 440 }}
+              </div>
+            </div>
+            <div class="card-image">
+              <app-image
+                [src]="album.coverImageSrc"
+                [alt]="'обложка альбома «' + album.title + '»'"
+              ></app-image>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </ng-container>
+  </ng-container>
+</div>

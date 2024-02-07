@@ -5,10 +5,11 @@ import {
   map,
   of,
   Subject,
+  take,
   tap
 } from 'rxjs'
 
-import { Album, AlbumDescription, Track } from '../types/albom.type'
+import { Album, AlbumDescription, Track } from '../types/album.type'
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class AlbumService {
     const allAlbum: Album[] = []
     const allAlbum$: Subject<Album | undefined> = new Subject()
 
-    import('../data/album-data').then(album => {
+    import('../data/audio/album').then(album => {
       Object.values(album).forEach(albumList => {
         if (albumList) {
           allAlbum.push(...albumList)
@@ -31,19 +32,19 @@ export class AlbumService {
   }
   getAlbumPlaylistById = (albumId: string) => {
     const playList$: Subject<Track[] | undefined> = new Subject()
-    import('../data/playlist-data').then(tracks => {
+    import('../data/audio/playlist').then(tracks => {
       playList$.next(this.findEntryById(tracks, albumId))
     })
     return playList$
   }
   getAlbumDescriptionById = (albumId: string) => {
     const description$: Subject<AlbumDescription | undefined> = new Subject()
-    import('../data/album-description-data').then(descriptions => {
+    import('../data/audio/album-description').then(descriptions => {
       description$.next(this.findEntryById(descriptions, albumId))
     })
     return description$
   }
-  getPreparedAlbumList = (albumListDataArray: Album[]) => of(albumListDataArray).pipe(
+  getPreparedAlbumList = (albumList: Album[]) => of(albumList).pipe(
     map(albumList => {
       const albumListFixed = albumList
         .sort((a, b) => b.releaseYear - a.releaseYear)
@@ -52,13 +53,14 @@ export class AlbumService {
       return [...albumListFixed, ...albumListWithoutFixed]
     })
   )
-  getPreparedAlbumListWithDescription = (albumListDataArray: Album[]) => {
+  getPreparedAlbumListWithDescription = (albumList: Album[]) => {
     const albumList$: BehaviorSubject<Album[]> = new BehaviorSubject([
       { id: '' , author: '', title: '', coverImageSrc: '', releaseYear: 0 }
     ])
-    const albumFromList$ = from(albumListDataArray).pipe(
+    const albumFromList$ = from(albumList).pipe(
       tap(album => {
-        const descriptionById = this.getAlbumDescriptionById(album.id).pipe(
+        const descriptionById$ = this.getAlbumDescriptionById(album.id).pipe(
+          take(1),
           tap(description => {
             const albumWithDescription = { ...album, description: description?.description }
             if (albumList$.value[0].id) {
@@ -68,7 +70,7 @@ export class AlbumService {
             }
           })
         )
-        descriptionById.subscribe()
+        descriptionById$.subscribe()
       })
     )
     albumFromList$.subscribe()

@@ -1,4 +1,4 @@
-import { AlbumDescription } from '../types/albom.type'
+import { AlbumDescription } from '../../types/album.type'
 
 export const TRAVA_FESTIVAL_STADTALLENDORF: AlbumDescription = {
   description: [
@@ -232,7 +232,7 @@ export const ZHIZN: AlbumDescription = {
       description: 'эл. гитара (4, 6)'
     },
     {
-      name: 'Пеца Боунтари',
+      name: 'Пеца Боутнари',
       description: 'барабаны (4, 6, 10)'
     },
     {
@@ -446,7 +446,7 @@ export const DELO_VREMENI_VSJO_ETO_BYLO: AlbumDescription = {
       description: 'вокал (1,3,5), подпевки (1,2,5), электро-гитары, кахон (1), программирование барабанов (5), запись'
     },
     {
-      name: 'Пеца Боунтари',
+      name: 'Пеца Боутнари',
       description: 'барабаны (4)'
     },
     {
@@ -478,7 +478,7 @@ export const HKB_IN_THE_BEGINNING: AlbumDescription = {
       description: 'аккордеон'
     },
     {
-      name: 'Пеца Боунтари',
+      name: 'Пеца Боутнари',
       description: 'барабаны, телинка'
     },
     {

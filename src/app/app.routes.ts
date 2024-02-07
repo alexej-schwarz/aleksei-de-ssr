@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'albums',
-    loadChildren: () => import('./pages/albums/album-all-list.page').then(m => m.AlbumAllListPageModule),
+    loadChildren: () => import('./pages/albums/album-list.page').then(m => m.AlbumListPageModule),
     data: {
       title: 'Алексей Шварц - дискография',
       description: 'сольные альбомы и альбомы с участием Алексея Шварца'
@@ -26,6 +26,14 @@ export const routes: Routes = [
       isTitleSmall: true,
       hasBackButton: true
     }
+  },
+  {
+    path: 'videos',
+    loadChildren: () => import('./pages/videos/video-list.page').then(m => m.VideoListPageModule),
+    data: {
+      title: 'Алексей Шварц - видео',
+      description: 'видео с участием Алексея Шварца'
+    },
   },
   {
     path: '',

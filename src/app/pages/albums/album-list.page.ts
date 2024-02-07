@@ -7,18 +7,17 @@ import {
 import { RouterModule } from '@angular/router'
 import { AlbumService } from '../../services/album.service'
 import { ImageComponentModule } from '../../components/image/image.component'
-import { AlbumListComponent } from '../../components/album-list/album-list.component'
 import { combineLatest, map } from 'rxjs'
 import { TruncatePipe } from '../../pipes/truncate.pipe'
-import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../data/album-data'
+import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../data/audio/album'
 
 @Component({
   selector: 'app-album-all',
-  templateUrl: 'album-all-list.page.html',
-  styleUrls: ['album-all-list.page.scss'],
+  templateUrl: 'album-list.page.html',
+  styleUrls: ['album-list.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AlbumAllListPage {
+export class AlbumListPage {
   albumListSchwarz$ = this.albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1)
   albumListOther$ = this.albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2)
 
@@ -38,7 +37,7 @@ export class AlbumAllListPage {
   )
   // trackByFn: any = (index: number, item: Album[]) => item.id
   constructor(
-    public albumS: AlbumService
+    private albumS: AlbumService
   ) {}
 }
 @NgModule({
@@ -48,15 +47,14 @@ export class AlbumAllListPage {
     RouterModule.forChild([
       {
         path: '',
-        component: AlbumAllListPage
+        component: AlbumListPage
       },
     ]),
     ImageComponentModule,
     TruncatePipe
   ],
   declarations: [
-    AlbumAllListPage,
-    AlbumListComponent
+    AlbumListPage
   ]
 })
-export class AlbumAllListPageModule {}
+export class AlbumListPageModule {}
