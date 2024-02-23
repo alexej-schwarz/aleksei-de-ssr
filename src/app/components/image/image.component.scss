@@ -6,6 +6,9 @@
   height: 0;
   overflow: hidden;
 }
+img {
+  display: block;
+}
 img,
 .place-holder {
   position: absolute;

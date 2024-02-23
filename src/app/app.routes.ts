@@ -36,6 +36,16 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'videos/playlist',
+    loadChildren: () => import('./pages/videos/video-playlist/video-playlist.page').then(m => m.VideoPlaylistPageModule),
+    data: {
+      title: 'Алексей Шварц - видео',
+      description: 'видео с участием Алексея Шварца',
+      isTitleSmall: true,
+      hasBackButton: true
+    },
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

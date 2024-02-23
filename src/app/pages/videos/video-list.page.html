@@ -1,4 +1,95 @@
 <div class="grid-container">
-  <h2>Видео пока нет</h2>
-<!--  <youtube-player videoId="25c9NpWIK50"></youtube-player>-->
+  <ng-container *ngIf="youtubeCookies; else cookies">
+    <h2>Плейлисты</h2>
+    <ul class="grid-row">
+      <ng-container *ngIf="allPlayList$ | async as allPlayList; else empty">
+        <li
+          *ngFor="let playList of allPlayList"
+          class="grid-col fixed"
+          [class]="{ fixed: !isMobile }"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <a
+            routerLink="/videos/playlist"
+            class="card"
+            (click)="setCurrentVideoPlaylistId(playList)"
+          >
+            <div class="card-body">
+              <p class="card-header">
+                {{ playList.snippet.title }}
+              </p>
+              <div *ngIf="playList.snippet.description" class="card-description">
+                {{ playList.snippet.description | truncate: 440 }}
+              </div>
+            </div>
+
+            <div class="card-image">
+              <app-image
+                [src]="playList.snippet.thumbnails.high.url"
+                [alt]="'...'"
+                height="75%"
+              ></app-image>
+            </div>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+
+  </ng-container>
+
+  <ng-template #empty>
+    <li class="grid-col fixed">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-header">&nbsp;</p>
+          <div class="card-description">&nbsp;</div>
+        </div>
+
+        <div class="card-image">
+          <app-image
+            src=""
+            height="75%"
+          ></app-image>
+        </div>
+      </div>
+    </li>
+  </ng-template>
+  <ng-template #cookies>
+    <p>YouTube использует файлы "cookie", без них невозможен просмотр видео.</p>
+    <p>Вы можете
+      <button
+        type="button"
+        (click)="acceptCookies()"
+        class="link"
+      >принять</button> "cookie" или <a routerLink="/home" class="link">отклонить</a> их.</p>
+  </ng-template>
+
+<!--  <ng-container *ngIf="allVideoList$ | async as allVideoList">-->
+<!--    <h2>Все видео</h2>-->
+<!--    <ul *ngIf="allVideoList.length" class="grid-row">-->
+<!--      <li-->
+<!--        *ngFor="let video of allVideoList"-->
+<!--        class="grid-col"-->
+<!--      >-->
+<!--        <div [style.width]="'100%'">-->
+<!--          <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">-->
+<!--            <app-image-->
+<!--              [src]="video.snippet.thumbnails.medium.url"-->
+<!--              [alt]="'...'"-->
+<!--              height="56.25%"-->
+<!--            ></app-image>-->
+<!--          </a>-->
+<!--          <div>-->
+<!--            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}">-->
+<!--              {{ video.snippet.title }}-->
+<!--            </a>-->
+<!--            <p>-->
+<!--              {{ video.snippet.description }}-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </ng-container>-->
 </div>

@@ -10,7 +10,6 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { PreloadAllModules, RouterModule } from '@angular/router'
 import { MainMenuComponent } from './components/header/main-menu/main-menu.component'
 import { HeaderComponent } from './components/header/header.component'
-import { LazyLoadImageModule } from 'ng-lazyload-image'
 import {
   filter,
   map,
@@ -26,6 +25,8 @@ import { MetaService } from './services/meta.service'
 import { routes } from './app.routes'
 import { Location } from '@angular/common'
 import { DeviceDetectorService } from 'ngx-device-detector'
+import { ImageComponentModule } from './components/image/image.component'
+import { MinPipe } from './pipes/min.pipe'
 
 @Component({
   selector: 'app-root',
@@ -40,18 +41,16 @@ export class AppComponent implements OnInit, OnDestroy {
   isLandscape = false
   destroy$ = new Subject()
   hasBackButton = false
-  private _window: null | Window = null
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private metaS: MetaService,
     private location: Location,
-    private deviceS: DeviceDetectorService
+    private deviceS: DeviceDetectorService,
   ) {
     afterNextRender(() => {
       this.initPlatformName().then(() => {
-        this._window = window
         this.setOrientationCSSClass()
       })
     })
@@ -99,9 +98,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
   private setOrientationCSSClass = () => {
-    if (this._window) {
-      this.isLandscape = !!this.platformName && (this._window.innerWidth / this._window.innerHeight) > 1
-    }
+    this.isLandscape = !!this.platformName && (window.innerWidth / window.innerHeight) > 1
   }
 
   goBack = () => {
@@ -123,7 +120,8 @@ export class AppComponent implements OnInit, OnDestroy {
     BrowserModule,
     HttpClientModule,
     TruncatePipe,
-    LazyLoadImageModule,
+    MinPipe,
+    ImageComponentModule,
     RouterModule.forRoot(
       routes,
       {

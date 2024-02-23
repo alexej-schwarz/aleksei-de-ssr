@@ -1,0 +1,10 @@
+<div #youtubePlayer class="youtube-player">
+  <youtube-player
+    [videoId]="videoId"
+    suggestedQuality="highres"
+    disableCookies="true"
+    [width]="youtubePlayer.clientWidth"
+    [height]="(.75 * youtubePlayer.clientWidth) | min: youtubePlayer.clientHeight"
+    [playerVars]="{ autoplay: autoplay ? 1 : 0 }"
+  ></youtube-player>
+</div>

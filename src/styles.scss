@@ -7,6 +7,9 @@ body {
   font-family: var(--font-family-default);
   font-size: var(--font-size-default);
   background-color: var(--background-color-primary);
+  &.model-open {
+    overflow: hidden;
+  }
 }
 
 * {
@@ -80,6 +83,92 @@ button {
   cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.link,
+button {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-default);
+}
+
+.link {
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  padding: 0;
+}
+
+.link,
+a {
+  display: inline-block;
+  color: var(--text-color-primary);
+  &:focus,
+  &:hover,
+  &.active {
+    text-decoration: none;
+    color: var(--darkgray);
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: bold;
   color: var(--darkgray);
+}
+
+.card {
+  display: flex;
+  flex-direction: var(--card-flex-direction);
+  justify-content: flex-end;
+  width: 100%;
+  padding: var(--card-inner-padding);
+  margin: var(--grid-spacer) 0;
+  border: var(--border-primary);
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-color-primary);
+  border-radius: var(--border-radius-default);
+  text-decoration: none;
+  color: var(--text-color-primary);
+  will-change: box-shadow, transform;
+  transition: 'box-shadow' var(--card-transition), 'transform' var(--card-transition);
+  text-align: start;
+
+  &:hover,
+  &:focus {
+    transform: scale(99%);
+    box-shadow: var(--box-shadow-hover);
+  }
+
+  .card-image,
+  .card-body {
+    padding: var(--card-content-padding);
+  }
+  .card-image {
+    width: var(--card-image-width);
+  }
+  .card-body {
+    width: calc(100% - var(--card-image-width));
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .fixed & {
+    flex-direction: var(--card-fixed-flex-direction);
+    padding: var(--card-inner-padding-fixed);
+
+    .title {
+      font-weight: bold;
+    }
+
+    .card-image,
+    .card-body {
+      padding: var(--card-content-padding-fixed);
+    }
+    .card-image {
+      width: var(--card-image-fixed-width);
+    }
+    .card-body {
+      width: calc(100% - var(--card-image-fixed-width));
+    }
+  }
 }
