@@ -17,11 +17,10 @@
               <p class="card-header">
                 <span class="author">{{ album.author }}</span>&nbsp;
                 <span class="year" *ngIf="!!album?.releaseYear">{{ album.releaseYear }}</span>
-                <br />
-                <span class="title">{{ album.title }}</span>
               </p>
-              <div *ngIf="album.fixed" class="card-description">
-                {{ album.description?.[0] | truncate: 440 }}
+              <div class="card-description">
+                <span class="title">{{ album.title }}</span>
+                <span *ngIf="album.fixed">{{ album.description?.[0] | truncate: 440 }}</span>
               </div>
             </div>
             <div class="card-image">

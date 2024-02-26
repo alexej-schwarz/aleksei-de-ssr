@@ -138,37 +138,35 @@ h1, h2, h3, h4, h5, h6,
     box-shadow: var(--box-shadow-hover);
   }
 
-  .card-image,
-  .card-body {
+  &-header {
+    font-weight: bold;
+    font-size: var(--card-text-small);
+  }
+
+  &-image,
+  &-body {
     padding: var(--card-content-padding);
   }
-  .card-image {
+
+  &-image {
     width: var(--card-image-width);
+    flex-shrink: 0;
+    position: relative;
   }
-  .card-body {
-    width: calc(100% - var(--card-image-width));
-    p {
-      margin-bottom: 0;
-    }
+  &-body p {
+    margin-bottom: 0;
   }
 
   .fixed & {
     flex-direction: var(--card-fixed-flex-direction);
     padding: var(--card-inner-padding-fixed);
 
-    .title {
-      font-weight: bold;
-    }
-
-    .card-image,
-    .card-body {
+    &-image,
+    &-body {
       padding: var(--card-content-padding-fixed);
     }
-    .card-image {
+    &-image {
       width: var(--card-image-fixed-width);
-    }
-    .card-body {
-      width: calc(100% - var(--card-image-fixed-width));
     }
   }
 }

@@ -1,18 +1,13 @@
-:host {
-  --card-image-width: 100%;
-}
-
 .grid-col {
   width: var(--col-3-width);
   display: flex;
-}
-
-.test {
-  display: flex;
-  width: 300px;
+  &.fixed {
+    width: var(--col-12-width);
+  }
 }
 
 button {
+  align-items: flex-start;
   .overlay,
   .play-icon {
     opacity: 0;
@@ -24,6 +19,13 @@ button {
     position: absolute;
     inset: 0;
     background-color: var(--darkgray);
+    margin: var(--card-content-padding);
+  }
+
+  .fixed & {
+    .overlay {
+      margin: var(--card-content-padding-fixed);
+    }
   }
 
   .play-icon {
@@ -65,14 +67,6 @@ button {
   }
 }
 
-.card-header {
-  font-weight: bold;
-}
-
-.card-image {
-  position: relative;
-}
-
-.card-body {
-  width: var(--card-image-width);
+app-youtube-player {
+  width: auto;
 }

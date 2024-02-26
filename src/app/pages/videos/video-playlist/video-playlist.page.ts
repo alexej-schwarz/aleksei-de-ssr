@@ -21,6 +21,7 @@ import { YouTubePlayerComponentModule } from '../../../components/youtube-player
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VideoPlaylistPage {
+  isMobile = this.deviceS.isMobile()
   modalContent$ = this.modalS.content$
   videoList$ = this.youTubeS.getPlaylistVideosForChannel(
     'UCvhVy-B6NypHeAFjYK2EmvA',
@@ -32,6 +33,7 @@ export class VideoPlaylistPage {
   isModalOpen$ = this.modalS.isOpen$
   modalTriggerEl$ = this.modalS.triggerEl$
   constructor(
+    private deviceS: DeviceDetectorService,
     private youTubeS: YoutubeService,
     private modalS: ModalService
   ) {

@@ -28,7 +28,7 @@
 
   --card-flex-direction: column-reverse;
   --card-fixed-flex-direction: row-reverse;
-  --card-image-width: auto;
+  --card-image-width: 100%;
   --card-image-fixed-width: 33.33%;
   --card-inner-padding: var(--grid-spacer);
   --card-inner-padding-fixed: var(--grid-spacer) 0;
@@ -80,7 +80,7 @@
     --card-flex-direction: row-reverse;
     --card-fixed-flex-direction: column-reverse;
     --card-image-width: 33.33%;
-    --card-image-fixed-width: auto;
+    --card-image-fixed-width: 100%;
     --card-inner-padding: var(--grid-spacer) 0;
     --card-inner-padding-fixed: var(--grid-spacer);
     --card-content-padding: 0 var(--grid-spacer);

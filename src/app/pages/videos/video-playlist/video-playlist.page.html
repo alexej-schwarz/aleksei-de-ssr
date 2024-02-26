@@ -6,6 +6,7 @@
       <li
         *ngFor="let video of videoList"
         class="grid-col"
+        [class]="{ fixed: isMobile}"
       >
         <button
           type="button"
@@ -40,7 +41,7 @@
   </ul>
 
   <ng-template #empty>
-    <li class="grid-col">
+    <li class="grid-col fixed">
       <div class="card">
         <div class="card-body">
           <p class="card-header">&nbsp;</p>
@@ -68,8 +69,3 @@
     ></app-youtube-player>
   </app-modal-dialog>
 </div>
-<!--
-[playerVars]="{ autoplay: 1 }"
-[width]="isMobile ? 320 : 640"
-      [height]="isMobile ? 180 : 360"
--->

@@ -1,3 +1,8 @@
+.grid-row .grid-col {
+  padding-left: var(--h-spacer);
+  padding-right: var(--h-spacer);
+}
+
 ul {
   align-items: baseline;
 }

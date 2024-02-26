@@ -26,7 +26,6 @@ export const ALBUM_LIST_DATA_1: Album[] = [
   },
   {
     author: 'Алексей Шварц',
-    fixed: true,
     id: 'zhizn',
     coverImageSrc: `${environment.dataHostUrl}/img/albums/zhizn-cover-front-web.png`,
     releaseYear: 2023,
