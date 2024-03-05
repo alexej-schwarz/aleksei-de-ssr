@@ -1,4 +1,16 @@
-<div (window:resize)="onResize()" [class]="platformName" [class.landscape]="isLandscape">
+<button
+  type="button"
+  (click)="toggleOutline()"
+  class="toggle-outline"
+>
+  {{ hasOutline ? 'отключить' : 'включить'}} более чёткий контур
+</button>
+<div
+  (window:resize)="onResize()"
+  [class]="platformName"
+  [class.landscape]="isLandscape"
+  [class.outline]="hasOutline"
+>
   <app-header></app-header>
   <main>
     <div class="grid-container title-block">

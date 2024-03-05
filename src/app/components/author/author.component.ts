@@ -9,7 +9,6 @@ import { Author } from '../../types/album.type'
 })
 export class AuthorComponent {
   @Input() author?: Author
-  constructor() {}
 }
 @NgModule({
   imports: [CommonModule],

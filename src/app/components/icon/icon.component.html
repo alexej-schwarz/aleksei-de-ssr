@@ -1,0 +1,12 @@
+<svg
+  attr.width="{{width ? width + 'px' : null }}"
+  attr.height="{{height ? height + 'px' : null }}"
+  attr.fill="{{color}}"
+  attr.class="{{class}}"
+  xmlns:attr.xlink
+  [class.large]="size === 'large'"
+  [class.small]="size === 'small'"
+  aria-hidden="true"
+>
+  <use attr.xlink:href="./assets/svg-icons/{{icon}}.svg#{{icon}}"></use>
+</svg>

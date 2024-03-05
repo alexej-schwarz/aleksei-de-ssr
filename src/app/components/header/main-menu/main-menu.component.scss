@@ -1,39 +1,72 @@
+:host {
+  width: 100%;
+  display: block;
+}
 .grid-row .grid-col {
   padding-left: var(--h-spacer);
   padding-right: var(--h-spacer);
 }
 
 ul {
-  align-items: baseline;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 li {
+  display: flex;
+  align-items: flex-end;
   margin: 0;
-  padding-top: calc(var(--v-spacer) / 2);
-  padding-bottom: calc(var(--v-spacer) / 2);
+  padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 2);
   will-change: background-color;
   transition: background-color var(--nav-menu-items-transition);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+  --background-color-contrast: var(--lightgrey);
 
-  a {
-    display: block;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    will-change: color;
-    transition: color var(--nav-menu-items-transition);
-    &:focus,
-    &:hover,
-    &.active {
-      text-decoration: none;
-    }
+  &.right {
+    margin-inline-start: auto;
   }
 
   &.active {
     background-color: #fff;
-    a {
-      color: var(--darkgray);
-    }
+    --background-color-contrast: var(--darkgray);
   }
 }
+
+a, button {
+  display: block;
+  font-weight: bold;
+  color: var(--lightgrey);
+  will-change: color;
+  transition: color var(--nav-menu-items-transition);
+}
+
+a {
+  padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 2);
+  text-decoration: none;
+
+  .active & {
+    color: var(--darkgray);
+  }
+}
+
+button {
+  padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 4);
+  background-color: transparent;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  will-change: background-color;
+  transition: background-color var(--nav-menu-items-transition);
+  &:focus,
+  &:hover {
+    background-color: var(--lightgrey);
+    color: var(--darkgray);
+  }
+
+  [class=mobile] & {
+    border: none;
+  }
+}
+
+

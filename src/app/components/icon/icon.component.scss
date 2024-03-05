@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  color: currentColor;
+  fill: currentColor;
+}
+
+svg {
+  width: calc(var(--line-height-default) * var(--font-size-default));
+  height: calc(var(--line-height-default) * var(--font-size-default));
+  .large {
+    width: calc(2 * var(--line-height-default) * var(--font-size-default));
+    height: calc(2 * var(--line-height-default) * var(--font-size-default));
+  }
+
+  .small {
+    width: calc(.75 * var(--line-height-default) * var(--font-size-default));
+    height: calc(.75 * var(--line-height-default) * var(--font-size-default));
+  }
+}

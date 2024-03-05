@@ -41,6 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
   isLandscape = false
   destroy$ = new Subject()
   hasBackButton = false
+  hasOutline = false
 
   constructor(
     private router: Router,
@@ -108,15 +109,19 @@ export class AppComponent implements OnInit, OnDestroy {
   onResize = () => {
     this.setOrientationCSSClass()
   }
+
+  toggleOutline = () => {
+    this.hasOutline = !this.hasOutline
+  }
 }
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    MainMenuComponent
+    AppComponent
   ],
   imports: [
+    HeaderComponent,
+    MainMenuComponent,
     BrowserModule,
     HttpClientModule,
     TruncatePipe,
