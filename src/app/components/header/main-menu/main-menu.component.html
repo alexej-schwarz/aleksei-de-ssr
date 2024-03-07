@@ -8,10 +8,25 @@
   <li routerLinkActive="active" ariaCurrentWhenActive="page">
     <a routerLink="/videos">видео</a>
   </li>
-<!--  <li class="right">-->
-<!--    <button type="button">-->
-<!--      <span class="sr-only">настройки доступности</span>-->
-<!--      <app-icon icon="accessibility"></app-icon>-->
-<!--    </button>-->
-<!--  </li>-->
+  <li class="right">
+    <app-popup-menu
+      id="accessibility"
+      iconName="accessibility"
+      srOnlyText="настройки доступности"
+      class="menu-accessibility"
+    >
+      <ul>
+        <li>
+          <button
+            type="button"
+            (click)="accessibilityS.toggleOutline()"
+            class="toggle-outline"
+          >
+            {{ accessibilityS.hasOutline ? 'отключить' : 'включить'}} более чёткий контур
+          </button>
+          <input disabled>
+        </li>
+      </ul>
+    </app-popup-menu>
+  </li>
 </ul>

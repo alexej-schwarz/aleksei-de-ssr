@@ -1,0 +1,25 @@
+<div class="overlay-backdrop" (click)="closeMenu()" tabindex="-1" [class.expanded]="isExpanded"></div>
+
+<div appTrapFocus [isTrapFocus]="isExpanded">
+  <button
+    type="button"
+    class="toggle-button"
+    aria-haspopup="menu"
+    [attr.aria-expanded]="isExpanded"
+    [attr.aria-controls]="'menu-' + id"
+    (click)="toggleMenu()"
+  >
+    <span *ngIf="label">{{ label }}</span>
+    <span *ngIf="srOnlyText" class="sr-only">{{ srOnlyText }}</span>
+    <app-icon *ngIf="iconName" [icon]="iconName"></app-icon>
+  </button>
+
+  <div
+    [id]="'menu-' + id"
+    class="menu"
+    role="menu"
+    [class.expanded]="isExpanded"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

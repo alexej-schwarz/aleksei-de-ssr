@@ -1,0 +1,53 @@
+header {
+  a,
+  .toggle-button {
+    display: block;
+    font-weight: bold;
+    color: var(--lightgrey);
+    will-change: color;
+    transition: color var(--nav-menu-items-transition);
+  }
+
+  a {
+    padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 2);
+    text-decoration: none;
+    &:focus,
+    &:hover {
+      color: var(--lightgrey);
+    }
+  }
+
+  .active a {
+    &,
+    &:focus,
+    &:hover {
+      color: var(--darkgray);
+    }
+  }
+
+  .toggle-button {
+    padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 4);
+    background-color: transparent;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    will-change: background-color;
+    transition: background-color var(--nav-menu-items-transition);
+    &:focus,
+    &:hover {
+      background-color: var(--lightgrey);
+      color: var(--darkgray);
+    }
+
+    [class=mobile] & {
+      border: none;
+    }
+  }
+
+  li {
+    --background-color-contrast: var(--lightgrey);
+
+    &.active {
+      --background-color-contrast: var(--darkgray);
+    }
+  }
+}

@@ -171,12 +171,11 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-.toggle-outline:not(:focus) {
-  @extend .sr-only;
-}
 .outline {
   *:focus {
     border-radius: var(--border-radius-default);
     outline: var(--background-color-contrast) solid 4px;
   }
 }
+
+@import "theme/header-menu-based";

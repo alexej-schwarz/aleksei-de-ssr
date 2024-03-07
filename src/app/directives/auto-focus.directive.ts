@@ -5,7 +5,9 @@ import { Directive, ElementRef, OnInit } from '@angular/core'
   standalone: true
 })
 export class AutoFocusDirective implements OnInit {
-  constructor(private el: ElementRef) {
+  constructor(
+    private el: ElementRef
+  ) {
     if (!el.nativeElement['focus']) {
       throw new Error('Element does not accept focus.')
     }

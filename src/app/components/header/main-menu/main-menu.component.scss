@@ -22,7 +22,6 @@ li {
   transition: background-color var(--nav-menu-items-transition);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
-  --background-color-contrast: var(--lightgrey);
 
   &.right {
     margin-inline-start: auto;
@@ -30,42 +29,17 @@ li {
 
   &.active {
     background-color: #fff;
-    --background-color-contrast: var(--darkgray);
   }
 }
 
-a, button {
-  display: block;
-  font-weight: bold;
-  color: var(--lightgrey);
-  will-change: color;
-  transition: color var(--nav-menu-items-transition);
-}
-
-a {
-  padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 2);
-  text-decoration: none;
-
-  .active & {
-    color: var(--darkgray);
+.menu-accessibility {
+  ul {
+    margin: 0;
+    list-style: none;
+    padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 4);
   }
-}
-
-button {
-  padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 4);
-  background-color: transparent;
-  border: 2px solid currentColor;
-  border-radius: 50%;
-  will-change: background-color;
-  transition: background-color var(--nav-menu-items-transition);
-  &:focus,
-  &:hover {
-    background-color: var(--lightgrey);
-    color: var(--darkgray);
-  }
-
-  [class=mobile] & {
-    border: none;
+  li {
+    white-space: nowrap;
   }
 }
 

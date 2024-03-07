@@ -1,0 +1,26 @@
+:host {
+  position: relative;
+}
+.menu,
+.overlay-backdrop {
+  display: none;
+  &.expanded {
+    display: block;
+    z-index: var(--modal-z-index);
+  }
+}
+
+.menu.expanded {
+  position: absolute;
+  right: 0;
+  border: var(--border-primary);
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-color-primary);
+  border-radius: var(--border-radius-default);
+}
+
+.overlay-backdrop.expanded {
+  display: block;
+  position: fixed;
+  inset: 0;
+}

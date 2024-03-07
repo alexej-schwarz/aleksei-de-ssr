@@ -1,4 +1,4 @@
-import { Component, Inject, Input, NgModule, OnDestroy, Renderer2 } from '@angular/core'
+import { Component, HostListener, Inject, Input, NgModule, OnDestroy, Renderer2 } from '@angular/core'
 import { ModalService } from '../../services/modal.service'
 import { Subject } from 'rxjs'
 import { CommonModule, DOCUMENT } from '@angular/common'
@@ -10,6 +10,9 @@ import { AutoFocusDirective } from '../../directives/auto-focus.directive'
   styleUrls: ['./modal-dialog.component.scss']
 })
 export class ModalDialogComponent implements OnDestroy {
+  @HostListener('document:keydown.escape') onKeydownHandler() {
+    this.closeModal()
+  }
   @Input() title = ''
   destroy$ = new Subject()
   isOpen$ = this.modalS.isOpen$

@@ -27,6 +27,7 @@ import { Location } from '@angular/common'
 import { DeviceDetectorService } from 'ngx-device-detector'
 import { ImageComponentModule } from './components/image/image.component'
 import { MinPipe } from './pipes/min.pipe'
+import { AccessibilityService } from './services/accessibility.service'
 
 @Component({
   selector: 'app-root',
@@ -41,7 +42,6 @@ export class AppComponent implements OnInit, OnDestroy {
   isLandscape = false
   destroy$ = new Subject()
   hasBackButton = false
-  hasOutline = false
 
   constructor(
     private router: Router,
@@ -49,6 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private metaS: MetaService,
     private location: Location,
     private deviceS: DeviceDetectorService,
+    public accessibilityS: AccessibilityService
   ) {
     afterNextRender(() => {
       this.initPlatformName().then(() => {
@@ -108,10 +109,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onResize = () => {
     this.setOrientationCSSClass()
-  }
-
-  toggleOutline = () => {
-    this.hasOutline = !this.hasOutline
   }
 }
 
