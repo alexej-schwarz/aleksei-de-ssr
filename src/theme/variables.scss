@@ -19,8 +19,14 @@
   --darkgray: #3a3a3a;
   --lightgrey: #f3f3f3;
   --text-color-primary: #000;
+
   --background-color-primary: #fff;
   --background-color-contrast: var(--darkgray);
+
+  --background-color-header: var(--background-color-contrast);
+  --background-color-active-header: var(--background-color-primary);
+  --color-header: var(--lightgrey);
+  --color-activet-header: var(--darkgray);
 
   --border-primary: 1px solid var(--lightgrey);
   --border-radius-default: 4px;
@@ -107,5 +113,15 @@
       --card-inner-padding-fixed: 0;
       --card-content-padding-fixed: var(--grid-spacer);
     }
+  }
+
+  .dark {
+    --background-color-primary: var(--darkgray);
+    --background-color-contrast: #fff;
+
+    --background-color-header: var(--background-color-contrast);
+    --background-color-active-header: var(--background-color-primary);
+    --color-header: var(--darkgray);
+    --color-activet-header: var(--lightgrey);
   }
 }

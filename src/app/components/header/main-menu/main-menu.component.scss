@@ -28,7 +28,7 @@ li {
   }
 
   &.active {
-    background-color: #fff;
+    background-color: var(--background-color-active-header);
   }
 }
 

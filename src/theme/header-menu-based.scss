@@ -3,7 +3,7 @@ header {
   .toggle-button {
     display: block;
     font-weight: bold;
-    color: var(--lightgrey);
+    color: var(--color-header);
     will-change: color;
     transition: color var(--nav-menu-items-transition);
   }
@@ -13,7 +13,7 @@ header {
     text-decoration: none;
     &:focus,
     &:hover {
-      color: var(--lightgrey);
+      color: var(--color-header);
     }
   }
 
@@ -21,14 +21,14 @@ header {
     &,
     &:focus,
     &:hover {
-      color: var(--darkgray);
+      color: var(--color-activet-header);
     }
   }
 
   .toggle-button {
     padding: calc(var(--v-spacer) / 4) calc(var(--h-spacer) / 4);
     background-color: transparent;
-    border: 2px solid currentColor;
+    border: 2px solid transparent;
     border-radius: 50%;
     will-change: background-color;
     transition: background-color var(--nav-menu-items-transition);
@@ -38,14 +38,14 @@ header {
       color: var(--darkgray);
     }
 
+    .outline &,
     [class=mobile] & {
-      border: none;
+      border-color: currentColor;
     }
   }
 
   li {
     --background-color-contrast: var(--lightgrey);
-
     &.active {
       --background-color-contrast: var(--darkgray);
     }

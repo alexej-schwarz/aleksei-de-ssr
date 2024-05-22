@@ -39,7 +39,7 @@
   </ng-container>
 
   <ng-template #empty>
-    <li class="grid-col fixed">
+    <li class="grid-col fixed" [class]="{ fixed: !isMobile }">
       <div class="card">
         <div class="card-body">
           <p class="card-header">&nbsp;</p>
@@ -47,10 +47,7 @@
         </div>
 
         <div class="card-image">
-          <app-image
-            src=""
-            height="75%"
-          ></app-image>
+          <app-image src="" height="75%"></app-image>
         </div>
       </div>
     </li>
