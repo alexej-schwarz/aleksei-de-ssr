@@ -1,3 +1,6 @@
-.image {
-  width: var(--col-4-width);
+.grid-col {
+  width: var(--col-8-width);
+  &.image {
+    width: var(--col-4-width);
+  }
 }

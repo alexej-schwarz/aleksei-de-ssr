@@ -13,6 +13,8 @@ img,
 .place-holder {
   position: absolute;
   width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .place-holder {
   font-size: 80%;

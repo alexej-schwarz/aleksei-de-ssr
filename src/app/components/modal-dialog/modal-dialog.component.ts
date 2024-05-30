@@ -21,17 +21,30 @@ export class ModalDialogComponent implements OnDestroy {
     private renderer: Renderer2,
     @Inject(DOCUMENT) private _document: Document
   ) {
-    this.renderer.addClass(_document.body, 'modal-open')
+    this.isOpen$.subscribe(
+      (isOpen) => {
+        isOpen
+          ? this.renderer.addClass(_document.body, 'modal-open')
+          : this.resetModal()
+      }
+    )
   }
 
   closeModal = () => {
     this.modalS.isOpen$.next(false)
   }
 
+  resetModal = () => {
+    this.renderer.removeClass(this._document.body, 'modal-open')
+    this.modalS.triggerEl$.value?.focus()
+    this.modalS.triggerEl$.next(null)
+    this.modalS.content$.next(null)
+  }
+
   ngOnDestroy() {
+    this.resetModal()
     this.destroy$.next(undefined)
     this.destroy$.complete()
-    this.renderer.removeClass(this._document.body, 'modal-open')
   }
 }
 @NgModule({

@@ -70,9 +70,15 @@ ul {
         padding-right: var(--h-spacer);
         &.left {
           float: left;
+          &:after {
+            clear: left;
+          }
         }
         &.right {
           float: left;
+          &:after {
+            clear: left;
+          }
         }
       }
     }

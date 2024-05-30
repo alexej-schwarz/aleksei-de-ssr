@@ -86,7 +86,7 @@
 
     --card-flex-direction: row-reverse;
     --card-fixed-flex-direction: column-reverse;
-    --card-image-width: 33.33%;
+    --card-image-width: 40%;
     --card-image-fixed-width: 100%;
     --card-inner-padding: var(--grid-spacer) 0;
     --card-inner-padding-fixed: var(--grid-spacer);
@@ -109,6 +109,7 @@
       --col-9-width: 50%;
 
       --card-fixed-flex-direction: row-reverse;
+      --card-image-width: 33.33%;
       --card-image-fixed-width: 50%;
       --card-inner-padding-fixed: 0;
       --card-content-padding-fixed: var(--grid-spacer);

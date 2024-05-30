@@ -1,17 +1,78 @@
 <div class="grid-container">
-  <div class="grid-row float">
-    <div class="grid-col left image">
-      <app-image
-        [src]="imageSrc"
-        alt="Алексей Шварц"
-        height="104%"
-      ></app-image>
+  <h2>музыкант, композитор, автор песен, звукоинженер</h2>
+  <div class="grid-row">
+    <div class="grid-col image" [class]="{ fixed: isMobile }">
+      <div class="card">
+        <div class="card-image">
+          <app-image
+            [src]="imageSrc"
+            alt="Алексей Шварц"
+            height="104%"
+          ></app-image>
+        </div>
+      </div>
     </div>
 
     <div class="grid-col">
-      <h2>музыкант, композитор, автор песен, звукоинженер</h2>
       <p>Участник и сооснователь групп <strong>Кассовый аппарат</strong> (г. Тверь) и <strong>Jurassic blues</strong> (г. Гамбург).</p>
       <p>Так же бассист группы <strong>Трава</strong> (г. Дортмунд), <strong>Модест</strong> (г. Гамбург), <strong>Выход</strong> (в составе группы Трава).</p>
     </div>
   </div>
+
+  <ng-template #cookies>
+    <p>YouTube использует файлы "cookie", без них невозможен просмотр видео.</p>
+    <p>Вы можете
+      <button
+        type="button"
+        (click)="acceptCookies()"
+        class="link"
+      >принять</button> "cookie" или <a routerLink="/home" class="link">отклонить</a> их.</p>
+  </ng-template>
+
+  <ng-container *ngIf="youtubeCookies; else cookies">
+    <ng-container *ngIf="lastVideo$ | async as lastVideo">
+      <ng-container *ngIf="lastVideo?.length && lastVideo[0]">
+        <ng-container *ngIf="lastVideo[0] as video">
+          <h2>Новое видео</h2>
+          <div class="grid-row">
+            <div class="grid-col image" [class]="{ fixed: isMobile }">
+              <button
+                type="button"
+                (click)="openModal(currentModalTriggerEl, video)"
+                aria-haspopup="dialog"
+                aria-controls="video-modal"
+                #currentModalTriggerEl
+                [attr.aria-expanded]="(isModalOpen$ | async) && ((modalTriggerEl$ | async) === currentModalTriggerEl)"
+                class="card"
+              >
+                <div class="card-image">
+                  <app-image
+                    [src]="video.snippet.thumbnails.high.url"
+                    [alt]="video.snippet.title"
+                    height="56.25%"
+                  ></app-image>
+                </div>
+              </button>
+            </div>
+
+            <div class="grid-col">
+              <p><strong>{{ video.snippet.title }}</strong></p>
+              <p>{{ video.snippet.description }}</p>
+            </div>
+          </div>
+
+          <app-modal-dialog
+            *ngIf="modalContent$ | async as modalContent"
+            id="video-modal"
+            [title]="modalContent.snippet.title ?? ''"
+          >
+            <app-youtube-player
+              [videoId]="modalContent.id.videoId"
+              [autoplay]="true"
+            ></app-youtube-player>
+          </app-modal-dialog>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
 </div>
