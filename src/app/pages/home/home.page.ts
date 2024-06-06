@@ -8,6 +8,7 @@ import { ModalDialogComponent } from '../../components/modal-dialog/modal-dialog
 import { YouTubePlayerComponent } from '../../components/youtube-player/youtube-player.component'
 import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
+import { RouterLink } from '@angular/router'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -18,7 +19,8 @@ import { DeviceDetectorService } from 'ngx-device-detector'
     AsyncPipe,
     ModalDialogComponent,
     YouTubePlayerComponent,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   standalone: true
 })
