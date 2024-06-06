@@ -1,3 +1,6 @@
+/home
+/videos
+/videos/playlist
 /albums/razbityj-fonar
 /albums/domashnij-albom
 /albums/knizhnyj-albom

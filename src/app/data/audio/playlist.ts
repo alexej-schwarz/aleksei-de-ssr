@@ -18,7 +18,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/01-zhizn-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/01-zhizn-a-schwarz.mp3`
   },
   {
     title: 'Смерть',
@@ -26,7 +26,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'по мотивам стихотворения Никиты Блинова'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/02-smert-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/02-smert-a-schwarz.mp3`
   },
   {
     title: 'Прощай',
@@ -34,7 +34,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Иосиф Бродский'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/03-proshhaj-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/03-proshhaj-a-schwarz.mp3`
   },
   {
     title: 'Петров',
@@ -42,7 +42,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Никита Блинов'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/04-petrow-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/04-petrow-a-schwarz.mp3`
   },
   {
     title: 'Романтический мальчик',
@@ -50,7 +50,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Никита Блинов'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/05-romanticheskij-malchik-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/05-romanticheskij-malchik-a-schwarz.mp3`
   },
   {
     title: 'Любимой',
@@ -58,7 +58,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'по мотивам стихотворений Никиты Блинова'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/06-ljubimoj-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/06-ljubimoj-a-schwarz.mp3`
   },
   {
     title: 'Обои',
@@ -66,7 +66,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Никита Блинов'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/07-oboi-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/07-oboi-a-schwarz.mp3`
   },
   {
     title: 'Пушкин',
@@ -74,7 +74,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Александр Пелевин'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/08-pushkin-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/08-pushkin-a-schwarz.mp3`
   },
   {
     title: 'Письмо',
@@ -82,7 +82,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Александр Пелевин'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/09-pismo-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/09-pismo-a-schwarz.mp3`
   },
   {
     title: 'Коршун',
@@ -90,7 +90,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Александр Блок'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/10-korshun-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/10-korshun-a-schwarz.mp3`
   },
   {
     title: 'Где родился',
@@ -98,7 +98,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Александр Пелевин'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/11-gde-rodilsja-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/11-gde-rodilsja-a-schwarz.mp3`
   },
   {
     title: 'Четверо',
@@ -106,7 +106,7 @@ export const ZHIZN: Track[] = [
       music: 'Алексей Шварц',
       text: 'Александр Пелевин'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2023-zhizn/12-chetwero-a-schwarz.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2023-zhizn/12-chetwero-a-schwarz.mp3`
   }
 ]
 export const KNIZHNYJ_ALBOM: Track[] = [
@@ -116,7 +116,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Распутнис',
       text: 'Алексей Распутнис'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/01-schwarz-esli-by-ja.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/01-schwarz-esli-by-ja.mp3`
   },
   {
     title: 'На глубине',
@@ -124,7 +124,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/02-schwarz-na-glubine.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/02-schwarz-na-glubine.mp3`
   },
   {
     title: 'Море',
@@ -132,7 +132,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/03-schwarz-more.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/03-schwarz-more.mp3`
   },
   {
     title: 'Прощай',
@@ -140,7 +140,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Иосиф Бродский'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/04-schwarz-proshhaj.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/04-schwarz-proshhaj.mp3`
   },
   {
     title: 'Вальсок',
@@ -148,7 +148,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Владимир Капша',
       text: 'Иосиф Бродский'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/05-schwarz-walsok.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/05-schwarz-walsok.mp3`
   },
   {
     title: 'Добрые люди',
@@ -156,7 +156,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/06-schwarz-dobrye-ljudi.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/06-schwarz-dobrye-ljudi.mp3`
   },
   {
     title: 'Душа и тело',
@@ -164,7 +164,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Хачатур Кечареци'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/07-schwarz-dusha-i-telo.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/07-schwarz-dusha-i-telo.mp3`
   },
   {
     title: 'Дом',
@@ -172,7 +172,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/08-schwarz-dom.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/08-schwarz-dom.mp3`
   },
   {
     title: 'Встреча',
@@ -180,7 +180,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'И. С. Тургенев, A. Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/09-schwarz-wstrecha.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/09-schwarz-wstrecha.mp3`
   },
   {
     title: 'Слово и глина',
@@ -188,7 +188,7 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/10-schwarz-slowo-i-glina.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/10-schwarz-slowo-i-glina.mp3`
   },
   {
     title: 'Немецкая баллада',
@@ -196,14 +196,14 @@ export const KNIZHNYJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Козьма Прутков'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/11-schwarz-nemeckaja-ballada.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/11-schwarz-nemeckaja-ballada.mp3`
   },
   {
     title: 'Море (ремикс)',
     author: {
       music: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2007-knizhnyj-albom/12-schwarz-more-remix.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2007-knizhnyj-albom/12-schwarz-more-remix.mp3`
   }
 ]
 export const DOMASHNIJ_ALBOM: Track[] = [
@@ -213,7 +213,7 @@ export const DOMASHNIJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-01-my-twjordo.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-01-my-twjordo.mp3`
   },
   {
     title: 'Мы больны',
@@ -221,7 +221,7 @@ export const DOMASHNIJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-02-my-bolny.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-02-my-bolny.mp3`
   },
   {
     title: 'Балда',
@@ -229,7 +229,7 @@ export const DOMASHNIJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-03-balda.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-03-balda.mp3`
   },
   {
     title: 'Там',
@@ -237,7 +237,7 @@ export const DOMASHNIJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-04-tam.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-04-tam.mp3`
   },
   {
     title: 'Дом',
@@ -245,14 +245,14 @@ export const DOMASHNIJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-05-dom.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-05-dom.mp3`
   },
   {
     title: 'Тема',
     author: {
       music: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-06-tema.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-06-tema.mp3`
   },
   {
     title: 'Пусто',
@@ -260,7 +260,7 @@ export const DOMASHNIJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-07-pusto.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-07-pusto.mp3`
   },
   {
     title: 'Колесо',
@@ -268,7 +268,7 @@ export const DOMASHNIJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-08-koleso.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-08-koleso.mp3`
   },
   {
     title: 'Солдат',
@@ -276,11 +276,11 @@ export const DOMASHNIJ_ALBOM: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-09-soldat.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-09-soldat.mp3`
   },
   {
     title: 'бонус',
-    url: `${environment.dataHostUrl}/audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-10-bonus-long.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/2004-domashnij-albom/schwarz-domashnij-albopm-10-bonus-long.mp3`
   }
 ]
 export const RAZBITYJ_FONAR: Track[] = [
@@ -290,7 +290,7 @@ export const RAZBITYJ_FONAR: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1999-razbityj-fonar/01-schwarz-grust.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1999-razbityj-fonar/01-schwarz-grust.mp3`
   },
   {
     title: 'Шпиёнъ',
@@ -298,7 +298,7 @@ export const RAZBITYJ_FONAR: Track[] = [
       music: 'В. Беляшов и А. Шварц',
       text: 'Виталий Беляшов'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1999-razbityj-fonar/02-schwarz-spijon.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1999-razbityj-fonar/02-schwarz-spijon.mp3`
   },
   {
     title: 'Автобус',
@@ -306,7 +306,7 @@ export const RAZBITYJ_FONAR: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1999-razbityj-fonar/03-schwarz-awtobus.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1999-razbityj-fonar/03-schwarz-awtobus.mp3`
   },
   {
     title: 'Осень',
@@ -314,7 +314,7 @@ export const RAZBITYJ_FONAR: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1999-razbityj-fonar/04-schwarz-osen.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1999-razbityj-fonar/04-schwarz-osen.mp3`
   },
   {
     title: 'Разбитый фонарь',
@@ -322,7 +322,7 @@ export const RAZBITYJ_FONAR: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1999-razbityj-fonar/05-schwarz-razbityj-fonar.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1999-razbityj-fonar/05-schwarz-razbityj-fonar.mp3`
   },
   {
     title: 'Зима',
@@ -330,7 +330,7 @@ export const RAZBITYJ_FONAR: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1999-razbityj-fonar/06-schwarz-zima.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1999-razbityj-fonar/06-schwarz-zima.mp3`
   },
   {
     title: 'По дороге',
@@ -338,7 +338,7 @@ export const RAZBITYJ_FONAR: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1999-razbityj-fonar/07-schwarz-po-doroge.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1999-razbityj-fonar/07-schwarz-po-doroge.mp3`
   }
 ]
 export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
@@ -348,7 +348,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/01-domoj.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/01-domoj.mp3`
   },
   {
     title: 'Эти люди',
@@ -356,7 +356,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/02-eti-ljudi.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/02-eti-ljudi.mp3`
   },
   {
     title: 'Баллада',
@@ -364,7 +364,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/03-ballada.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/03-ballada.mp3`
   },
   {
     title: 'Мы больны',
@@ -372,7 +372,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/04-my-bolny.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/04-my-bolny.mp3`
   },
   {
     title: 'По дороге',
@@ -380,7 +380,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/05-po-doroge.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/05-po-doroge.mp3`
   },
   {
     title: 'Автобус',
@@ -388,7 +388,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/06-awtobus.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/06-awtobus.mp3`
   },
   {
     title: 'Пёс',
@@ -396,7 +396,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/07-pjos.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/07-pjos.mp3`
   },
   {
     title: 'Разбитый фонарь',
@@ -404,7 +404,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/09-razbityj-fonar.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/09-razbityj-fonar.mp3`
   },
   {
     title: 'Весна',
@@ -412,7 +412,7 @@ export const TAM_GDE_MENJA_NE_ZHDUT: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/schwarz/1995-uk-rup-aha-peci/10-wesna.mp3`
+    url: `${environment.dataHostUrl}/_audio/schwarz/1995-uk-rup-aha-peci/10-wesna.mp3`
   }
 ]
 export const JB_AZBUKA_VETRA = AZBUKA_VETRA
@@ -586,7 +586,7 @@ export const PERELYGIN_JLUWS: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/2003-jluws/perelygin-jluws-01-zapoj.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/2003-jluws/perelygin-jluws-01-zapoj.mp3`
   },
   {
     title: 'Я люблю умирать во сне',
@@ -594,7 +594,7 @@ export const PERELYGIN_JLUWS: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/2003-jluws/perelygin-jluws-02-jluws.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/2003-jluws/perelygin-jluws-02-jluws.mp3`
   },
   {
     title: 'Дай что ли денег',
@@ -602,7 +602,7 @@ export const PERELYGIN_JLUWS: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/2003-jluws/perelygin-jluws-03-daj-deneg.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/2003-jluws/perelygin-jluws-03-daj-deneg.mp3`
   },
   {
     title: 'Сном - огнём',
@@ -610,7 +610,7 @@ export const PERELYGIN_JLUWS: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/2003-jluws/perelygin-jluws-04-snom-ognjom.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/2003-jluws/perelygin-jluws-04-snom-ognjom.mp3`
   }
 ]
 export const PERELYGIN_AKUSTIKA: Track[] = [
@@ -620,7 +620,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-01-bljadskaja-lubow.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-01-bljadskaja-lubow.mp3`
   },
   {
     title: 'Хлопнули дверью',
@@ -628,7 +628,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-02-hlopnuli-dwerju.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-02-hlopnuli-dwerju.mp3`
   },
   {
     title: 'Я искал людей',
@@ -636,7 +636,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-03-iskal-ljudej.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-03-iskal-ljudej.mp3`
   },
   {
     title: 'Кони',
@@ -644,7 +644,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-04-koni.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-04-koni.mp3`
   },
   {
     title: 'Небесная трава',
@@ -652,7 +652,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-05-nebesnaja-trava.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-05-nebesnaja-trava.mp3`
   },
   {
     title: 'Самый-самый',
@@ -660,7 +660,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-06-samyj-samyj.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-06-samyj-samyj.mp3`
   },
   {
     title: 'Рядом я с тобой',
@@ -668,7 +668,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-07-rjadom-ja-s-toboj.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-07-rjadom-ja-s-toboj.mp3`
   },
   {
     title: 'Зря наобещали',
@@ -676,7 +676,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-08-zrja-naobeshhali.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-08-zrja-naobeshhali.mp3`
   },
   {
     title: 'Встретились с тобой',
@@ -684,7 +684,7 @@ export const PERELYGIN_AKUSTIKA: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/perelygin/1999-akustika/perelygin-akustika-09-vstretilis-s-toboj.mp3`
+    url: `${environment.dataHostUrl}/_audio/perelygin/1999-akustika/perelygin-akustika-09-vstretilis-s-toboj.mp3`
   }
 ]
 export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
@@ -694,7 +694,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-01-leningradskoe-utro.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-01-leningradskoe-utro.mp3`
   },
   {
     title: 'Чужие среди чужих',
@@ -702,7 +702,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Андрей Макаревич',
       text: 'Андрей Макаревич'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-02-chuzhie-sredi-chuzhih.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-02-chuzhie-sredi-chuzhih.mp3`
   },
   {
     title: 'Река',
@@ -710,7 +710,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-03-reka.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-03-reka.mp3`
   },
   {
     title: 'Про злую любовь',
@@ -718,7 +718,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-04-pro-zluju-ljubov.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-04-pro-zluju-ljubov.mp3`
   },
   {
     title: 'Осень',
@@ -726,7 +726,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-05-osen.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-05-osen.mp3`
   },
   {
     title: 'Кадриль (посвящение Шварцу)',
@@ -734,7 +734,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Стас Мацюк',
       text: 'Стас Мацюк'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-06-kadril.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-06-kadril.mp3`
   },
   {
     title: 'Снова один',
@@ -742,7 +742,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-07-snova-odin.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-07-snova-odin.mp3`
   },
   {
     title: 'Касыда о последнем пороге',
@@ -750,7 +750,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Игорь Воленко',
       text: 'Олег Ладыженский'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-08-kasyda-o-poslednem-poroge.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-08-kasyda-o-poslednem-poroge.mp3`
   },
   {
     title: 'Романтический мальчик',
@@ -758,7 +758,7 @@ export const MACUK_VREMENA_GODA_I_SUTOK: Track[] = [
       music: 'Стас Мацюк',
       text: 'Никита Блинов'
     },
-    url: `${environment.dataHostUrl}/audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-09-romanticheskij-malchik.mp3`
+    url: `${environment.dataHostUrl}/_audio/macuk/2011-wremena-goda-i-sutok/macuk-wgis-09-romanticheskij-malchik.mp3`
   }
 ]
 export const DELO_VREMENI_VSJO_ETO_BYLO: Track[] = [

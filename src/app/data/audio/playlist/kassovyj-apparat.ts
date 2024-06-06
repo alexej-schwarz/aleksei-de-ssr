@@ -14,7 +14,7 @@ export const UNPLUGGED: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-02-po-doroge.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-02-po-doroge.mp3`
   },
   {
     title: 'Я прокляну этот мир',
@@ -22,7 +22,7 @@ export const UNPLUGGED: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-03-prokljanu-mir.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-03-prokljanu-mir.mp3`
   },
   {
     title: 'Буква за буквой',
@@ -30,7 +30,7 @@ export const UNPLUGGED: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-04-bukwa.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-04-bukwa.mp3`
   },
   {
     title: 'Привет, подруга',
@@ -38,7 +38,7 @@ export const UNPLUGGED: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-05-podruga.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-05-podruga.mp3`
   },
   {
     title: 'Детские шутки',
@@ -53,7 +53,7 @@ export const UNPLUGGED: Track[] = [
       music: 'Алексей Шварц',
       text: 'Алексей Шварц'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-07-zima.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-07-zima.mp3`
   },
   {
     title: 'Осень',
@@ -75,7 +75,7 @@ export const UNPLUGGED: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-10-kamennye-pticy.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-10-kamennye-pticy.mp3`
   },
   {
     title: 'Сонный воздух',
@@ -83,7 +83,7 @@ export const UNPLUGGED: Track[] = [
       music: 'Олег Мовчан',
       text: 'Олег Мовчан'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-11-sonwozduh-short.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1995-unplugged/kassovyj-apparat-unplugged-11-sonwozduh-short.mp3`
   },
   {
     title: 'Разбитый фонарь',
@@ -129,7 +129,7 @@ export const PO_PARKU_GU: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1994-po-parku-gu/kassovyj-apparat-po-parku-gu-02-detskie-shutki.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1994-po-parku-gu/kassovyj-apparat-po-parku-gu-02-detskie-shutki.mp3`
   },
   {
     title: 'Новое утро',
@@ -158,7 +158,7 @@ export const PO_PARKU_GU: Track[] = [
       music: 'Павел Перелыгин',
       text: 'Павел Перелыгин'
     },
-    url: `${environment.dataHostUrl}/audio/kassovyj-apparat/1994-po-parku-gu/kassovyj-apparat-po-parku-gu-06-skolko-ne-pljashi.mp3`
+    url: `${environment.dataHostUrl}/_audio/kassovyj-apparat/1994-po-parku-gu/kassovyj-apparat-po-parku-gu-06-skolko-ne-pljashi.mp3`
   },
   {
     title: 'Ты хотел бы',
