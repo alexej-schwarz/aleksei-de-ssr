@@ -73,7 +73,7 @@ export const INVALIDY: Track[] = [
     author: {
       music: 'Трава'
     },
-    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-01-solnyshko-krasnoe.mp3`
+    url: `${environment.dataHostUrl}/_audio/trava/2003-invalidy/trava-invalidy-01-solnyshko-krasnoe.mp3`
   },
   {
     title: 'Не Пей Эту Воду ',
@@ -86,7 +86,7 @@ export const INVALIDY: Track[] = [
     author: {
       music: 'Трава'
     },
-    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-03-vsjo-horosho-instr.mp3`
+    url: `${environment.dataHostUrl}/_audio/trava/2003-invalidy/trava-invalidy-03-vsjo-horosho-instr.mp3`
   },
   {
     title: 'Оса На Языке',
@@ -94,7 +94,7 @@ export const INVALIDY: Track[] = [
       music: 'Трава',
       text: 'Монь'
     },
-    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-04-assa.mp3`
+    url: `${environment.dataHostUrl}/_audio/trava/2003-invalidy/trava-invalidy-04-assa.mp3`
   },
   {
     title: 'без названия',
@@ -107,14 +107,14 @@ export const INVALIDY: Track[] = [
     author: {
       music: 'Трава'
     },
-    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-06-poezda.mp3`
+    url: `${environment.dataHostUrl}/_audio/trava/2003-invalidy/trava-invalidy-06-poezda.mp3`
   },
   {
     title: 'Вот и Кончилась Трава',
     author: {
       music: 'Трава'
     },
-    url: `${environment.dataHostUrl}/audio/trava/2003-invalidy/trava-invalidy-07-konchilas-trava.mp3`
+    url: `${environment.dataHostUrl}/_audio/trava/2003-invalidy/trava-invalidy-07-konchilas-trava.mp3`
   },
   {
     title: 'Блюз',

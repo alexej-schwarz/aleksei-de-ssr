@@ -1,7 +1,7 @@
 var ALBUM_LIST_DATA_1 = require('./src/app/data/audio/album-list-1.json')
 var ALBUM_LIST_DATA_2 = require('./src/app/data/audio/album-list-2.json')
 var fs = require('fs')
-var fileContent = ''
+var fileContent = '/home\n/videos\n/videos/playlist\n'
 function extendFileContentFromObj(obj) {
   Object.keys(obj).map(function(id) {
     return '/albums/' + id
