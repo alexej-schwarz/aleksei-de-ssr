@@ -1,25 +1,22 @@
 <div class="grid-container">
-  <h2>музыкант, композитор, автор песен, звукоинженер</h2>
   <div class="grid-row">
-    <div class="grid-col image" [class]="{ fixed: isMobile }">
-      <div class="card">
-        <div class="card-image">
-          <app-image
-            [src]="imageSrc"
-            alt="Алексей Шварц"
-            height="104%"
-          ></app-image>
-        </div>
-      </div>
-    </div>
-
     <div class="grid-col">
+      <h2>музыкант, композитор, автор песен, звукоинженер</h2>
       <p>Участник и сооснователь групп <strong>Кассовый аппарат</strong> (г. Тверь) и <strong>Jurassic blues</strong> (г. Гамбург).</p>
       <p>Так же бассист группы <strong>Трава</strong> (г. Дортмунд), <strong>Модест</strong> (г. Гамбург), <strong>Выход</strong> (в составе группы Трава).</p>
+    </div>
+
+    <div class="grid-col image" [class]="{ fixed: isMobile }">
+      <app-image
+        [src]="imageSrc"
+        alt="Алексей Шварц"
+        height="104%"
+      ></app-image>
     </div>
   </div>
 
   <ng-template #cookies>
+    <hr>
     <p>YouTube использует файлы "cookie", без них невозможен просмотр видео.</p>
     <p>Вы можете
       <button
@@ -33,6 +30,7 @@
     <ng-container *ngIf="lastVideo$ | async as lastVideo">
       <ng-container *ngIf="lastVideo?.length && lastVideo[0]">
         <ng-container *ngIf="lastVideo[0] as video">
+          <hr>
           <h2>Новое видео</h2>
           <div class="grid-row">
             <div class="grid-col image" [class]="{ fixed: isMobile }">

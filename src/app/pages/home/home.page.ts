@@ -30,7 +30,7 @@ export class HomePage {
     private modalS: ModalService,
     private cookieS: CookieService
   ) {
-    this.imageSrc = `${environment.hostUrl}/assets/alex-schwarz.jpg`
+    this.imageSrc = `${environment.hostUrl}/assets/alex-schwarz-2.jpg`
     if (this.youtubeCookies) {
       if (!youTubeS.lastVideo$.value) {
         youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')

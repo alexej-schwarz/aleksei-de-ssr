@@ -121,6 +121,22 @@ h1, h2, h3, h4, h5, h6,
   color: var(--darkgray);
 }
 
+button,
+a {
+  &.card {
+    will-change: box-shadow, transform;
+    transition: 'box-shadow' var(--card-transition), 'transform' var(--card-transition);
+
+    box-shadow: var(--box-shadow);
+
+    &:hover,
+    &:focus {
+      transform: scale(99%);
+      box-shadow: var(--box-shadow-hover);
+    }
+  }
+}
+
 .card {
   display: flex;
   flex-direction: var(--card-flex-direction);
@@ -129,20 +145,11 @@ h1, h2, h3, h4, h5, h6,
   padding: var(--card-inner-padding);
   margin: var(--grid-spacer) 0;
   border: var(--border-primary);
-  box-shadow: var(--box-shadow);
   background-color: var(--background-color-primary);
   border-radius: var(--border-radius-default);
   text-decoration: none;
   color: var(--text-color-primary);
-  will-change: box-shadow, transform;
-  transition: 'box-shadow' var(--card-transition), 'transform' var(--card-transition);
   text-align: start;
-
-  &:hover,
-  &:focus {
-    transform: scale(99%);
-    box-shadow: var(--box-shadow-hover);
-  }
 
   &-header {
     font-weight: bold;

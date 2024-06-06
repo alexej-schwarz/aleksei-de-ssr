@@ -6,13 +6,14 @@
   height: 0;
   overflow: hidden;
 }
-img {
-  display: block;
-}
+
 img,
 .place-holder {
   position: absolute;
   width: 100%;
+}
+img {
+  display: block;
   top: 50%;
   transform: translateY(-50%);
 }

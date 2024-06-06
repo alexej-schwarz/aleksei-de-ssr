@@ -3,4 +3,7 @@
   &.image {
     width: var(--col-4-width);
   }
+  &.fixed {
+    order: -1;
+  }
 }
