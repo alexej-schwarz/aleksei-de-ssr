@@ -1,21 +1,30 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common'
 import {
   ChangeDetectionStrategy,
-  Component,
-  NgModule
+  Component
 } from '@angular/core'
-import { RouterModule } from '@angular/router'
 import { AlbumService } from '../../services/album.service'
-import { ImageComponentModule } from '../../components/image/image.component'
 import { combineLatest, map } from 'rxjs'
-import { TruncatePipe } from '../../pipes/truncate.pipe'
 import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../data/audio/album'
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common'
+import { TruncatePipe } from '../../pipes/truncate.pipe'
+import { RouterLink, RouterLinkActive } from '@angular/router'
+import { ImageComponent } from '../../components/image/image.component'
 
 @Component({
   selector: 'app-album-all',
   templateUrl: 'album-list.page.html',
   styleUrls: ['album-list.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    AsyncPipe,
+    NgIf,
+    TruncatePipe,
+    RouterLink,
+    ImageComponent,
+    NgForOf,
+    RouterLinkActive
+  ],
+  standalone: true
 })
 export class AlbumListPage {
   albumListSchwarz$ = this.albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1)
@@ -35,26 +44,7 @@ export class AlbumListPage {
       ]
     })
   )
-  // trackByFn: any = (index: number, item: Album[]) => item.id
   constructor(
     private albumS: AlbumService
   ) {}
 }
-@NgModule({
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: AlbumListPage
-      },
-    ]),
-    ImageComponentModule,
-    TruncatePipe
-  ],
-  declarations: [
-    AlbumListPage
-  ]
-})
-export class AlbumListPageModule {}

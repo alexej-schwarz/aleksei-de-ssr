@@ -1,18 +1,14 @@
-import { Component, Input, NgModule } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { Component, Input } from '@angular/core'
+import { NgIf } from '@angular/common'
 import { Author } from '../../types/album.type'
 
 @Component({
   selector: 'app-author',
   templateUrl: './author.component.html',
-  styleUrls: ['./author.component.scss']
+  styleUrls: ['./author.component.scss'],
+  imports: [NgIf],
+  standalone: true
 })
 export class AuthorComponent {
   @Input() author?: Author
 }
-@NgModule({
-  imports: [CommonModule],
-  declarations: [AuthorComponent],
-  exports: [AuthorComponent]
-})
-export class AuthorComponentModule {}

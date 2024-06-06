@@ -1,24 +1,31 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common'
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common'
 import {
   ChangeDetectionStrategy,
-  Component,
-  NgModule
+  Component
 } from '@angular/core'
-import { RouterModule } from '@angular/router'
 import { YoutubeService } from '../../../services/youtube.service'
-import { ImageComponentModule } from '../../../components/image/image.component'
+import { ImageComponent } from '../../../components/image/image.component'
 import { TruncatePipe } from '../../../pipes/truncate.pipe'
 import { ModalService } from '../../../services/modal.service'
-import { YouTubePlayerModule } from '@angular/youtube-player'
-import { ModalDialogComponentModule } from '../../../components/modal-dialog/modal-dialog.component'
+import { ModalDialogComponent } from '../../../components/modal-dialog/modal-dialog.component'
 import { DeviceDetectorService } from 'ngx-device-detector'
-import { YouTubePlayerComponentModule } from '../../../components/youtube-player/youtube-player.component'
+import { YouTubePlayerComponent } from '../../../components/youtube-player/youtube-player.component'
 
 @Component({
   selector: 'app-video-playlist',
   templateUrl: 'video-playlist.page.html',
   styleUrls: ['video-playlist.page.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    ImageComponent,
+    ModalDialogComponent,
+    AsyncPipe,
+    NgForOf,
+    TruncatePipe,
+    NgIf,
+    YouTubePlayerComponent
+  ],
+  standalone: true
 })
 export class VideoPlaylistPage {
   isMobile = this.deviceS.isMobile()
@@ -46,24 +53,3 @@ export class VideoPlaylistPage {
     this.modalS.triggerEl$.next(triggerEl)
   }
 }
-@NgModule({
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: VideoPlaylistPage
-      },
-    ]),
-    ImageComponentModule,
-    TruncatePipe,
-    YouTubePlayerModule,
-    YouTubePlayerComponentModule,
-    ModalDialogComponentModule,
-  ],
-  declarations: [
-    VideoPlaylistPage
-  ]
-})
-export class VideoPlaylistPageModule {}

@@ -1,30 +1,38 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common'
+import { AsyncPipe, NgForOf, NgIf } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
-  Component,
-  NgModule
+  Component
 } from '@angular/core'
-import { RouterModule } from '@angular/router'
-import { ImageComponentModule } from '../../components/image/image.component'
+import { ImageComponent } from '../../components/image/image.component'
 import { TruncatePipe } from '../../pipes/truncate.pipe'
 import { YoutubeService } from '../../services/youtube.service'
 import LOCALE_RU from '@angular/common/locales/ru'
 import { registerLocaleData } from '@angular/common'
 import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
+import { RouterLink, RouterLinkActive } from '@angular/router'
 
 @Component({
   selector: 'app-video-list',
   templateUrl: 'video-list.page.html',
   styleUrls: ['video-list.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [CookieService]
+  providers: [CookieService],
+  imports: [
+    TruncatePipe,
+    ImageComponent,
+    AsyncPipe,
+    NgIf,
+    NgForOf,
+    RouterLinkActive,
+    RouterLink
+  ],
+  standalone: true
 })
 export class VideoListPage {
   isMobile = this.deviceS.isMobile()
   youtubeCookies = !!this.cookieS.get('youtubde')
-  // allVideoList$: Observable<any> =  this.youTubeS.getVideosForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
   allPlayList$ = this.youTubeS.allVideoPlaylist$
   constructor(
     private deviceS: DeviceDetectorService,
@@ -56,21 +64,3 @@ export class VideoListPage {
     }
   }
 }
-@NgModule({
-  imports: [
-    CommonModule,
-    NgOptimizedImage,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: VideoListPage
-      },
-    ]),
-    ImageComponentModule,
-    TruncatePipe
-  ],
-  declarations: [
-    VideoListPage
-  ]
-})
-export class VideoListPageModule {}

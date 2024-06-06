@@ -3,7 +3,7 @@ import { Routes } from '@angular/router'
 export const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./pages/home/home.page').then(m => m.HomeComponentModule),
+    loadComponent: () => import('./pages/home/home.page').then(m => m.HomePage),
     data: {
       title: 'Алексей Шварц',
       description: 'музыкант, композитор, автор песен'
@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'albums',
-    loadChildren: () => import('./pages/albums/album-list.page').then(m => m.AlbumListPageModule),
+    loadComponent: () => import('./pages/albums/album-list.page').then(m => m.AlbumListPage),
     data: {
       title: 'Алексей Шварц - дискография',
       description: 'сольные альбомы и альбомы с участием Алексея Шварца'
@@ -19,7 +19,7 @@ export const routes: Routes = [
   },
   {
     path: 'albums/:id',
-    loadChildren: () => import('./pages/albums/album-details/album-details.component').then(m => m.AlbumDetailsComponentModule),
+    loadComponent: () => import('./pages/albums/album-details/album-details.page').then(m => m.AlbumDetailsPage),
     data: {
       title: 'Алексей Шварц - дискография',
       description: 'сольные альбомы и альбомы с участием Алексея Шварца',
@@ -29,7 +29,7 @@ export const routes: Routes = [
   },
   {
     path: 'videos',
-    loadChildren: () => import('./pages/videos/video-list.page').then(m => m.VideoListPageModule),
+    loadComponent: () => import('./pages/videos/video-list.page').then(m => m.VideoListPage),
     data: {
       title: 'Алексей Шварц - видео',
       description: 'видео с участием Алексея Шварца'
@@ -37,7 +37,7 @@ export const routes: Routes = [
   },
   {
     path: 'videos/playlist',
-    loadChildren: () => import('./pages/videos/video-playlist/video-playlist.page').then(m => m.VideoPlaylistPageModule),
+    loadComponent: () => import('./pages/videos/video-playlist/video-playlist.page').then(m => m.VideoPlaylistPage),
     data: {
       title: 'Алексей Шварц - видео',
       description: 'видео с участием Алексея Шварца',

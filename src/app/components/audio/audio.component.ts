@@ -3,16 +3,17 @@ import {
   Component,
   ElementRef,
   Input,
-  NgModule,
   OnDestroy,
   ViewChild
 } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { NgIf } from '@angular/common'
 
 @Component({
   selector: 'app-audio',
   templateUrl: './audio.component.html',
-  styleUrls: ['./audio.component.scss']
+  styleUrls: ['./audio.component.scss'],
+  imports: [NgIf],
+  standalone: true
 })
 export class AudioComponent implements AfterViewInit, OnDestroy {
   @Input() src: string | undefined | unknown
@@ -38,9 +39,3 @@ export class AudioComponent implements AfterViewInit, OnDestroy {
     }
   }
 }
-@NgModule({
-  imports: [CommonModule],
-  declarations: [AudioComponent],
-  exports: [AudioComponent]
-})
-export class AudioComponentModule {}

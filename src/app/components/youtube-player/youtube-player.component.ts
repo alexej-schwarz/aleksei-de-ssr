@@ -4,11 +4,9 @@ import {
   Component,
   ElementRef,
   Input,
-  NgModule,
   ViewChild
 } from '@angular/core'
 import { YoutubeService } from '../../services/youtube.service'
-import { CommonModule } from '@angular/common'
 import { YouTubePlayerModule } from '@angular/youtube-player'
 import { MinPipe } from '../../pipes/min.pipe'
 
@@ -16,7 +14,12 @@ import { MinPipe } from '../../pipes/min.pipe'
   selector: 'app-youtube-player',
   templateUrl: './youtube-player.component.html',
   styleUrls: ['./youtube-player.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    YouTubePlayerModule,
+    MinPipe
+  ],
+  standalone: true
 })
 export class YouTubePlayerComponent {
   @Input() videoId = ''
@@ -30,10 +33,3 @@ export class YouTubePlayerComponent {
     })
   }
 }
-
-@NgModule({
-  imports: [CommonModule, YouTubePlayerModule, MinPipe],
-  declarations: [YouTubePlayerComponent],
-  exports: [YouTubePlayerComponent]
-})
-export class YouTubePlayerComponentModule {}

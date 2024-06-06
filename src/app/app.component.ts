@@ -25,9 +25,9 @@ import { MetaService } from './services/meta.service'
 import { routes } from './app.routes'
 import { Location } from '@angular/common'
 import { DeviceDetectorService } from 'ngx-device-detector'
-import { ImageComponentModule } from './components/image/image.component'
 import { MinPipe } from './pipes/min.pipe'
 import { AccessibilityService } from './services/accessibility.service'
+import { ImageComponent } from './components/image/image.component'
 
 @Component({
   selector: 'app-root',
@@ -123,7 +123,7 @@ export class AppComponent implements OnInit, OnDestroy {
     HttpClientModule,
     TruncatePipe,
     MinPipe,
-    ImageComponentModule,
+    ImageComponent,
     RouterModule.forRoot(
       routes,
       {

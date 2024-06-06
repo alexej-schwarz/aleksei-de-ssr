@@ -1,13 +1,11 @@
-import { CommonModule } from '@angular/common'
-import { afterNextRender, ChangeDetectionStrategy, Component, NgModule } from '@angular/core'
-import { RouterModule } from '@angular/router'
+import { AsyncPipe, NgIf } from '@angular/common'
+import { afterNextRender, ChangeDetectionStrategy, Component } from '@angular/core'
 import { environment } from '../../../environments/environment'
-import { ImageComponentModule } from '../../components/image/image.component'
+import { ImageComponent } from '../../components/image/image.component'
 import { YoutubeService } from '../../services/youtube.service'
-import { TruncatePipe } from '../../pipes/truncate.pipe'
 import { ModalService } from '../../services/modal.service'
-import { ModalDialogComponentModule } from '../../components/modal-dialog/modal-dialog.component'
-import { YouTubePlayerComponentModule } from '../../components/youtube-player/youtube-player.component'
+import { ModalDialogComponent } from '../../components/modal-dialog/modal-dialog.component'
+import { YouTubePlayerComponent } from '../../components/youtube-player/youtube-player.component'
 import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
 @Component({
@@ -15,6 +13,14 @@ import { DeviceDetectorService } from 'ngx-device-detector'
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    ImageComponent,
+    AsyncPipe,
+    ModalDialogComponent,
+    YouTubePlayerComponent,
+    NgIf
+  ],
+  standalone: true
 })
 export class HomePage {
   isMobile = this.deviceS.isMobile()
@@ -52,20 +58,3 @@ export class HomePage {
     this.youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')
   }
 }
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      },
-    ]),
-    ImageComponentModule,
-    TruncatePipe,
-    ModalDialogComponentModule,
-    YouTubePlayerComponentModule
-  ],
-  declarations: [HomePage]
-})
-export class HomeComponentModule {}

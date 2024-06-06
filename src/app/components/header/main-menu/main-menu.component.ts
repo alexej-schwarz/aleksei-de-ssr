@@ -22,6 +22,5 @@ import { TrapFocusDirective } from '../../../directives/trap-focus.directive'
 export class MainMenuComponent {
   constructor(
     public accessibilityS: AccessibilityService
-  ) {
-  }
+  ) {}
 }
