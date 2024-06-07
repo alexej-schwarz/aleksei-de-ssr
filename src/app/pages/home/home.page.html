@@ -2,8 +2,13 @@
   <div class="grid-row">
     <div class="grid-col">
       <h2>музыкант, композитор, автор песен, звукоинженер</h2>
-      <p>Участник и сооснователь групп <strong>Кассовый аппарат</strong> (г. Тверь) и <strong>Jurassic blues</strong> (г. Гамбург).</p>
-      <p>Так же бассист группы <strong>Трава</strong> (г. Дортмунд), <strong>Модест</strong> (г. Гамбург), <strong>Выход</strong> (в составе группы Трава).</p>
+      <ul>
+        <li>сооснователь тверской групы <strong>Кассовый аппарат</strong></li>
+        <li>сооснователь гамбургской групы <strong>Jurassic blues</strong></li>
+        <li>бассист дортмундовской группы <strong>Трава</strong></li>
+        <li>бассист группы <strong>Модест</strong></li>
+        <li>бассист группы <strong>Выход</strong> (в составе группы Трава)</li>
+      </ul>
     </div>
 
     <div class="grid-col image" [class]="{ fixed: isMobile }">
@@ -17,13 +22,13 @@
 
   <ng-template #cookies>
     <hr>
-    <p>YouTube использует файлы "cookie", без них невозможен просмотр видео.</p>
-    <p>Вы можете
-      <button
+    <p>
+      Для просмотра видео с моего канала на Youtube <button
         type="button"
         (click)="acceptCookies()"
         class="link"
-      >принять</button> "cookie" или <a routerLink="/home" class="link">отклонить</a> их.</p>
+      >примите все файлы cookie</button>.
+    </p>
   </ng-template>
 
   <ng-container *ngIf="youtubeCookies; else cookies">
