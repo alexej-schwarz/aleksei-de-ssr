@@ -2,13 +2,10 @@ import {
   afterNextRender,
   ChangeDetectionStrategy,
   Component,
-  NgModule,
   OnDestroy,
   OnInit,
 } from '@angular/core'
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser'
-import { PreloadAllModules, RouterModule } from '@angular/router'
-import { MainMenuComponent } from './components/header/main-menu/main-menu.component'
+import { RouterOutlet } from '@angular/router'
 import { HeaderComponent } from './components/header/header.component'
 import {
   filter,
@@ -18,21 +15,23 @@ import {
   takeUntil,
   tap
 } from 'rxjs'
-import { HttpClientModule } from '@angular/common/http'
-import { TruncatePipe } from './pipes/truncate.pipe'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { MetaService } from './services/meta.service'
-import { routes } from './app.routes'
-import { Location } from '@angular/common'
+import { Location, NgIf } from '@angular/common'
 import { DeviceDetectorService } from 'ngx-device-detector'
-import { MinPipe } from './pipes/min.pipe'
 import { AccessibilityService } from './services/accessibility.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    HeaderComponent,
+    NgIf,
+    RouterOutlet
+  ],
+  standalone: true
 })
 
 export class AppComponent implements OnInit, OnDestroy {
@@ -110,30 +109,3 @@ export class AppComponent implements OnInit, OnDestroy {
     this.setOrientationCSSClass()
   }
 }
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    HeaderComponent,
-    MainMenuComponent,
-    BrowserModule,
-    HttpClientModule,
-    TruncatePipe,
-    MinPipe,
-    RouterModule.forRoot(
-      routes,
-      {
-        preloadingStrategy: PreloadAllModules,
-        initialNavigation: 'enabledBlocking',
-        scrollPositionRestoration: 'enabled'
-      }
-    )
-  ],
-  bootstrap: [AppComponent],
-  providers: [
-    provideClientHydration()
-  ]
-})
-export class AppModule {}
