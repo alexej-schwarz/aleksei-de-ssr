@@ -8,8 +8,8 @@ describe('IconComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [IconComponent]
-    })
+    imports: [IconComponent]
+})
     fixture = TestBed.createComponent(IconComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
