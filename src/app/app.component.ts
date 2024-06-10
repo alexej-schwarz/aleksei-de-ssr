@@ -25,7 +25,6 @@ import { MetaService } from './services/meta.service'
 import { routes } from './app.routes'
 import { Location } from '@angular/common'
 import { DeviceDetectorService } from 'ngx-device-detector'
-import { ImageComponentModule } from './components/image/image.component'
 import { MinPipe } from './pipes/min.pipe'
 import { AccessibilityService } from './services/accessibility.service'
 
@@ -103,7 +102,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.isLandscape = !!this.platformName && (window.innerWidth / window.innerHeight) > 1
   }
 
-  goBack = () => {
+  goToPreviousPage = () => {
     this.location.back()
   }
 
@@ -123,7 +122,6 @@ export class AppComponent implements OnInit, OnDestroy {
     HttpClientModule,
     TruncatePipe,
     MinPipe,
-    ImageComponentModule,
     RouterModule.forRoot(
       routes,
       {

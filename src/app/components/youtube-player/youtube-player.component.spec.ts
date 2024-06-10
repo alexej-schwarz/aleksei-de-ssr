@@ -8,8 +8,8 @@ describe('YoutubePlayerComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [YouTubePlayerComponent]
-    })
+    imports: [YouTubePlayerComponent]
+})
     fixture = TestBed.createComponent(YouTubePlayerComponent)
     component = fixture.componentInstance
     fixture.detectChanges()

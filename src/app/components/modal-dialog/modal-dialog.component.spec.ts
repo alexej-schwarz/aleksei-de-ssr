@@ -8,8 +8,8 @@ describe('ModalDialogComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ModalDialogComponent]
-    })
+    imports: [ModalDialogComponent]
+})
     fixture = TestBed.createComponent(ModalDialogComponent)
     component = fixture.componentInstance
     fixture.detectChanges()

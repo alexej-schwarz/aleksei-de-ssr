@@ -1,16 +1,25 @@
-import { CommonModule } from '@angular/common'
-import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core'
-import { ActivatedRoute, RouterModule } from '@angular/router'
+import { NgIf, NgFor, AsyncPipe } from '@angular/common'
+import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 import { combineLatest, concatMap, map } from 'rxjs'
-import { ImageComponentModule } from '../../../components/image/image.component'
-import { AudioComponentModule } from '../../../components/audio/audio.component'
-import { AuthorComponentModule } from '../../../components/author/author.component'
+import { ImageComponent } from '../../../components/image/image.component'
+import { AudioComponent } from '../../../components/audio/audio.component'
+import { AuthorComponent } from '../../../components/author/author.component'
 import { AlbumService } from '../../../services/album.service'
 @Component({
-  selector: 'app-album-details',
-  templateUrl: 'album-details.component.html',
-  styleUrls: ['album-details.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-album-details',
+    templateUrl: 'album-details.component.html',
+    styleUrls: ['album-details.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [
+        NgIf,
+        ImageComponent,
+        NgFor,
+        AudioComponent,
+        AuthorComponent,
+        AsyncPipe,
+    ],
 })
 export class AlbumDetailsComponent {
   albumDetails$ = this.route.paramMap.pipe(
@@ -32,20 +41,3 @@ export class AlbumDetailsComponent {
     private albumS: AlbumService
   ) {}
 }
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: AlbumDetailsComponent
-      },
-    ]),
-    ImageComponentModule,
-    ImageComponentModule,
-    AudioComponentModule,
-    AuthorComponentModule
-  ],
-  declarations: [AlbumDetailsComponent]
-})
-export class AlbumDetailsComponentModule {}

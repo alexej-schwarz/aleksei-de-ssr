@@ -1,13 +1,22 @@
-import { Component, HostListener, Inject, Input, NgModule, OnDestroy, Renderer2 } from '@angular/core'
+import {
+  Component,
+  HostListener,
+  Inject,
+  Input,
+  OnDestroy,
+  Renderer2
+} from '@angular/core'
 import { ModalService } from '../../services/modal.service'
 import { Subject } from 'rxjs'
-import { CommonModule, DOCUMENT } from '@angular/common'
+import { DOCUMENT, NgIf, AsyncPipe } from '@angular/common'
 import { AutoFocusDirective } from '../../directives/auto-focus.directive'
 
 @Component({
-  selector: 'app-modal-dialog',
-  templateUrl: './modal-dialog.component.html',
-  styleUrls: ['./modal-dialog.component.scss']
+    selector: 'app-modal-dialog',
+    templateUrl: './modal-dialog.component.html',
+    styleUrls: ['./modal-dialog.component.scss'],
+    standalone: true,
+    imports: [NgIf, AutoFocusDirective, AsyncPipe]
 })
 export class ModalDialogComponent implements OnDestroy {
   @HostListener('document:keydown.escape') onKeydownHandler() {
@@ -47,9 +56,4 @@ export class ModalDialogComponent implements OnDestroy {
     this.destroy$.complete()
   }
 }
-@NgModule({
-  imports: [CommonModule, AutoFocusDirective],
-  declarations: [ModalDialogComponent],
-  exports: [ModalDialogComponent]
-})
-export class ModalDialogComponentModule {}
+

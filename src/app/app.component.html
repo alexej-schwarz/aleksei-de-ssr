@@ -10,7 +10,7 @@
       <button
         *ngIf="hasBackButton"
         type="button"
-        (click)="goBack()"
+        (click)="goToPreviousPage()"
         class="back-button"
       >
         <span class="icon" aria-hidden="true">&blacktriangleleft;</span>
@@ -23,7 +23,7 @@
     <div class="grid-container title-block" *ngIf="hasBackButton">
       <button
         type="button"
-        (click)="goBack()"
+        (click)="goToPreviousPage()"
         class="back-button"
       >
         <span class="icon" aria-hidden="true">&blacktriangleleft;</span>

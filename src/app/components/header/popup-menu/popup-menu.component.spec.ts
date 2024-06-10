@@ -8,8 +8,8 @@ describe('PopupMenuComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PopupMenuComponent]
-    })
+    imports: [PopupMenuComponent]
+})
     fixture = TestBed.createComponent(PopupMenuComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
