@@ -20,22 +20,12 @@
     </div>
   </div>
 
-  <ng-template #cookies>
-    <hr>
-    <p>
-      Для просмотра видео с моего канала на Youtube <button
-        type="button"
-        (click)="acceptCookies()"
-        class="link"
-      >примите все файлы cookie</button>.
-    </p>
-  </ng-template>
 
-  <ng-container *ngIf="youtubeCookies; else cookies">
-    <ng-container *ngIf="lastVideo$ | async as lastVideo">
-      <ng-container *ngIf="lastVideo?.length && lastVideo[0]">
-        <ng-container *ngIf="lastVideo[0] as video">
-          <hr>
+  @if (youtubeCookies) {
+    @if (lastVideo$ | async; as lastVideo) {
+      @if (lastVideo?.length && lastVideo[0]) {
+        @if (lastVideo[0]; as video) {
+          <hr />
           <h2>Новое видео</h2>
           <div class="grid-row">
             <div class="grid-col image" [class]="{ fixed: isMobile }">
@@ -47,7 +37,7 @@
                 #currentModalTriggerEl
                 [attr.aria-expanded]="(isModalOpen$ | async) && ((modalTriggerEl$ | async) === currentModalTriggerEl)"
                 class="card"
-              >
+                >
                 <div class="card-image">
                   <app-image
                     [src]="video.snippet.thumbnails.high.url"
@@ -57,25 +47,33 @@
                 </div>
               </button>
             </div>
-
             <div class="grid-col">
               <p><strong>{{ video.snippet.title }}</strong></p>
               <p>{{ video.snippet.description }}</p>
             </div>
           </div>
-
-          <app-modal-dialog
-            *ngIf="modalContent$ | async as modalContent"
-            id="video-modal"
-            [title]="modalContent.snippet.title ?? ''"
-          >
-            <app-youtube-player
-              [videoId]="modalContent.id.videoId"
-              [autoplay]="true"
-            ></app-youtube-player>
-          </app-modal-dialog>
-        </ng-container>
-      </ng-container>
-    </ng-container>
-  </ng-container>
-</div>
+          @if (modalContent$ | async; as modalContent) {
+            <app-modal-dialog
+              id="video-modal"
+              [title]="modalContent.snippet.title ?? ''"
+            >
+              <app-youtube-player
+                [videoId]="modalContent.id.videoId"
+                [autoplay]="true"
+              ></app-youtube-player>
+            </app-modal-dialog>
+          }
+        }
+      }
+    }
+  } @else {
+    <hr />
+    <p>
+      Для просмотра видео с моего канала на Youtube <button
+        type="button"
+        (click)="acceptCookies()"
+        class="link"
+      >примите все файлы cookie</button>.
+    </p>
+  }
+  </div>

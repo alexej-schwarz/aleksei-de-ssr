@@ -8,10 +8,16 @@
     [attr.aria-expanded]="isExpanded"
     [attr.aria-controls]="'menu-' + id"
     (click)="toggleMenu()"
-  >
-    <span *ngIf="label">{{ label }}</span>
-    <span *ngIf="srOnlyText" class="sr-only">{{ srOnlyText }}</span>
-    <app-icon *ngIf="iconName" [icon]="iconName"></app-icon>
+    >
+    @if (label) {
+      <span>{{ label }}</span>
+    }
+    @if (srOnlyText) {
+      <span class="sr-only">{{ srOnlyText }}</span>
+    }
+    @if (iconName) {
+      <app-icon [icon]="iconName"></app-icon>
+    }
   </button>
 
   <div
@@ -19,7 +25,7 @@
     class="menu"
     role="menu"
     [class.expanded]="isExpanded"
-  >
+    >
     <ng-content></ng-content>
   </div>
 </div>

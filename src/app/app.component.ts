@@ -17,7 +17,7 @@ import {
 } from 'rxjs'
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router'
 import { MetaService } from './services/meta.service'
-import { Location, NgIf } from '@angular/common'
+import { Location } from '@angular/common'
 import { DeviceDetectorService } from 'ngx-device-detector'
 import { AccessibilityService } from './services/accessibility.service'
 
@@ -28,9 +28,8 @@ import { AccessibilityService } from './services/accessibility.service'
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     HeaderComponent,
-    NgIf,
     RouterOutlet
-  ],
+],
   standalone: true
 })
 

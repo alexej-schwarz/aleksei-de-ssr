@@ -4,14 +4,14 @@ import {
   OnInit
 } from '@angular/core'
 import { BehaviorSubject } from 'rxjs'
-import { NgIf, AsyncPipe } from '@angular/common'
+import { AsyncPipe } from '@angular/common'
 import { LazyLoadImageModule } from 'ng-lazyload-image'
 @Component({
     selector: 'app-image',
     templateUrl: './image.component.html',
     styleUrls: ['./image.component.scss'],
     standalone: true,
-    imports: [NgIf, LazyLoadImageModule, AsyncPipe]
+    imports: [LazyLoadImageModule, AsyncPipe]
 })
 export class ImageComponent implements OnInit {
   @Input() width: number | string = '100%'

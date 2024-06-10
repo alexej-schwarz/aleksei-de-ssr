@@ -8,7 +8,7 @@ import {
 } from '@angular/core'
 import { ModalService } from '../../services/modal.service'
 import { Subject } from 'rxjs'
-import { DOCUMENT, NgIf, AsyncPipe } from '@angular/common'
+import { DOCUMENT, AsyncPipe } from '@angular/common'
 import { AutoFocusDirective } from '../../directives/auto-focus.directive'
 
 @Component({
@@ -16,7 +16,7 @@ import { AutoFocusDirective } from '../../directives/auto-focus.directive'
     templateUrl: './modal-dialog.component.html',
     styleUrls: ['./modal-dialog.component.scss'],
     standalone: true,
-    imports: [NgIf, AutoFocusDirective, AsyncPipe]
+    imports: [AutoFocusDirective, AsyncPipe]
 })
 export class ModalDialogComponent implements OnDestroy {
   @HostListener('document:keydown.escape') onKeydownHandler() {

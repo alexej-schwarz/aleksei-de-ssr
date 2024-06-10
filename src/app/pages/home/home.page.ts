@@ -1,4 +1,4 @@
-import { NgIf, AsyncPipe } from '@angular/common'
+import { AsyncPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
@@ -19,12 +19,11 @@ import { DeviceDetectorService } from 'ngx-device-detector'
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [
-        ImageComponent,
-        NgIf,
-        ModalDialogComponent,
-        YouTubePlayerComponent,
-        AsyncPipe,
-    ],
+    ImageComponent,
+    ModalDialogComponent,
+    YouTubePlayerComponent,
+    AsyncPipe
+],
 })
 export class HomePage {
   isMobile = this.deviceS.isMobile()

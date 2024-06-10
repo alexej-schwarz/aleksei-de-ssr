@@ -1,6 +1,6 @@
 import { Component, HostListener, Input } from '@angular/core'
 import { IconComponent } from '../../icon/icon.component'
-import { NgIf } from '@angular/common'
+
 import { TrapFocusDirective } from '../../../directives/trap-focus.directive'
 
 @Component({
@@ -9,9 +9,8 @@ import { TrapFocusDirective } from '../../../directives/trap-focus.directive'
   styleUrls: ['./popup-menu.component.scss'],
   imports: [
     IconComponent,
-    NgIf,
     TrapFocusDirective
-  ],
+],
   standalone: true
 })
 export class PopupMenuComponent {

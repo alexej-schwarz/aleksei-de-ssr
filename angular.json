@@ -15,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/aleksei-de/browser",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -49,9 +49,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
@@ -69,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "aleksei-de:build:production"
+              "buildTarget": "aleksei-de:build:production"
             },
             "development": {
-              "browserTarget": "aleksei-de:build:development"
+              "buildTarget": "aleksei-de:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "aleksei-de:build"
+            "buildTarget": "aleksei-de:build"
           }
         },
         "test": {
@@ -123,7 +121,6 @@
               "outputHashing": "media"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
               "sourceMap": true,
               "extractLicenses": false,
@@ -142,11 +139,11 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "aleksei-de:build:development",
+              "buildTarget": "aleksei-de:build:development",
               "serverTarget": "aleksei-de:server:development"
             },
             "production": {
-              "browserTarget": "aleksei-de:build:production",
+              "buildTarget": "aleksei-de:build:production",
               "serverTarget": "aleksei-de:server:production"
             }
           },
@@ -161,11 +158,11 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "aleksei-de:build:production",
+              "buildTarget": "aleksei-de:build:production",
               "serverTarget": "aleksei-de:server:production"
             },
             "development": {
-              "browserTarget": "aleksei-de:build:development",
+              "buildTarget": "aleksei-de:build:development",
               "serverTarget": "aleksei-der:server:development"
             }
           },

@@ -1,8 +1,4 @@
-import {
-  NgIf,
-  NgFor,
-  AsyncPipe
-} from '@angular/common'
+import { AsyncPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
@@ -25,14 +21,12 @@ import { DeviceDetectorService } from 'ngx-device-detector'
     providers: [CookieService],
     standalone: true,
     imports: [
-      NgIf,
-      NgFor,
-      RouterLinkActive,
-      RouterLink,
-      ImageComponent,
-      AsyncPipe,
-      TruncatePipe
-    ]
+    RouterLinkActive,
+    RouterLink,
+    ImageComponent,
+    AsyncPipe,
+    TruncatePipe
+]
 })
 export class VideoListPage {
   isMobile = this.deviceS.isMobile()
@@ -68,4 +62,3 @@ export class VideoListPage {
     }
   }
 }
-

@@ -1,4 +1,4 @@
-import { NgIf, NgFor, AsyncPipe } from '@angular/common'
+import { AsyncPipe } from '@angular/common'
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { YoutubeService } from '../../../services/youtube.service'
 import { ImageComponent } from '../../../components/image/image.component'
@@ -14,10 +14,11 @@ import { YouTubePlayerComponent } from '../../../components/youtube-player/youtu
     styleUrls: ['video-playlist.page.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
-    imports: [NgIf, NgFor, ImageComponent, ModalDialogComponent, YouTubePlayerComponent, AsyncPipe, TruncatePipe]
+    imports: [ImageComponent, ModalDialogComponent, YouTubePlayerComponent, AsyncPipe, TruncatePipe]
 })
 export class VideoPlaylistPage {
   isMobile = this.deviceS.isMobile()
+  platformName = ''
   modalContent$ = this.modalS.content$
   videoList$ = this.youTubeS.getPlaylistVideosForChannel(
     'UCvhVy-B6NypHeAFjYK2EmvA',

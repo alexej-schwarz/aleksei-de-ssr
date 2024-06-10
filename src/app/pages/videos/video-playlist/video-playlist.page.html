@@ -1,71 +1,72 @@
-<div class="grid-container">
+<div class="grid-container" [class]="platformName">
   <h2>{{ title }}</h2>
   <p>{{ description }}</p>
   <ul class="grid-row">
-    <ng-container *ngIf="videoList$ | async as videoList; else empty">
-      <li
-        *ngFor="let video of videoList"
-        class="grid-col"
-        [class]="{ fixed: isMobile}"
-      >
-        <button
-          type="button"
-          (click)="openModal(currentModalTriggerEl, video)"
-          aria-haspopup="dialog"
-          aria-controls="video-modal"
-          #currentModalTriggerEl
-          [attr.aria-expanded]="(isModalOpen$ | async) && ((modalTriggerEl$ | async) === currentModalTriggerEl)"
-          class="card"
-        >
-          <div class="card-body">
-            <p class="card-header">
-              <span class="sr-only">начать просмотр</span>{{ video.snippet.title }}
-            </p>
-            <div *ngIf="video.snippet.description" class="card-description">
-              {{ video.snippet.description | truncate: 56 }}
+    @if (videoList$ | async; as videoList) {
+      @for (video of videoList; track video) {
+        <li
+          class="grid-col"
+          [class]="{ fixed: isMobile}"
+          >
+          <button
+            type="button"
+            (click)="openModal(currentModalTriggerEl, video)"
+            aria-haspopup="dialog"
+            aria-controls="video-modal"
+            #currentModalTriggerEl
+            [attr.aria-expanded]="(isModalOpen$ | async) && ((modalTriggerEl$ | async) === currentModalTriggerEl)"
+            class="card"
+            >
+            <div class="card-body">
+              <p class="card-header">
+                <span class="sr-only">начать просмотр</span>{{ video.snippet.title }}
+              </p>
+              @if (video.snippet.description) {
+                <div class="card-description">
+                  {{ video.snippet.description | truncate: 56 }}
+                </div>
+              }
             </div>
+            <div class="card-image" aria-hidden="true">
+              <app-image
+                [src]="video.snippet.thumbnails.high.url"
+                [alt]="video.snippet.title"
+                height="75%"
+              ></app-image>
+              <div class="overlay"></div>
+              <div class="play-icon"></div>
+            </div>
+          </button>
+        </li>
+      }
+    } @else {
+      <li class="grid-col fixed">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-header">&nbsp;</p>
+            <div class="card-description">&nbsp;<br>&nbsp;</div>
           </div>
-
-          <div class="card-image" aria-hidden="true">
+          <div class="card-image">
             <app-image
-              [src]="video.snippet.thumbnails.high.url"
-              [alt]="video.snippet.title"
+              src=""
               height="75%"
             ></app-image>
-            <div class="overlay"></div>
-            <div class="play-icon"></div>
           </div>
-        </button>
+        </div>
       </li>
-    </ng-container>
+    }
   </ul>
 
-  <ng-template #empty>
-    <li class="grid-col fixed">
-      <div class="card">
-        <div class="card-body">
-          <p class="card-header">&nbsp;</p>
-          <div class="card-description">&nbsp;<br>&nbsp;</div>
-        </div>
 
-        <div class="card-image">
-          <app-image
-            src=""
-            height="75%"
-          ></app-image>
-        </div>
-      </div>
-    </li>
-  </ng-template>
-
-  <app-modal-dialog
-    id="video-modal"
-    *ngIf="modalContent$ | async as modalContent"
-    [title]="modalContent?.snippet.title ?? ''"
-  >
-    <app-youtube-player
-      [videoId]="modalContent.contentDetails.videoId"
-      [autoplay]="true"
-    ></app-youtube-player>
-  </app-modal-dialog>
+  @if (modalContent$ | async; as modalContent) {
+    <app-modal-dialog
+      id="video-modal"
+      [title]="modalContent?.snippet.title ?? ''"
+      >
+      <app-youtube-player
+        [videoId]="modalContent.contentDetails.videoId"
+        [autoplay]="true"
+      ></app-youtube-player>
+    </app-modal-dialog>
+  }
 </div>

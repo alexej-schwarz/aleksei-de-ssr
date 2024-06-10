@@ -1,4 +1,4 @@
-import { NgIf, NgFor, AsyncPipe } from '@angular/common'
+import { AsyncPipe } from '@angular/common'
 import { ChangeDetectionStrategy, Component } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { combineLatest, concatMap, map } from 'rxjs'
@@ -13,13 +13,11 @@ import { AlbumService } from '../../../services/album.service'
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [
-        NgIf,
-        ImageComponent,
-        NgFor,
-        AudioComponent,
-        AuthorComponent,
-        AsyncPipe,
-    ],
+    ImageComponent,
+    AudioComponent,
+    AuthorComponent,
+    AsyncPipe
+],
 })
 export class AlbumDetailsComponent {
   albumDetails$ = this.route.paramMap.pipe(

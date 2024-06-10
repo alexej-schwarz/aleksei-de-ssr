@@ -1,66 +1,64 @@
 <div class="grid-container">
-  <ng-container *ngIf="youtubeCookies; else cookies">
+  @if (youtubeCookies) {
     <h2>Плейлисты</h2>
     <ul class="grid-row">
-      <ng-container *ngIf="allPlayList$ | async as allPlayList; else empty">
-        <li
-          *ngFor="let playList of allPlayList"
-          class="grid-col fixed"
-          [class]="{ fixed: !isMobile }"
-          routerLinkActive="active"
-          ariaCurrentWhenActive="page"
-        >
-          <a
-            routerLink="/videos/playlist"
-            class="card"
-            (click)="setCurrentVideoPlaylistId(playList)"
-          >
-            <div class="card-body">
-              <p class="card-header">
-                {{ playList.snippet.title }}
-              </p>
-              <div *ngIf="playList.snippet.description" class="card-description">
-                {{ playList.snippet.description | truncate: 20 }}
+      @if (allPlayList$ | async; as allPlayList) {
+        @for (playList of allPlayList; track playList) {
+          <li
+            class="grid-col fixed"
+            [class]="{ fixed: !isMobile }"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >
+            <a
+              routerLink="/videos/playlist"
+              class="card"
+              (click)="setCurrentVideoPlaylistId(playList)"
+              >
+              <div class="card-body">
+                <p class="card-header">
+                  {{ playList.snippet.title }}
+                </p>
+                @if (playList.snippet.description) {
+                  <div class="card-description">
+                    {{ playList.snippet.description | truncate: 20 }}
+                  </div>
+                }
               </div>
+              <div class="card-image">
+                <app-image
+                  [src]="playList.snippet.thumbnails.high.url"
+                  [alt]="'...'"
+                  height="75%"
+                ></app-image>
+              </div>
+            </a>
+          </li>
+        }
+      } @else {
+        <li class="grid-col fixed" [class]="{ fixed: !isMobile }">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-header">&nbsp;</p>
+              <div class="card-description">&nbsp;</div>
             </div>
-
             <div class="card-image">
-              <app-image
-                [src]="playList.snippet.thumbnails.high.url"
-                [alt]="'...'"
-                height="75%"
-              ></app-image>
+              <app-image src="" height="75%"></app-image>
             </div>
-          </a>
+          </div>
         </li>
-      </ng-container>
+      }
     </ul>
-
-  </ng-container>
-
-  <ng-template #empty>
-    <li class="grid-col fixed" [class]="{ fixed: !isMobile }">
-      <div class="card">
-        <div class="card-body">
-          <p class="card-header">&nbsp;</p>
-          <div class="card-description">&nbsp;</div>
-        </div>
-
-        <div class="card-image">
-          <app-image src="" height="75%"></app-image>
-        </div>
-      </div>
-    </li>
-  </ng-template>
-  <ng-template #cookies>
+  } @else {
     <p>
       Для просмотра видео с моего канала на Youtube <button
       type="button"
       (click)="acceptCookies()"
       class="link"
     >примите все файлы cookie</button>.
-    </p>
-  </ng-template>
+  </p>
+}
+
 
 <!--  <ng-container *ngIf="allVideoList$ | async as allVideoList">-->
 <!--    <h2>Все видео</h2>-->

@@ -1,9 +1,13 @@
-<ng-container *ngIf="albumDetails$ | async as albumDetails">
+@if (albumDetails$ | async; as albumDetails) {
   <div class="grid-container">
     <h2>
-      <ng-container *ngIf="albumDetails.author"><span>{{ albumDetails.author }} </span><wbr/></ng-container>
+      @if (albumDetails.author) {
+        <span>{{ albumDetails.author }} </span><wbr/>
+      }
       <span>«</span>{{ albumDetails.title }}<span>»</span>
-      <ng-container *ngIf="albumDetails.releaseYear"><wbr/><span> {{ albumDetails.releaseYear }}&nbsp;г.</span></ng-container>
+      @if (albumDetails.releaseYear) {
+        <wbr/><span> {{ albumDetails.releaseYear }}&nbsp;г.</span>
+      }
     </h2>
     <div class="grid-row float">
       <div class="grid-col image left">
@@ -12,40 +16,52 @@
           [alt]="'обложка альбома «' + albumDetails.title + '»'"
         ></app-image>
       </div>
-
       <div class="grid-col">
-        <ng-container *ngIf="albumDetails.members">
+        @if (albumDetails.members?.length) {
           <p>Участники:</p>
           <div class="members-wrapper">
             <ul>
-              <li *ngFor="let member of albumDetails.members">
-                <strong *ngIf="!member.link">{{ member.name }}</strong>
-                <a [href]="member.link" *ngIf="member.link" target="_blank">
-                  <strong>{{ member.name }}</strong>
-                </a>
-                <span *ngIf="member.description"> - {{ member.description }}</span>
-              </li>
+              @for (member of albumDetails.members; track member) {
+                <li>
+                  @if (member.link) {
+                    <a [href]="member.link" target="_blank">
+                      <strong>{{ member.name }}</strong>
+                    </a>
+                  } @else {
+                    <strong>{{ member.name }}</strong>
+                  }
+                  @if (member.description) {
+                    <span> - {{ member.description }}</span>
+                  }
+                </li>
+              }
             </ul>
           </div>
-        </ng-container>
-        <ng-container *ngIf="albumDetails.description?.length">
-          <p *ngFor="let description of albumDetails.description">
+        }
+        @for (description of albumDetails?.description; track description) {
+          <p>
             {{ description }}
           </p>
-        </ng-container>
+        }
       </div>
-
-      <ol *ngIf="albumDetails?.tracks" class="grid-col tracks">
-        <li *ngFor="let track of (albumDetails.tracks)">
-          <h3>{{ track.title }}</h3>
-          <app-audio *ngIf="track.url" [src]="track.url" />
-          <app-author
-            *ngIf="track.author"
-            [author]="track.author"
-            [class]="{ 'top-line': !track.url }"
-          ></app-author>
-        </li>
-      </ol>
+      @if (albumDetails?.tracks) {
+        <ol class="grid-col tracks">
+          @for (track of (albumDetails.tracks); track track) {
+            <li>
+              <h3>{{ track.title }}</h3>
+              @if (track.url) {
+                <app-audio [src]="track.url" />
+              }
+              @if (track.author) {
+                <app-author
+                  [author]="track.author"
+                  [class]="{ 'top-line': !track.url }"
+                ></app-author>
+              }
+            </li>
+          }
+        </ol>
+      }
     </div>
   </div>
-</ng-container>
+}
