@@ -6,9 +6,14 @@
     "types": []
   },
   "files": [
+    "server.ts",
     "src/main.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "src/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
   ]
 }

@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "aleksei-de:build:production"
+              "browserTarget": "aleksei-de:build:production"
             },
             "development": {
-              "buildTarget": "aleksei-de:build:development"
+              "browserTarget": "aleksei-de:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "aleksei-de:build"
+            "browserTarget": "aleksei-de:build"
           }
         },
         "test": {
@@ -113,7 +113,7 @@
           "options": {
             "outputPath": "dist/aleksei-de/server",
             "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
+            "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
@@ -139,18 +139,18 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "configurations": {
             "development": {
-              "buildTarget": "aleksei-de:build:development",
+              "browserTarget": "aleksei-de:build:development",
               "serverTarget": "aleksei-de:server:development"
             },
             "production": {
-              "buildTarget": "aleksei-de:build:production",
+              "browserTarget": "aleksei-de:build:production",
               "serverTarget": "aleksei-de:server:production"
             }
           },
           "defaultConfiguration": "development"
         },
         "prerender": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
             "routes": [
               "/"
@@ -158,11 +158,11 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "aleksei-de:build:production",
+              "browserTarget": "aleksei-de:build:production",
               "serverTarget": "aleksei-de:server:production"
             },
             "development": {
-              "buildTarget": "aleksei-de:build:development",
+              "browserTarget": "aleksei-de:build:development",
               "serverTarget": "aleksei-der:server:development"
             }
           },
