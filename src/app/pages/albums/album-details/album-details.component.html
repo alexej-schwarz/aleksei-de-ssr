@@ -21,7 +21,7 @@
           <p>Участники:</p>
           <div class="members-wrapper">
             <ul>
-              @for (member of albumDetails.members; track member) {
+              @for (member of albumDetails.members; track $index) {
                 <li>
                   @if (member.link) {
                     <a [href]="member.link" target="_blank">
@@ -38,7 +38,7 @@
             </ul>
           </div>
         }
-        @for (description of albumDetails?.description; track description) {
+        @for (description of albumDetails?.description; track $index) {
           <p>
             {{ description }}
           </p>
@@ -46,7 +46,7 @@
       </div>
       @if (albumDetails?.tracks) {
         <ol class="grid-col tracks">
-          @for (track of (albumDetails.tracks); track track) {
+          @for (track of (albumDetails.tracks); track $index) {
             <li>
               <h3>{{ track.title }}</h3>
               @if (track.url) {

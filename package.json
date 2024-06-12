@@ -3,17 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4200",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "start": "ng serve",
+    "build": "node create-routes.js && ng build",
+    "watch": "node create-routes.js && ng build --watch --configuration development",
     "test": "ng test",
-    "coverage": "ng test --no-watch --code-coverage",
-    "serve": "node server",
-    "lint": "ng lint",
-    "dev:ssr": "ng run aleksei-de:serve-ssr",
-    "serve:ssr": "node dist/aleksei-de/server/main.js",
-    "build:ssr": "ng build && ng run aleksei-de:server",
-    "prerender": "node create-routes.js && ng run aleksei-de:prerender --routes-file routes.txt"
+    "serve:ssr": "node dist/aleksei-de/server/server.mjs"
   },
   "private": true,
   "dependencies": {

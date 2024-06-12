@@ -1,17 +1,17 @@
 <div class="grid-container">
   <h2>Дискография</h2>
   @if (vm$ | async; as albumAll) {
-    @for (albumGroup of albumAll; track albumGroup) {
+    @for (albumGroup of albumAll; track $index) {
       <h3>{{ albumGroup.title }}</h3>
       @if (albumGroup.list.length) {
         <ul class="grid-row">
-          @for (album of albumGroup.list; track album) {
+          @for (album of albumGroup.list; track $index) {
             <li
               class="grid-col"
               [class]="{ fixed: album.fixed || !album.id }"
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
-              >
+            >
               <a routerLink="/albums/{{ album.id }}" class="card">
                 <div class="card-body">
                   <p class="card-header">

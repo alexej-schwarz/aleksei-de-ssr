@@ -3,7 +3,7 @@
   [class]="platformName"
   [class.landscape]="isLandscape"
   [class.outline]="accessibilityS.hasOutline"
-  >
+>
   <app-header></app-header>
   <main>
     <div class="grid-container title-block">
@@ -12,7 +12,7 @@
           type="button"
           (click)="goToPreviousPage()"
           class="back-button"
-          >
+        >
           <span class="icon" aria-hidden="true">&blacktriangleleft;</span>
           <span class="text" [class]="{ 'sr-only': platformName === 'mobile'}">назад</span>
         </button>
@@ -27,7 +27,7 @@
           type="button"
           (click)="goToPreviousPage()"
           class="back-button"
-          >
+        >
           <span class="icon" aria-hidden="true">&blacktriangleleft;</span>
           <span class="text">назад</span>
         </button>

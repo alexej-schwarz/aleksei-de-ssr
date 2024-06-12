@@ -13,17 +13,17 @@ import { YouTubePlayerComponent } from '../../components/youtube-player/youtube-
 import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
 @Component({
-    selector: 'app-home',
-    templateUrl: 'home.page.html',
-    styleUrls: ['home.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
     ImageComponent,
     ModalDialogComponent,
     YouTubePlayerComponent,
     AsyncPipe
-],
+  ],
 })
 export class HomePage {
   isMobile = this.deviceS.isMobile()

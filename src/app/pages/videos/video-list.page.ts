@@ -14,19 +14,19 @@ import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
 
 @Component({
-    selector: 'app-video-list',
-    templateUrl: 'video-list.page.html',
-    styleUrls: ['video-list.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [CookieService],
-    standalone: true,
-    imports: [
+  selector: 'app-video-list',
+  templateUrl: 'video-list.page.html',
+  styleUrls: ['video-list.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [CookieService],
+  standalone: true,
+  imports: [
     RouterLinkActive,
     RouterLink,
     ImageComponent,
     AsyncPipe,
     TruncatePipe
-]
+  ]
 })
 export class VideoListPage {
   isMobile = this.deviceS.isMobile()

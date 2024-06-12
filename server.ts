@@ -26,7 +26,7 @@ export function app(): express.Express {
   }))
 
   // All regular routes use the Angular engine
-  server.get('**', (req: any, res: any, next: any) => {
+  server.get('**', (req, res, next) => {
     const { protocol, originalUrl, baseUrl, headers } = req
 
     commonEngine

@@ -3,11 +3,11 @@
   <p>{{ description }}</p>
   <ul class="grid-row">
     @if (videoList$ | async; as videoList) {
-      @for (video of videoList; track video) {
+      @for (video of videoList; track $index) {
         <li
           class="grid-col"
           [class]="{ fixed: isMobile}"
-          >
+        >
           <button
             type="button"
             (click)="openModal(currentModalTriggerEl, video)"
@@ -16,7 +16,7 @@
             #currentModalTriggerEl
             [attr.aria-expanded]="(isModalOpen$ | async) && ((modalTriggerEl$ | async) === currentModalTriggerEl)"
             class="card"
-            >
+          >
             <div class="card-body">
               <p class="card-header">
                 <span class="sr-only">начать просмотр</span>{{ video.snippet.title }}
@@ -62,7 +62,7 @@
     <app-modal-dialog
       id="video-modal"
       [title]="modalContent?.snippet.title ?? ''"
-      >
+    >
       <app-youtube-player
         [videoId]="modalContent.contentDetails.videoId"
         [autoplay]="true"

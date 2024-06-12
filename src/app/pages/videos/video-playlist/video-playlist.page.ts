@@ -9,12 +9,18 @@ import { DeviceDetectorService } from 'ngx-device-detector'
 import { YouTubePlayerComponent } from '../../../components/youtube-player/youtube-player.component'
 
 @Component({
-    selector: 'app-video-playlist',
-    templateUrl: 'video-playlist.page.html',
-    styleUrls: ['video-playlist.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [ImageComponent, ModalDialogComponent, YouTubePlayerComponent, AsyncPipe, TruncatePipe]
+  selector: 'app-video-playlist',
+  templateUrl: 'video-playlist.page.html',
+  styleUrls: ['video-playlist.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    ImageComponent,
+    ModalDialogComponent,
+    YouTubePlayerComponent,
+    AsyncPipe,
+    TruncatePipe
+  ]
 })
 export class VideoPlaylistPage {
   isMobile = this.deviceS.isMobile()

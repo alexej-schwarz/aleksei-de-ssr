@@ -7,17 +7,17 @@ import { AudioComponent } from '../../../components/audio/audio.component'
 import { AuthorComponent } from '../../../components/author/author.component'
 import { AlbumService } from '../../../services/album.service'
 @Component({
-    selector: 'app-album-details',
-    templateUrl: 'album-details.component.html',
-    styleUrls: ['album-details.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: true,
-    imports: [
+  selector: 'app-album-details',
+  templateUrl: 'album-details.component.html',
+  styleUrls: ['album-details.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
     ImageComponent,
     AudioComponent,
     AuthorComponent,
     AsyncPipe
-],
+  ],
 })
 export class AlbumDetailsComponent {
   albumDetails$ = this.route.paramMap.pipe(

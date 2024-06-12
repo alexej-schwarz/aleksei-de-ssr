@@ -9,7 +9,7 @@ import {
 
 import { routes } from './app.routes'
 import { provideClientHydration } from '@angular/platform-browser'
-import { provideHttpClient } from '@angular/common/http'
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http'
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,7 +22,7 @@ export const appConfig: ApplicationConfig = {
       withPreloading(PreloadAllModules),
       withEnabledBlockingInitialNavigation()
     ),
-    provideClientHydration(),
-    provideHttpClient()
+    provideHttpClient(withFetch(), withInterceptorsFromDi()),
+    provideClientHydration()
   ]
 }

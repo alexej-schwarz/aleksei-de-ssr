@@ -37,7 +37,7 @@
                 #currentModalTriggerEl
                 [attr.aria-expanded]="(isModalOpen$ | async) && ((modalTriggerEl$ | async) === currentModalTriggerEl)"
                 class="card"
-                >
+              >
                 <div class="card-image">
                   <app-image
                     [src]="video.snippet.thumbnails.high.url"

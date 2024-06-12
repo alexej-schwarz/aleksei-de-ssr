@@ -14,12 +14,12 @@ import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../data/audio/album'
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [
-    RouterLinkActive,
-    RouterLink,
-    ImageComponent,
-    AsyncPipe,
-    TruncatePipe
-],
+      RouterLinkActive,
+      RouterLink,
+      ImageComponent,
+      AsyncPipe,
+      TruncatePipe
+    ],
 })
 export class AlbumListPage {
   albumListSchwarz$ = this.albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1)
@@ -39,7 +39,6 @@ export class AlbumListPage {
       ]
     })
   )
-  // trackByFn: any = (index: number, item: Album[]) => item.id
   constructor(
     private albumS: AlbumService
   ) {}
