@@ -2,7 +2,8 @@ import { AsyncPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
-  Component
+  Component,
+  inject
 } from '@angular/core'
 import { RouterLinkActive, RouterLink } from '@angular/router'
 import { ImageComponent } from '../../components/image/image.component'
@@ -29,13 +30,13 @@ import { DeviceDetectorService } from 'ngx-device-detector'
   ]
 })
 export class VideoListPage {
-  isMobile = this.deviceS.isMobile()
-  youtubeCookies = !!this.cookieS.get('youtubde')
+  #deviceS = inject(DeviceDetectorService)
+  #cookieS = inject(CookieService)
+  isMobile = this.#deviceS.isMobile()
+  youtubeCookies = !!this.#cookieS.get('youtubde')
   allPlayList$ = this.youTubeS.allVideoPlaylist$
   constructor(
-    private deviceS: DeviceDetectorService,
-    private youTubeS: YoutubeService,
-    private cookieS: CookieService
+    private youTubeS: YoutubeService
   ) {
     registerLocaleData(LOCALE_RU)
     youTubeS.currentVideoPlaylist = null
@@ -48,7 +49,7 @@ export class VideoListPage {
   }
 
   acceptCookies = () => {
-    this.cookieS.set('youtubde', '1')
+    this.#cookieS.set('youtubde', '1')
     this.youtubeCookies = true
     this.youTubeS.fetchAllPlaylistForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
     this.youTubeS.loadFrameApiScript()

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { inject, Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators'
 import { BehaviorSubject, take, tap } from 'rxjs'
@@ -15,9 +15,7 @@ export class YoutubeService {
   currentVideoPlaylist: { id: string, title?: string, description?: string } | null = null
   allVideoPlaylist$: BehaviorSubject<any> = new BehaviorSubject(null)
   lastVideo$: BehaviorSubject<any> = new BehaviorSubject(null)
-  constructor(
-    public http: HttpClient
-  ) {}
+  http = inject(HttpClient)
 
   loadFrameApiScript = (): void => {
     if (!this.isFrameApiScriptLoaded && typeof document !== 'undefined') {

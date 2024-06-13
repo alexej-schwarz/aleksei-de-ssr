@@ -2,7 +2,8 @@ import { AsyncPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
-  Component
+  Component,
+  inject
 } from '@angular/core'
 import { environment } from '../../../environments/environment'
 import { ImageComponent } from '../../components/image/image.component'
@@ -26,36 +27,35 @@ import { DeviceDetectorService } from 'ngx-device-detector'
   ],
 })
 export class HomePage {
-  isMobile = this.deviceS.isMobile()
-  imageSrc: string
+  #deviceS = inject(DeviceDetectorService)
+  #modalS = inject(ModalService)
+  #cookieS = inject(CookieService)
+  isMobile = this.#deviceS.isMobile()
+  imageSrc = `${environment.hostUrl}/assets/alex-schwarz-2.jpg`
   lastVideo$ = this.youTubeS.lastVideo$
-  isModalOpen$ = this.modalS.isOpen$
-  modalContent$ = this.modalS.content$
-  modalTriggerEl$ = this.modalS.triggerEl$
-  youtubeCookies = !!this.cookieS.get('youtubde')
+  isModalOpen$ = this.#modalS.isOpen$
+  modalContent$ = this.#modalS.content$
+  modalTriggerEl$ = this.#modalS.triggerEl$
+  youtubeCookies = !!this.#cookieS.get('youtubde')
   constructor(
-    private deviceS: DeviceDetectorService,
-    public youTubeS: YoutubeService,
-    private modalS: ModalService,
-    private cookieS: CookieService
+    public youTubeS: YoutubeService
   ) {
-    this.imageSrc = `${environment.hostUrl}/assets/alex-schwarz-2.jpg`
     if (this.youtubeCookies) {
       if (!youTubeS.lastVideo$.value) {
         youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')
       }
-      afterNextRender(this.youTubeS.loadFrameApiScript)
+      afterNextRender(youTubeS.loadFrameApiScript)
     }
   }
 
   openModal = (triggerEl: HTMLElement | null, modalContent: object) => {
-    this.modalS.content$.next(modalContent)
-    this.modalS.isOpen$.next(true)
-    this.modalS.triggerEl$.next(triggerEl)
+    this.#modalS.content$.next(modalContent)
+    this.#modalS.isOpen$.next(true)
+    this.#modalS.triggerEl$.next(triggerEl)
   }
 
   acceptCookies = () => {
-    this.cookieS.set('youtubde', '1')
+    this.#cookieS.set('youtubde', '1')
     this.youtubeCookies = true
     this.youTubeS.loadFrameApiScript()
     this.youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')

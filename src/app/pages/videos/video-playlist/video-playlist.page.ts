@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common'
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
 import { YoutubeService } from '../../../services/youtube.service'
 import { ImageComponent } from '../../../components/image/image.component'
 import { TruncatePipe } from '../../../pipes/truncate.pipe'
@@ -23,30 +23,25 @@ import { YouTubePlayerComponent } from '../../../components/youtube-player/youtu
   ]
 })
 export class VideoPlaylistPage {
-  isMobile = this.deviceS.isMobile()
+  #deviceS = inject(DeviceDetectorService)
+  #youTubeS = inject(YoutubeService)
+  #modalS = inject(ModalService)
+  isMobile = this.#deviceS.isMobile()
   platformName = ''
-  modalContent$ = this.modalS.content$
-  videoList$ = this.youTubeS.getPlaylistVideosForChannel(
+  modalContent$ = this.#modalS.content$
+  videoList$ = this.#youTubeS.getPlaylistVideosForChannel(
     'UCvhVy-B6NypHeAFjYK2EmvA',
-    this.youTubeS.currentVideoPlaylist?.id ?? '',
+    this.#youTubeS.currentVideoPlaylist?.id ?? '',
     100
   )
-  title = ''
-  description = ''
-  isModalOpen$ = this.modalS.isOpen$
-  modalTriggerEl$ = this.modalS.triggerEl$
-  constructor(
-    private deviceS: DeviceDetectorService,
-    private youTubeS: YoutubeService,
-    private modalS: ModalService
-  ) {
-    this.title = this.youTubeS.currentVideoPlaylist?.title ?? ''
-    this.description = this.youTubeS.currentVideoPlaylist?.description ?? ''
-  }
+  title = this.#youTubeS.currentVideoPlaylist?.title ?? ''
+  description = this.#youTubeS.currentVideoPlaylist?.description ?? ''
+  isModalOpen$ = this.#modalS.isOpen$
+  modalTriggerEl$ = this.#modalS.triggerEl$
   openModal = (triggerEl: HTMLElement | null, modalContent: object) => {
-    this.modalS.content$.next(modalContent)
-    this.modalS.isOpen$.next(true)
-    this.modalS.triggerEl$.next(triggerEl)
+    this.#modalS.content$.next(modalContent)
+    this.#modalS.isOpen$.next(true)
+    this.#modalS.triggerEl$.next(triggerEl)
   }
 }
 

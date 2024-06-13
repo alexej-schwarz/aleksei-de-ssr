@@ -3,7 +3,7 @@
     <h2>Плейлисты</h2>
     <ul class="grid-row">
       @if (allPlayList$ | async; as allPlayList) {
-        @for (playList of allPlayList; track $index) {
+        @for (playList of allPlayList; track playList.id) {
           <li
             class="grid-col fixed"
             [class]="{ fixed: !isMobile }"

@@ -5,7 +5,7 @@
       <h3>{{ albumGroup.title }}</h3>
       @if (albumGroup.list.length) {
         <ul class="grid-row">
-          @for (album of albumGroup.list; track $index) {
+          @for (album of albumGroup.list; track album.id) {
             <li
               class="grid-col"
               [class]="{ fixed: album.fixed || !album.id }"
