@@ -1,72 +1,36 @@
-# Angular 16 Example SSR
+# AlekseiDeSSR
+Node v20.14.0
 
-> An Angular starter kit featuring [Angular 16.2.5](https://angular.io), [Angular CLI 16.2.2](https://cli.angular.io/)
+Angular v18.0.1
 
-> it's part of a repo series designed to create a Progressive Web App with Angular
+SSR
+## For development:
+`nvm use`
 
-# Web Application Live Demo
-<p align="center">
-  <p align="center">
-    <a href="https://angular.ganatan.com/">
-      <img src="https://media.giphy.com/media/9BuBBLc7keCgRojp92/giphy.gif" alt="Angular 16 Example 
-      Application"/>
-    </a>
-  </p>
-</p>
+`npm run watch`
 
-## Quick start
+`npm start`
 
-```bash
-# choose a repo
-# download the example or clone the repo from github
-git clone https://github.com/ganatan/angular-ssr.git
+## Development server
 
-# download the example or clone the repo from gitlab
-git clone https://gitlab.com/ganatan/angular-ssr.git
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-# change directory
-cd angular-ssr
+## Code scaffolding
 
-# install the repo with npm
-npm install
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-# start the server
-npm start
+## Build
 
-```
-in your browser go to [http://localhost:4200](http://localhost:4200) 
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Getting Started
+## Running unit tests
 
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-### Installation
-* `npm install` (installing dependencies)
-* `npm outdated` (verifying dependencies)
+## Running end-to-end tests
 
-### Developpement
-* `npm run start`
-* in your browser [http://localhost:4200](http://localhost:4200) 
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-### Production 
-* `npm run build`
+## Further help
 
-## Tests
-* `npm run test`
-
-
-### Prototype Bootstrap 5
-* `change directory` cd ui
-* launch html pages in your browser
-
-
-### Author
-* Author  : danny
-
-### Documentation
-
-English Tutorials
-- Tutorials Step-by-Step - https://www.ganatan.com/tutorials/en
-
-Tutoriels en français
-- Installation - https://www.ganatan.com/tutorials/modules-avec-angular
-- Tutoriels Etape par étape - https://www.ganatan.com/tutorials
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

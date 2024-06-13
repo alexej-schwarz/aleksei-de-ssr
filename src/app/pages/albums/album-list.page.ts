@@ -1,9 +1,5 @@
-import {
-  NgIf,
-  NgFor,
-  AsyncPipe
-} from '@angular/common'
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { AsyncPipe } from '@angular/common'
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
 import { RouterLinkActive, RouterLink } from '@angular/router'
 import { AlbumService } from '../../services/album.service'
 import { ImageComponent } from '../../components/image/image.component'
@@ -18,18 +14,17 @@ import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../data/audio/album'
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [
-        NgIf,
-        NgFor,
-        RouterLinkActive,
-        RouterLink,
-        ImageComponent,
-        AsyncPipe,
-        TruncatePipe,
+      RouterLinkActive,
+      RouterLink,
+      ImageComponent,
+      AsyncPipe,
+      TruncatePipe
     ],
 })
 export class AlbumListPage {
-  albumListSchwarz$ = this.albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1)
-  albumListOther$ = this.albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2)
+  #albumS = inject(AlbumService)
+  albumListSchwarz$ = this.#albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1)
+  albumListOther$ = this.#albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2)
 
   vm$ = combineLatest([
     this.albumListSchwarz$,
@@ -45,8 +40,4 @@ export class AlbumListPage {
       ]
     })
   )
-  // trackByFn: any = (index: number, item: Album[]) => item.id
-  constructor(
-    private albumS: AlbumService
-  ) {}
 }

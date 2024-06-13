@@ -1,12 +1,9 @@
-import {
-  NgIf,
-  NgFor,
-  AsyncPipe
-} from '@angular/common'
+import { AsyncPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
-  Component
+  Component,
+  inject
 } from '@angular/core'
 import { RouterLinkActive, RouterLink } from '@angular/router'
 import { ImageComponent } from '../../components/image/image.component'
@@ -18,30 +15,28 @@ import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
 
 @Component({
-    selector: 'app-video-list',
-    templateUrl: 'video-list.page.html',
-    styleUrls: ['video-list.page.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [CookieService],
-    standalone: true,
-    imports: [
-      NgIf,
-      NgFor,
-      RouterLinkActive,
-      RouterLink,
-      ImageComponent,
-      AsyncPipe,
-      TruncatePipe
-    ]
+  selector: 'app-video-list',
+  templateUrl: 'video-list.page.html',
+  styleUrls: ['video-list.page.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [CookieService],
+  standalone: true,
+  imports: [
+    RouterLinkActive,
+    RouterLink,
+    ImageComponent,
+    AsyncPipe,
+    TruncatePipe
+  ]
 })
 export class VideoListPage {
-  isMobile = this.deviceS.isMobile()
-  youtubeCookies = !!this.cookieS.get('youtubde')
+  #deviceS = inject(DeviceDetectorService)
+  #cookieS = inject(CookieService)
+  isMobile = this.#deviceS.isMobile()
+  youtubeCookies = !!this.#cookieS.get('youtubde')
   allPlayList$ = this.youTubeS.allVideoPlaylist$
   constructor(
-    private deviceS: DeviceDetectorService,
-    private youTubeS: YoutubeService,
-    private cookieS: CookieService
+    private youTubeS: YoutubeService
   ) {
     registerLocaleData(LOCALE_RU)
     youTubeS.currentVideoPlaylist = null
@@ -54,7 +49,7 @@ export class VideoListPage {
   }
 
   acceptCookies = () => {
-    this.cookieS.set('youtubde', '1')
+    this.#cookieS.set('youtubde', '1')
     this.youtubeCookies = true
     this.youTubeS.fetchAllPlaylistForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
     this.youTubeS.loadFrameApiScript()
@@ -68,4 +63,3 @@ export class VideoListPage {
     }
   }
 }
-

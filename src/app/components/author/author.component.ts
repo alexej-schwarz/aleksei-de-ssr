@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { NgIf } from '@angular/common'
+
 import { Author } from '../../types/album.type'
 
 @Component({
@@ -7,7 +7,7 @@ import { Author } from '../../types/album.type'
     templateUrl: './author.component.html',
     styleUrls: ['./author.component.scss'],
     standalone: true,
-    imports: [NgIf]
+    imports: []
 })
 export class AuthorComponent {
   @Input() author?: Author

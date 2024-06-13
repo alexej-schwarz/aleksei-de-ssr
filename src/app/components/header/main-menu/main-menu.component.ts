@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { RouterLink, RouterLinkActive } from '@angular/router'
 import { IconComponent } from '../../icon/icon.component'
 import { PopupMenuComponent } from '../popup-menu/popup-menu.component'
@@ -20,8 +20,5 @@ import { TrapFocusDirective } from '../../../directives/trap-focus.directive'
   standalone: true
 })
 export class MainMenuComponent {
-  constructor(
-    public accessibilityS: AccessibilityService
-  ) {
-  }
+  accessibilityS = inject(AccessibilityService)
 }

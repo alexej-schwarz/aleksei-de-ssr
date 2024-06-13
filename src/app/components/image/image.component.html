@@ -2,14 +2,13 @@
   class="wrapper-image"
   [style.width]="width$ | async"
   [style.padding-bottom]="paddingBottom$ | async"
->
-  <ng-template [ngIf]="imgSrc$ | async" [ngIfElse]="loggedOut">
+  >
+  @if (imgSrc$ | async) {
     <img alt="{{ alt }}" [lazyLoad]="src || ''" />
-  </ng-template>
-
-  <ng-template #loggedOut>
+  } @else {
     <div class="place-holder">
       <span>{{ alt + (alt ? ' ' : '') + 'отсутствует'}}</span>
     </div>
-  </ng-template>
+  }
+
 </div>

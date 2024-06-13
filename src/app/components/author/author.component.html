@@ -1,6 +1,14 @@
-<div *ngIf="author">
-  <div *ngIf="author.text && author.music !== author.text">слова - {{ author.text }}</div>
-  <div *ngIf="author.music">
-    <ng-container *ngIf="author.music === author.text">слова и </ng-container>музыка - {{ author.music }}
-  </div>
-</div>
+@if (author) {
+  <div>
+    @if (author.text && author.music !== author.text) {
+      <div>слова - {{ author.text }}</div>
+    }
+    @if (author.music) {
+      <div>
+        @if (author.music === author.text) {
+          слова и
+          }музыка - {{ author.music }}
+        </div>
+      }
+    </div>
+  }

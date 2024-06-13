@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core'
-import { AsyncPipe, NgIf } from '@angular/common'
+import { AsyncPipe } from '@angular/common'
 
 @Component({
   selector: 'app-icon',
@@ -7,9 +7,8 @@ import { AsyncPipe, NgIf } from '@angular/common'
   styleUrls: ['./icon.component.scss'],
   standalone: true,
   imports: [
-    AsyncPipe,
-    NgIf
-  ],
+    AsyncPipe
+],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IconComponent implements OnInit {

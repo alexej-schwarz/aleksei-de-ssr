@@ -6,14 +6,14 @@ import {
   OnDestroy,
   ViewChild
 } from '@angular/core'
-import { NgIf } from '@angular/common'
+
 
 @Component({
     selector: 'app-audio',
     templateUrl: './audio.component.html',
     styleUrls: ['./audio.component.scss'],
     standalone: true,
-    imports: [NgIf]
+    imports: []
 })
 export class AudioComponent implements AfterViewInit, OnDestroy {
   @Input() src: string | undefined | unknown
