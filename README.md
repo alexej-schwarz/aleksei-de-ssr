@@ -1,7 +1,7 @@
 # AlekseiDeSSR
 Node v20.14.0
 
-Angular v18.0.3
+Angular v18.0.1
 
 SSR
 ## For development:
