@@ -1,5 +1,9 @@
 import { AsyncPipe } from '@angular/common'
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject
+} from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { combineLatest, concatMap, map } from 'rxjs'
 import { ImageComponent } from '../../../components/image/image.component'
@@ -17,7 +21,7 @@ import { AlbumService } from '../../../services/album.service'
     AudioComponent,
     AuthorComponent,
     AsyncPipe
-  ],
+  ]
 })
 export class AlbumDetailsComponent {
   #route = inject(ActivatedRoute)

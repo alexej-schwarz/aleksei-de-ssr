@@ -1,4 +1,11 @@
-import { Directive, ElementRef, AfterViewInit, OnDestroy, Input } from '@angular/core'
+import {
+  Directive,
+  ElementRef,
+  AfterViewInit,
+  OnDestroy,
+  Input,
+  inject
+} from '@angular/core'
 
 @Directive({
   selector: '[appTrapFocus]',
@@ -6,24 +13,22 @@ import { Directive, ElementRef, AfterViewInit, OnDestroy, Input } from '@angular
 })
 export class TrapFocusDirective implements AfterViewInit, OnDestroy {
   @Input() isTrapFocus = true
-  constructor(
-    private el: ElementRef
-  ) {}
+  #elementRef = inject(ElementRef)
 
   ngAfterViewInit() {
-    this.trapFocus()
+    this.#trapFocus()
   }
 
   ngOnDestroy() {
-    this.clearTrapFocus()
+    this.#clearTrapFocus()
   }
 
-  private clearTrapFocus = () => {
-    this.el.nativeElement.removeEventListener('keydown', null, false)
+  #clearTrapFocus = () => {
+    this.#elementRef.nativeElement.removeEventListener('keydown', null, false)
   }
 
-  private trapFocus = () => {
-    const focusableEls1: HTMLElement[] = this.el.nativeElement.querySelectorAll(
+  #trapFocus = () => {
+    const focusableEls1: HTMLElement[] = this.#elementRef.nativeElement.querySelectorAll(
       'a[href], button, textarea, input:not([type=hidden]), select'
     )
     const focusableEls: HTMLElement[] = Array.from(focusableEls1)
@@ -31,10 +36,10 @@ export class TrapFocusDirective implements AfterViewInit, OnDestroy {
     const firstFocusableEl: HTMLElement = focusableEls[0]
     const lastFocusableEl: HTMLElement = focusableEls[focusableEls.length - 1]
 
-    this.el.nativeElement.addEventListener('keydown', (e: Event & { keyCode: number, shiftKey: boolean }) => {
+    this.#elementRef.nativeElement.addEventListener('keydown', (e: Event & { keyCode: number, shiftKey: boolean }) => {
       const isTabPressed = e.keyCode === 9
       if (!this.isTrapFocus) {
-        this.clearTrapFocus()
+        this.#clearTrapFocus()
         return
       }
       if (!isTabPressed) return

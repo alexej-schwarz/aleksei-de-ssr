@@ -21,7 +21,6 @@ export class ImageComponent implements OnInit {
   width$: BehaviorSubject<string> = new BehaviorSubject('')
   paddingBottom$: BehaviorSubject<string> = new BehaviorSubject('')
   imgSrc$: BehaviorSubject<string> = new BehaviorSubject('')
-  constructor() {}
   getValueWithUnit = (value: string | number) => value + (typeof value === 'number' || parseInt(value + '', 10).toString() === value
     ? 'px'
     : '')

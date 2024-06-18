@@ -2,7 +2,7 @@
   class="wrapper-image"
   [style.width]="width$ | async"
   [style.padding-bottom]="paddingBottom$ | async"
-  >
+>
   @if (imgSrc$ | async) {
     <img alt="{{ alt }}" [lazyLoad]="src || ''" />
   } @else {

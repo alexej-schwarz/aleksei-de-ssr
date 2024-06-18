@@ -1,5 +1,5 @@
 <div
-  (window:resize)="onResize()"
+  (window:resize)="setOrientationCSSClass()"
   [class]="platformName"
   [class.landscape]="isLandscape"
   [class.outline]="accessibilityS.hasOutline"
@@ -19,7 +19,8 @@
       }
       <h1 [class]="{ small: isTitleSmall }">Алексей Шварц</h1>
     </div>
-    <router-outlet></router-outlet>
+
+    <router-outlet />
 
     @if (hasBackButton) {
       <div class="grid-container title-block">

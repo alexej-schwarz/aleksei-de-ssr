@@ -4,10 +4,7 @@
   <ul class="grid-row">
     @if (videoList$ | async; as videoList) {
       @for (video of videoList; track $index) {
-        <li
-          class="grid-col"
-          [class]="{ fixed: isMobile}"
-        >
+        <li class="grid-col" [class]="{ fixed: isMobile}">
           <button
             type="button"
             (click)="openModal(currentModalTriggerEl, video)"
@@ -32,7 +29,7 @@
                 [src]="video.snippet.thumbnails.high.url"
                 [alt]="video.snippet.title"
                 height="75%"
-              ></app-image>
+              />
               <div class="overlay"></div>
               <div class="play-icon"></div>
             </div>
@@ -40,17 +37,14 @@
         </li>
       }
     } @else {
-      <li class="grid-col fixed">
+      <li class="grid-col" [class]="{ fixed: isMobile}">
         <div class="card">
           <div class="card-body">
             <p class="card-header">&nbsp;</p>
             <div class="card-description">&nbsp;<br>&nbsp;</div>
           </div>
           <div class="card-image">
-            <app-image
-              src=""
-              height="75%"
-            ></app-image>
+            <app-image src="" height="75%" />
           </div>
         </div>
       </li>
@@ -66,7 +60,7 @@
       <app-youtube-player
         [videoId]="modalContent.contentDetails.videoId"
         [autoplay]="true"
-      ></app-youtube-player>
+      />
     </app-modal-dialog>
   }
 </div>

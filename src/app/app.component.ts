@@ -1,7 +1,7 @@
 import {
-  afterNextRender,
   ChangeDetectionStrategy,
   Component,
+  inject,
   OnDestroy,
   OnInit,
 } from '@angular/core'
@@ -29,41 +29,38 @@ import { AccessibilityService } from './services/accessibility.service'
   imports: [
     HeaderComponent,
     RouterOutlet
-],
+  ],
   standalone: true
 })
 
 export class AppComponent implements OnInit, OnDestroy {
-  platformName = ''
-  isTitleSmall= false
-  isLandscape = false
-  destroy$ = new Subject()
+  #activatedRoute = inject(ActivatedRoute)
+  #deviceS = inject(DeviceDetectorService)
+  #location = inject(Location)
+  #metaS = inject(MetaService)
+  #router = inject(Router)
+  accessibilityS = inject(AccessibilityService)
+  #destroy$ = new Subject()
   hasBackButton = false
-
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private metaS: MetaService,
-    private location: Location,
-    private deviceS: DeviceDetectorService,
-    public accessibilityS: AccessibilityService
-  ) {
-    afterNextRender(() => {
-      this.initPlatformName().then(() => {
-        this.setOrientationCSSClass()
-      })
-    })
-  }
+  isLandscape = false
+  isTitleSmall= false
+  platformName = ''
   ngOnDestroy(){
-    this.destroy$.next(undefined)
-    this.destroy$.complete()
+    this.#destroy$.next(undefined)
+    this.#destroy$.complete()
   }
   ngOnInit() {
-    this.router.events
+    this.#initPlatformName().then(() => {
+      if (typeof window === 'object') {
+        this.setOrientationCSSClass()
+      }
+    })
+
+    this.#router.events
       .pipe(
-        takeUntil(this.destroy$),
+        takeUntil(this.#destroy$),
         filter((e) => e instanceof NavigationEnd),
-        map(() => this.activatedRoute),
+        map(() => this.#activatedRoute),
         map((route) => {
           while (route.firstChild) {
             route = route.firstChild
@@ -80,31 +77,28 @@ export class AppComponent implements OnInit, OnDestroy {
           }) => {
           this.isTitleSmall = isTitleSmall
           this.hasBackButton = hasBackButton
-          this.metaS.updateTitle(title)
-          this.metaS.updateDescription(description)
+          this.#metaS.updateTitle(title)
+          this.#metaS.updateDescription(description)
         })
       ).subscribe()
   }
-  private initPlatformName = async () => {
+  #initPlatformName = async () => {
     switch (true) {
-      case this.deviceS.isMobile():
+      case this.#deviceS.isMobile():
         this.platformName = 'mobile'
         break
-      case this.deviceS.isTablet():
+      case this.#deviceS.isTablet():
         this.platformName = 'tablet'
         break
       default: this.platformName = ''
     }
   }
-  private setOrientationCSSClass = () => {
-    this.isLandscape = !!this.platformName && (window.innerWidth / window.innerHeight) > 1
+  setOrientationCSSClass = () => {
+    if(typeof window === 'object') {
+      this.isLandscape = !!this.platformName && (window.innerWidth / window.innerHeight) > 1
+    }
   }
-
   goToPreviousPage = () => {
-    this.location.back()
-  }
-
-  onResize = () => {
-    this.setOrientationCSSClass()
+    this.#location.back()
   }
 }

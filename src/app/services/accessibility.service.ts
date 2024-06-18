@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core'
 })
 export class AccessibilityService {
   hasOutline = false
-  constructor() { }
   toggleOutline = () => {
     this.hasOutline = !this.hasOutline
   }

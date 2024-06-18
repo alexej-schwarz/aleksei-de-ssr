@@ -3,7 +3,6 @@ import {
   BehaviorSubject,
   from,
   map,
-  of,
   Subject,
   take,
   tap
@@ -15,7 +14,6 @@ import { Album, AlbumDescription, Track } from '../types/album.type'
   providedIn: 'root',
 })
 export class AlbumService {
-  constructor() {}
   getAlbumById = (albumId: string) => {
     const allAlbum: Album[] = []
     const allAlbum$: Subject<Album | undefined> = new Subject()
@@ -33,26 +31,17 @@ export class AlbumService {
   getAlbumPlaylistById = (albumId: string) => {
     const playList$: Subject<Track[] | undefined> = new Subject()
     import('../data/audio/playlist').then(tracks => {
-      playList$.next(this.findEntryById(tracks, albumId))
+      playList$.next(this.#findEntryById(tracks, albumId))
     })
     return playList$
   }
   getAlbumDescriptionById = (albumId: string) => {
     const description$: Subject<AlbumDescription | undefined> = new Subject()
     import('../data/audio/album-description').then(descriptions => {
-      description$.next(this.findEntryById(descriptions, albumId))
+      description$.next(this.#findEntryById(descriptions, albumId))
     })
     return description$
   }
-  getPreparedAlbumList = (albumList: Album[]) => of(albumList).pipe(
-    map(albumList => {
-      const albumListFixed = albumList
-        .sort((a, b) => b.releaseYear - a.releaseYear)
-        .filter(album => album.fixed)
-      const albumListWithoutFixed = albumList.filter(album => !album.fixed)
-      return [...albumListFixed, ...albumListWithoutFixed]
-    })
-  )
   getPreparedAlbumListWithDescription = (albumList: Album[]) => {
     const albumList$: BehaviorSubject<Album[]> = new BehaviorSubject([
       { id: '' , author: '', title: '', coverImageSrc: '', releaseYear: 0 }
@@ -62,7 +51,10 @@ export class AlbumService {
         const descriptionById$ = this.getAlbumDescriptionById(album.id).pipe(
           take(1),
           tap(description => {
-            const albumWithDescription = { ...album, description: description?.description }
+            const albumWithDescription = {
+              ...album,
+              description: description?.description
+            }
             if (albumList$.value[0].id) {
               albumList$.next([ ...albumList$.value, albumWithDescription ])
             } else {
@@ -84,7 +76,7 @@ export class AlbumService {
       })
     )
   }
-  private findEntryById = (obj: object, id: string) => Object.entries(obj).find(
+  #findEntryById = (obj: object, id: string) => Object.entries(obj).find(
     entry => entry[0] === id.replace(/-/g,'_').toUpperCase()
   )?.[1]
 }

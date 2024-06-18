@@ -1,11 +1,11 @@
 <div class="grid-container">
   <h2>Дискография</h2>
-  @if (vm$ | async; as albumAll) {
+  @if (albumList(); as albumAll) {
     @for (albumGroup of albumAll; track $index) {
       <h3>{{ albumGroup.title }}</h3>
-      @if (albumGroup.list.length) {
+      @if (albumGroup.list(); as albumGroupList) {
         <ul class="grid-row">
-          @for (album of albumGroup.list; track album.id) {
+          @for (album of albumGroupList; track album.id) {
             <li
               class="grid-col"
               [class]="{ fixed: album.fixed || !album.id }"
@@ -31,7 +31,7 @@
                   <app-image
                     [src]="album.coverImageSrc"
                     [alt]="'обложка альбома «' + album.title + '»'"
-                  ></app-image>
+                  />
                 </div>
               </a>
             </li>

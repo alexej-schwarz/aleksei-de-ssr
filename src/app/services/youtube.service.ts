@@ -8,26 +8,26 @@ import { environment } from '../../environments/environment'
   providedIn: 'root'
 })
 export class YoutubeService {
-  private apiKey = environment.youTubeApiKey
-  private apiUrl = 'https://www.googleapis.com/youtube/v3'
-  private iframeApiUrl = 'https://www.youtube.com/iframe_api'
-  private isFrameApiScriptLoaded = false
+  #apiKey = environment.youTubeApiKey
+  #apiUrl = 'https://www.googleapis.com/youtube/v3'
+  #iframeApiUrl = 'https://www.youtube.com/iframe_api'
+  #isFrameApiScriptLoaded = false
   currentVideoPlaylist: { id: string, title?: string, description?: string } | null = null
   allVideoPlaylist$: BehaviorSubject<any> = new BehaviorSubject(null)
   lastVideo$: BehaviorSubject<any> = new BehaviorSubject(null)
   http = inject(HttpClient)
 
   loadFrameApiScript = (): void => {
-    if (!this.isFrameApiScriptLoaded && typeof document !== 'undefined') {
+    if (!this.#isFrameApiScriptLoaded && typeof document !== 'undefined') {
       const tag = document.createElement('script')
-      tag.src = this.iframeApiUrl
+      tag.src = this.#iframeApiUrl
       document.body.appendChild(tag)
-      this.isFrameApiScriptLoaded = true
+      this.#isFrameApiScriptLoaded = true
     }
   }
 
   fetchLastVideo = (channel: string) => {
-    const url = `${this.apiUrl}/search?key=${this.apiKey}&channelId=${channel}&order=date&part=snippet&type=video,id&maxResults=1&order=date`
+    const url = `${this.#apiUrl}/search?key=${this.#apiKey}&channelId=${channel}&order=date&part=snippet&type=video,id&maxResults=1&order=date`
     this.http.get(url).pipe(
       take(1),
       tap((res: any) => {
@@ -36,25 +36,14 @@ export class YoutubeService {
     ).subscribe()
   }
 
-  // getVideoById = (id = 'VpKwTQBLORA') => {
-  //   const url = `${this.apiUrl}/videos?part=snippet&id=${id}&key=${this.apiKey}`
-  //     console.log('url', url)
-  //   return url
-  // }
-
-  // getVideosForChannel = (channel: string, maxResults: string | number): Observable<any> => {
-  //   const url = `${this.apiUrl}/search?key=${this.apiKey}&channelId=${channel}&order=date&part=snippet&type=video,id&maxResults=${maxResults}`
-  //   return this.http.get(url).pipe(map((res: any) => res.items))
-  // }
-
   getPlaylistVideosForChannel = (channel: string, playlistId: string, maxResults: string | number) => {
-    const url = `${this.apiUrl}/playlistItems?key=${this.apiKey}&channelId=${channel}&playlistId=${playlistId}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
+    const url = `${this.#apiUrl}/playlistItems?key=${this.#apiKey}&channelId=${channel}&playlistId=${playlistId}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
     return playlistId ? this.http.get(url).pipe(map((res: any) => res.items)) : null
   }
 
   fetchAllPlaylistForChannel = (channel: string, maxResults: string | number) => {
     const url = `
-    ${this.apiUrl}/playlists?key=${this.apiKey}&channelId=${channel}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
+    ${this.#apiUrl}/playlists?key=${this.#apiKey}&channelId=${channel}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
     this.http.get(url).pipe(
       take(1),
       tap((res: any) => {

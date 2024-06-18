@@ -32,34 +32,35 @@ import { DeviceDetectorService } from 'ngx-device-detector'
 export class VideoListPage {
   #deviceS = inject(DeviceDetectorService)
   #cookieS = inject(CookieService)
+  #youTubeS = inject(YoutubeService)
   isMobile = this.#deviceS.isMobile()
   youtubeCookies = !!this.#cookieS.get('youtubde')
-  allPlayList$ = this.youTubeS.allVideoPlaylist$
-  constructor(
-    private youTubeS: YoutubeService
-  ) {
+  allPlayList$ = this.#youTubeS.allVideoPlaylist$
+  constructor() {
     registerLocaleData(LOCALE_RU)
-    youTubeS.currentVideoPlaylist = null
     if (this.youtubeCookies) {
-      if (!youTubeS.allVideoPlaylist$.value) {
-        youTubeS.fetchAllPlaylistForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
+      if (!this.#youTubeS.allVideoPlaylist$.value) {
+        this.#youTubeS.fetchAllPlaylistForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
       }
-      afterNextRender(this.youTubeS.loadFrameApiScript)
+      afterNextRender(this.#youTubeS.loadFrameApiScript)
     }
   }
 
   acceptCookies = () => {
     this.#cookieS.set('youtubde', '1')
     this.youtubeCookies = true
-    this.youTubeS.fetchAllPlaylistForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
-    this.youTubeS.loadFrameApiScript()
+    this.#youTubeS.fetchAllPlaylistForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
+    this.#youTubeS.loadFrameApiScript()
   }
 
   setCurrentVideoPlaylistId = (playlist: any) => {
-    this.youTubeS.currentVideoPlaylist = {
+    this.#youTubeS.currentVideoPlaylist = {
       id: playlist.id,
       title: playlist.snippet.title,
       description: playlist.snippet.description,
     }
+    this.#cookieS.set('videoPlaylistId', playlist.id)
+    this.#cookieS.set('videoPlaylistTitle', playlist.snippet.title)
+    this.#cookieS.set('videoPlaylistDescription', playlist.snippet.description)
   }
 }

@@ -21,7 +21,6 @@ export class AudioComponent implements AfterViewInit, OnDestroy {
   @ViewChild('audioElement') set playerRef(ref: ElementRef<HTMLAudioElement>) {
     this.audio = ref.nativeElement
   }
-  constructor() {}
   pauseAllAudios = (e: Event) => {
     document.querySelectorAll('audio')
       .forEach(item => {

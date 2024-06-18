@@ -5,7 +5,7 @@
       @if (allPlayList$ | async; as allPlayList) {
         @for (playList of allPlayList; track playList.id) {
           <li
-            class="grid-col fixed"
+            class="grid-col"
             [class]="{ fixed: !isMobile }"
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
@@ -14,7 +14,7 @@
               routerLink="/videos/playlist"
               class="card"
               (click)="setCurrentVideoPlaylistId(playList)"
-              >
+            >
               <div class="card-body">
                 <p class="card-header">
                   {{ playList.snippet.title }}
@@ -30,20 +30,20 @@
                   [src]="playList.snippet.thumbnails.high.url"
                   [alt]="'...'"
                   height="75%"
-                ></app-image>
+                />
               </div>
             </a>
           </li>
         }
       } @else {
-        <li class="grid-col fixed" [class]="{ fixed: !isMobile }">
+        <li class="grid-col" [class]="{ fixed: !isMobile }">
           <div class="card">
             <div class="card-body">
               <p class="card-header">&nbsp;</p>
               <div class="card-description">&nbsp;</div>
             </div>
             <div class="card-image">
-              <app-image src="" height="75%"></app-image>
+              <app-image src="" height="75%" />
             </div>
           </div>
         </li>
