@@ -23,7 +23,7 @@ export class ModalDialogComponent implements OnInit, OnDestroy {
     this.closeModal()
   }
   @Input() title = ''
-  destroy$ = new Subject()
+  #destroy$ = new Subject()
   #document = inject(DOCUMENT)
   #modalS = inject(ModalService)
   #renderer = inject(Renderer2)
@@ -51,8 +51,8 @@ export class ModalDialogComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.resetModal()
-    this.destroy$.next(undefined)
-    this.destroy$.complete()
+    this.#destroy$.next(undefined)
+    this.#destroy$.complete()
   }
 }
 

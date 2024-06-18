@@ -32,19 +32,18 @@ export class HomePage {
   #cookieS = inject(CookieService)
   isMobile = this.#deviceS.isMobile()
   imageSrc = `${environment.hostUrl}/assets/alex-schwarz-2.jpg`
-  lastVideo$ = this.youTubeS.lastVideo$
+  #youTubeS = inject(YoutubeService)
+  lastVideo$ = this.#youTubeS.lastVideo$
   isModalOpen$ = this.#modalS.isOpen$
   modalContent$ = this.#modalS.content$
   modalTriggerEl$ = this.#modalS.triggerEl$
   youtubeCookies = !!this.#cookieS.get('youtubde')
-  constructor(
-    public youTubeS: YoutubeService
-  ) {
+  constructor() {
     if (this.youtubeCookies) {
-      if (!youTubeS.lastVideo$.value) {
-        youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')
+      if (!this.#youTubeS.lastVideo$.value) {
+        this.#youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')
       }
-      afterNextRender(youTubeS.loadFrameApiScript)
+      afterNextRender(this.#youTubeS.loadFrameApiScript)
     }
   }
 
@@ -57,7 +56,7 @@ export class HomePage {
   acceptCookies = () => {
     this.#cookieS.set('youtubde', '1')
     this.youtubeCookies = true
-    this.youTubeS.loadFrameApiScript()
-    this.youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')
+    this.#youTubeS.loadFrameApiScript()
+    this.#youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')
   }
 }
