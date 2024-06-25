@@ -38,9 +38,6 @@
             </ul>
           </div>
         }
-        <pre>
-          {{albumDetails.description | json}}
-        </pre>
         @for (description of albumDetails?.description; track $index) {
           <p>
             {{ description }}
