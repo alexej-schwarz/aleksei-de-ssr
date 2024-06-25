@@ -70,5 +70,6 @@
   &-content {
     height: 100%;
     border-top: var(--border-primary);
+    overflow: auto;
   }
 }

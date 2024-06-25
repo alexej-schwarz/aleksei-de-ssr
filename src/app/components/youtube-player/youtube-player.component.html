@@ -1,8 +1,11 @@
 <div #youtubePlayer class="youtube-player">
   <youtube-player
+    (window:resize)="onResize()"
+    [width]="videoWidth"
+    [height]="videoHeight"
     [videoId]="videoId"
     suggestedQuality="highres"
     disableCookies="true"
     [playerVars]="{ autoplay: autoplay ? 1 : 0 }"
-  ></youtube-player>
+  />
 </div>

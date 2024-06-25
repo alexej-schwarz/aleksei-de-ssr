@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  effect,
   HostListener,
   inject,
   Input,
@@ -28,22 +27,17 @@ export class ModalDialogComponent {
   modalS = inject(ModalService)
   #renderer = inject(Renderer2)
   constructor() {
-    effect(() => {
-      this.modalS.isOpen()
-        ? this.#renderer.addClass(this.#document.body, 'modal-open')
-        : this.resetModal()
-    })
+    if (this.modalS.isOpen()) {
+      this.#renderer.addClass(this.#document.body, 'modal-open')
+    }
   }
 
   closeModal = () => {
-    this.modalS.isOpen.set(false)
-  }
-
-  resetModal = () => {
     this.#renderer.removeClass(this.#document.body, 'modal-open')
     this.modalS.triggerEl()?.focus()
     this.modalS.triggerEl.set(null)
     this.modalS.content.set(null)
+    this.modalS.isOpen.set(false)
   }
 }
 

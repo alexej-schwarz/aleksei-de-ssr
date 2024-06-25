@@ -40,8 +40,8 @@ export class VideoPlaylistPage {
   description = this.#youTubeS.currentVideoPlaylist?.description ?? this.#cookieS.get('videoPlaylistDescription') ?? ''
   openModal = (triggerEl: HTMLElement | null, modalContent: object) => {
     this.modalS.content.set(modalContent)
-    this.modalS.isOpen.set(true)
     this.modalS.triggerEl.set(triggerEl)
+    this.modalS.isOpen.set(true)
   }
 }
 

@@ -1,9 +1,9 @@
-<div class="container" [class]="platformName">
+<div class="grid-container" [class]="platformName">
   <h2>{{ title }}</h2>
   <p>{{ description }}</p>
   <ul class="row">
     @for (video of videoList$ | async; track $index) {
-      <li class="col-12 col-sm-3">
+      <li class="col-12 col-sm-6 col-md-3">
         <button
           type="button"
           (click)="openModal(currentModalTriggerEl, video)"
@@ -35,7 +35,7 @@
         </button>
       </li>
     } @empty {
-      <li class="col-12 col-sm-3">
+      <li class="col-12 col-sm-6 col-md-3">
         <div class="card">
           <div class="card-body">
             <p class="card-header">&nbsp;</p>
