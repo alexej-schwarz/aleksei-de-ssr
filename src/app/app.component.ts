@@ -45,17 +45,18 @@ export class AppComponent implements OnInit, OnDestroy {
   isLandscape = false
   isTitleSmall= false
   platformName = ''
-  ngOnDestroy(){
-    this.#destroy$.next(undefined)
-    this.#destroy$.complete()
-  }
-  ngOnInit() {
+  constructor() {
     this.#initPlatformName().then(() => {
       if (typeof window === 'object') {
         this.setOrientationCSSClass()
       }
     })
-
+  }
+  ngOnDestroy(){
+    this.#destroy$.next(undefined)
+    this.#destroy$.complete()
+  }
+  ngOnInit() {
     this.#router.events
       .pipe(
         takeUntil(this.#destroy$),

@@ -1,5 +1,6 @@
 @import "theme/variables";
 @import "theme/typography";
+@import "theme/grid";
 
 body {
   margin: 0;
@@ -21,6 +22,13 @@ ul {
   margin-bottom: 0;
 }
 
+.page {
+  transition: opacity .3s ease;
+  &.loading {
+    opacity: 0;
+  }
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -33,58 +41,6 @@ ul {
   border-width: 0;
 }
 
-.grid {
-  &-container {
-    width: 100%;
-    max-width: 1140px;
-    padding-left: var(--h-spacer);
-    padding-right: var(--h-spacer);
-    margin-left: auto;
-    margin-right: auto;
-
-    &-fluid {
-      max-width: 100%;
-    }
-  }
-  &-row {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: var(--grid-n-spacer);
-    margin-right: var(--grid-n-spacer);
-    padding-left: 0;
-    padding-right: 0;
-
-    .grid-col {
-      padding-left: var(--grid-spacer);
-      padding-right: var(--grid-spacer);
-    }
-
-    &.float {
-      display: flow-root;
-      margin-left: var(--n-h-spacer);
-      margin-right: var(--n-h-spacer);
-
-      .grid-col {
-        padding-left: var(--h-spacer);
-        padding-right: var(--h-spacer);
-        &.left {
-          float: left;
-          &:after {
-            clear: left;
-          }
-        }
-        &.right {
-          float: left;
-          &:after {
-            clear: left;
-          }
-        }
-      }
-    }
-  }
-}
-
 button {
   cursor: pointer;
 }
@@ -92,7 +48,7 @@ button {
 .link,
 button {
   font-family: var(--font-family-default);
-  font-size: var(--font-size-default);
+  font-size: 100%;
 }
 
 .link {
@@ -169,15 +125,15 @@ a {
     margin-bottom: 0;
   }
 
-  .fixed & {
+  &.horizontal {
     flex-direction: var(--card-fixed-flex-direction);
     padding: var(--card-inner-padding-fixed);
 
-    &-image,
-    &-body {
+    .card-image,
+    .card-body {
       padding: var(--card-content-padding-fixed);
     }
-    &-image {
+    .card-image {
       width: var(--card-image-fixed-width);
     }
   }

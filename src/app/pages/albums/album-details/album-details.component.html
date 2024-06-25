@@ -9,7 +9,7 @@
         <wbr/><span> {{ albumDetails.releaseYear }}&nbsp;г.</span>
       }
     </h2>
-    <div class="grid-row float">
+    <div class="row float">
       <div class="grid-col image left">
         <app-image
           [src]="albumDetails.coverImageSrc"
@@ -38,6 +38,9 @@
             </ul>
           </div>
         }
+        <pre>
+          {{albumDetails.description | json}}
+        </pre>
         @for (description of albumDetails?.description; track $index) {
           <p>
             {{ description }}

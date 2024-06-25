@@ -1,11 +1,7 @@
-.grid-col {
-  width: var(--col-12-width);
+.col,
+[class^=col-] {
   display: flex;
-  &.fixed {
-    width: var(--col-6-width);
-  }
 }
-
 .card-body {
   display: flex;
   flex-direction: column;

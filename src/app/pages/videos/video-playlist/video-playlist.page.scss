@@ -1,9 +1,6 @@
-.grid-col {
-  width: var(--col-3-width);
+.col,
+[class^=col-] {
   display: flex;
-  &.fixed {
-    width: var(--col-12-width);
-  }
 }
 
 button {
@@ -22,7 +19,7 @@ button {
     margin: var(--card-content-padding);
   }
 
-  .fixed & {
+  .horizontal & {
     .overlay {
       margin: var(--card-content-padding-fixed);
     }

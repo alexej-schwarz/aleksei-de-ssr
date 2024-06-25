@@ -1,43 +1,41 @@
-<div class="grid-container" [class]="platformName">
+<div class="container" [class]="platformName">
   <h2>{{ title }}</h2>
   <p>{{ description }}</p>
-  <ul class="grid-row">
-    @if (videoList$ | async; as videoList) {
-      @for (video of videoList; track $index) {
-        <li class="grid-col" [class]="{ fixed: isMobile}">
-          <button
-            type="button"
-            (click)="openModal(currentModalTriggerEl, video)"
-            aria-haspopup="dialog"
-            aria-controls="video-modal"
-            #currentModalTriggerEl
-            [attr.aria-expanded]="(isModalOpen$ | async) && ((modalTriggerEl$ | async) === currentModalTriggerEl)"
-            class="card"
-          >
-            <div class="card-body">
-              <p class="card-header">
-                <span class="sr-only">начать просмотр</span>{{ video.snippet.title }}
-              </p>
-              @if (video.snippet.description) {
-                <div class="card-description">
-                  {{ video.snippet.description | truncate: 56 }}
-                </div>
-              }
-            </div>
-            <div class="card-image" aria-hidden="true">
-              <app-image
-                [src]="video.snippet.thumbnails.high.url"
-                [alt]="video.snippet.title"
-                height="75%"
-              />
-              <div class="overlay"></div>
-              <div class="play-icon"></div>
-            </div>
-          </button>
-        </li>
-      }
-    } @else {
-      <li class="grid-col" [class]="{ fixed: isMobile}">
+  <ul class="row">
+    @for (video of videoList$ | async; track $index) {
+      <li class="col-12 col-sm-3">
+        <button
+          type="button"
+          (click)="openModal(currentModalTriggerEl, video)"
+          aria-haspopup="dialog"
+          aria-controls="video-modal"
+          #currentModalTriggerEl
+          [attr.aria-expanded]="modalS.isOpen() && (modalS.triggerEl() === currentModalTriggerEl)"
+          class="card"
+        >
+          <div class="card-body">
+            <p class="card-header">
+              <span class="sr-only">начать просмотр</span>{{ video.snippet.title }}
+            </p>
+            @if (video.snippet.description) {
+              <div class="card-description">
+                {{ video.snippet.description | truncate: 56 }}
+              </div>
+            }
+          </div>
+          <div class="card-image" aria-hidden="true">
+            <app-image
+              [src]="video.snippet.thumbnails.high.url"
+              [alt]="video.snippet.title"
+              height="75%"
+            />
+            <div class="overlay"></div>
+            <div class="play-icon"></div>
+          </div>
+        </button>
+      </li>
+    } @empty {
+      <li class="col-12 col-sm-3">
         <div class="card">
           <div class="card-body">
             <p class="card-header">&nbsp;</p>
@@ -51,8 +49,7 @@
     }
   </ul>
 
-
-  @if (modalContent$ | async; as modalContent) {
+  @if (modalS.content(); as modalContent) {
     <app-modal-dialog
       id="video-modal"
       [title]="modalContent?.snippet.title ?? ''"

@@ -9,7 +9,6 @@ import { ImageComponent } from '../../../components/image/image.component'
 import { TruncatePipe } from '../../../pipes/truncate.pipe'
 import { ModalService } from '../../../services/modal.service'
 import { ModalDialogComponent } from '../../../components/modal-dialog/modal-dialog.component'
-import { DeviceDetectorService } from 'ngx-device-detector'
 import { YouTubePlayerComponent } from '../../../components/youtube-player/youtube-player.component'
 import { CookieService } from 'ngx-cookie-service'
 
@@ -30,25 +29,19 @@ import { CookieService } from 'ngx-cookie-service'
 
 export class VideoPlaylistPage {
   #cookieS = inject(CookieService)
-  #deviceS = inject(DeviceDetectorService)
   #youTubeS = inject(YoutubeService)
-  #modalS = inject(ModalService)
-  isMobile = this.#deviceS.isMobile()
+  modalS = inject(ModalService)
   platformName = ''
   videoList$ = this.#youTubeS.getPlaylistVideosForChannel(
-    'UCvhVy-B6NypHeAFjYK2EmvA',
     this.#cookieS.get('videoPlaylistId') ?? '',
     100
   )
   title = this.#youTubeS.currentVideoPlaylist?.title ?? this.#cookieS.get('videoPlaylistTitle' ?? '')
-  description = this.#youTubeS.currentVideoPlaylist?.description ??  this.#cookieS.get('videoPlaylistDescription') ?? ''
-  isModalOpen$ = this.#modalS.isOpen$
-  modalTriggerEl$ = this.#modalS.triggerEl$
-  modalContent$ = this.#modalS.content$
+  description = this.#youTubeS.currentVideoPlaylist?.description ?? this.#cookieS.get('videoPlaylistDescription') ?? ''
   openModal = (triggerEl: HTMLElement | null, modalContent: object) => {
-    this.#modalS.content$.next(modalContent)
-    this.#modalS.isOpen$.next(true)
-    this.#modalS.triggerEl$.next(triggerEl)
+    this.modalS.content.set(modalContent)
+    this.modalS.isOpen.set(true)
+    this.modalS.triggerEl.set(triggerEl)
   }
 }
 

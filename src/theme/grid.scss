@@ -1,0 +1,124 @@
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+.row {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+  margin-left: calc(-.5 * $container-padding-x);
+  margin-right: calc(-.5 * $container-padding-x);
+
+  &.float {
+    display: flow-root;
+    margin-left: var(--n-h-spacer);
+    margin-right: var(--n-h-spacer);
+    .grid-col {
+      padding-left: var(--h-spacer);
+      padding-right: var(--h-spacer);
+      &.left {
+        float: left;
+        &:after {
+          clear: left;
+        }
+      }
+      &.right {
+        float: left;
+        &:after {
+          clear: left;
+        }
+      }
+    }
+  }
+}
+
+.grid {
+  &-container {
+    width: 100%;
+    max-width: 1140px;
+    padding-left: var(--h-spacer);
+    padding-right: var(--h-spacer);
+    margin-left: auto;
+    margin-right: auto;
+
+    &-fluid {
+      max-width: 100%;
+    }
+  }
+  &-row {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: var(--grid-n-spacer);
+    margin-right: var(--grid-n-spacer);
+    padding-left: 0;
+    padding-right: 0;
+
+    .grid-col {
+      padding-left: var(--grid-spacer);
+      padding-right: var(--grid-spacer);
+    }
+
+    &.float {
+      display: flow-root;
+      margin-left: var(--n-h-spacer);
+      margin-right: var(--n-h-spacer);
+
+      .grid-col {
+        padding-left: var(--h-spacer);
+        padding-right: var(--h-spacer);
+        &.left {
+          float: left;
+          &:after {
+            clear: left;
+          }
+        }
+        &.right {
+          float: left;
+          &:after {
+            clear: left;
+          }
+        }
+      }
+    }
+  }
+
+  &-col {
+    &.w-1 {
+      width: 8.33%;
+    }
+    &.w-2 {
+      width: 16.66%;
+    }
+    &.w-3 {
+      width: 25%;
+    }
+    &.w-4 {
+      width: 33.33%;
+    }
+    &.w-5 {
+      width: 41.66%;
+    }
+    &.w-6 {
+      width: 50%;
+    }
+    &.w-7 {
+      width: 58.33%;
+    }
+    &.w-8 {
+      width: 66.66%;
+    }
+    &.w-9 {
+      width: 75%;
+    }
+    &.w-10 {
+      width: 83.33%;
+    }
+    &.w-11 {
+      width: 91.66%;
+    }
+    &.w-12 {
+      width: 100%;
+    }
+  }
+}

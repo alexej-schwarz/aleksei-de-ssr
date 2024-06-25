@@ -3,11 +3,11 @@
   @if (albumList(); as albumAll) {
     @for (albumGroup of albumAll; track $index) {
       <h3>{{ albumGroup.title }}</h3>
-      @if (albumGroup.list(); as albumGroupList) {
-        <ul class="grid-row">
-          @for (album of albumGroupList; track album.id) {
+      <ul class="row">
+        @if (albumGroup.list?.[0]?.id) {
+          @for (album of albumGroup.list; track album.id) {
             <li
-              class="grid-col"
+              class="col-12 col-sm-3"
               [class]="{ fixed: album.fixed || !album.id }"
               routerLinkActive="active"
               ariaCurrentWhenActive="page"
@@ -36,8 +36,25 @@
               </a>
             </li>
           }
-        </ul>
-      }
+        } @else {
+          <li class="col-12 col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <p class="card-header">
+                  <span class="author">&nbsp;</span>&nbsp;
+                  <span class="year">&nbsp;</span>
+                </p>
+                <div class="card-description">
+                  <span class="title">&nbsp;</span>
+                </div>
+              </div>
+              <div class="card-image">
+                <app-image />
+              </div>
+            </div>
+          </li>
+        }
+      </ul>
     }
   }
 </div>

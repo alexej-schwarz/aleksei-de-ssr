@@ -1,13 +1,16 @@
-import { inject, Injectable } from '@angular/core'
+import { inject, Injectable, signal } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators'
 import { BehaviorSubject, take, tap } from 'rxjs'
 import { environment } from '../../environments/environment'
+import { CookieService } from 'ngx-cookie-service'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class YoutubeService {
+  #youTubeChannel = 'UCvhVy-B6NypHeAFjYK2EmvA'
   #apiKey = environment.youTubeApiKey
   #apiUrl = 'https://www.googleapis.com/youtube/v3'
   #iframeApiUrl = 'https://www.youtube.com/iframe_api'
@@ -16,6 +19,8 @@ export class YoutubeService {
   allVideoPlaylist$: BehaviorSubject<any> = new BehaviorSubject(null)
   lastVideo$: BehaviorSubject<any> = new BehaviorSubject(null)
   http = inject(HttpClient)
+  #cookieS = inject(CookieService)
+  cookie = signal(!!this.#cookieS.get('youtube'))
 
   loadFrameApiScript = (): void => {
     if (!this.#isFrameApiScriptLoaded && typeof document !== 'undefined') {
@@ -26,8 +31,8 @@ export class YoutubeService {
     }
   }
 
-  fetchLastVideo = (channel: string) => {
-    const url = `${this.#apiUrl}/search?key=${this.#apiKey}&channelId=${channel}&order=date&part=snippet&type=video,id&maxResults=1&order=date`
+  fetchLastVideo = () => {
+    const url = `${this.#apiUrl}/search?key=${this.#apiKey}&channelId=${this.#youTubeChannel}&order=date&part=snippet&type=video,id&maxResults=1&order=date`
     this.http.get(url).pipe(
       take(1),
       tap((res: any) => {
@@ -36,14 +41,14 @@ export class YoutubeService {
     ).subscribe()
   }
 
-  getPlaylistVideosForChannel = (channel: string, playlistId: string, maxResults: string | number) => {
-    const url = `${this.#apiUrl}/playlistItems?key=${this.#apiKey}&channelId=${channel}&playlistId=${playlistId}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
+  getPlaylistVideosForChannel = (playlistId: string, maxResults: string | number) => {
+    const url = `${this.#apiUrl}/playlistItems?key=${this.#apiKey}&channelId=${this.#youTubeChannel}&playlistId=${playlistId}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
     return playlistId ? this.http.get(url).pipe(map((res: any) => res.items)) : null
   }
 
-  fetchAllPlaylistForChannel = (channel: string, maxResults: string | number) => {
+  fetchAllPlaylistForChannel = (maxResults: string | number) => {
     const url = `
-    ${this.#apiUrl}/playlists?key=${this.#apiKey}&channelId=${channel}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
+    ${this.#apiUrl}/playlists?key=${this.#apiKey}&channelId=${this.#youTubeChannel}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
     this.http.get(url).pipe(
       take(1),
       tap((res: any) => {

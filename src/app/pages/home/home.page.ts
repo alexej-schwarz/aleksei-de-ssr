@@ -11,8 +11,7 @@ import { YoutubeService } from '../../services/youtube.service'
 import { ModalService } from '../../services/modal.service'
 import { ModalDialogComponent } from '../../components/modal-dialog/modal-dialog.component'
 import { YouTubePlayerComponent } from '../../components/youtube-player/youtube-player.component'
-import { CookieService } from 'ngx-cookie-service'
-import { DeviceDetectorService } from 'ngx-device-detector'
+import { CookieComponent } from '../../components/cookie/cookie.component'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -23,40 +22,28 @@ import { DeviceDetectorService } from 'ngx-device-detector'
     ImageComponent,
     ModalDialogComponent,
     YouTubePlayerComponent,
-    AsyncPipe
-  ],
+    AsyncPipe,
+    CookieComponent
+  ]
 })
 export class HomePage {
-  #deviceS = inject(DeviceDetectorService)
-  #modalS = inject(ModalService)
-  #cookieS = inject(CookieService)
-  isMobile = this.#deviceS.isMobile()
+  modalS = inject(ModalService)
   imageSrc = `${environment.hostUrl}/assets/alex-schwarz-2.jpg`
-  #youTubeS = inject(YoutubeService)
-  lastVideo$ = this.#youTubeS.lastVideo$
-  isModalOpen$ = this.#modalS.isOpen$
-  modalContent$ = this.#modalS.content$
-  modalTriggerEl$ = this.#modalS.triggerEl$
-  youtubeCookies = !!this.#cookieS.get('youtubde')
-  constructor() {
-    if (this.youtubeCookies) {
-      if (!this.#youTubeS.lastVideo$.value) {
-        this.#youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')
+  lastVideo$ = this.youTubeS.lastVideo$
+  constructor(
+    public youTubeS: YoutubeService
+  ) {
+    if (this.youTubeS.cookie()) {
+      if (!this.youTubeS.lastVideo$.value) {
+        this.youTubeS.fetchLastVideo()
       }
-      afterNextRender(this.#youTubeS.loadFrameApiScript)
+      afterNextRender(this.youTubeS.loadFrameApiScript)
     }
   }
 
   openModal = (triggerEl: HTMLElement | null, modalContent: object) => {
-    this.#modalS.content$.next(modalContent)
-    this.#modalS.isOpen$.next(true)
-    this.#modalS.triggerEl$.next(triggerEl)
-  }
-
-  acceptCookies = () => {
-    this.#cookieS.set('youtubde', '1')
-    this.youtubeCookies = true
-    this.#youTubeS.loadFrameApiScript()
-    this.#youTubeS.fetchLastVideo('UCvhVy-B6NypHeAFjYK2EmvA')
+    this.modalS.content.set(modalContent)
+    this.modalS.isOpen.set(true)
+    this.modalS.triggerEl.set(triggerEl)
   }
 }

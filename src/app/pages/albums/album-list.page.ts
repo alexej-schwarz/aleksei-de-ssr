@@ -33,7 +33,7 @@ export class AlbumListPage {
   #albumListOther = toSignal(this.#albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2))
 
   albumList = computed(() => [
-    { title: 'Сольные альбомы', list: this.#albumListSchwarz },
-    { title: 'Aльбомы с моим участием', list: this.#albumListOther }
+    { title: 'Сольные альбомы', list: this.#albumListSchwarz() },
+    { title: 'Aльбомы с моим участием', list: this.#albumListOther() }
   ])
 }

@@ -1,6 +1,7 @@
 :root {
   --line-height-default: 1.4;
   --font-size-default: 1rem;
+  --font-size-small: .9rem;
 
   --v-spacer: 24px;
   --n-v-spacer: calc(-1 * var(--v-spacer));
@@ -72,6 +73,7 @@
 
   .mobile {
     --font-size-default: 1.2rem;
+    --font-size-small: 1.1rem;
 
     --v-spacer: 12px;
     --n-v-spacer: calc(-1 * var(--v-spacer));

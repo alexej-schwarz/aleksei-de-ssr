@@ -1,6 +1,6 @@
-<div class="grid-container">
-  <div class="grid-row">
-    <div class="grid-col">
+<div class="container">
+  <div class="row">
+    <div class="col">
       <h2>музыкант, композитор, автор песен, звукоинженер</h2>
       <ul>
         <li>сооснователь тверской групы <strong>Кассовый аппарат</strong></li>
@@ -11,31 +11,26 @@
       </ul>
     </div>
 
-    <div class="grid-col image" [class]="{ fixed: isMobile }">
-      <app-image
-        [src]="imageSrc"
-        alt="Алексей Шварц"
-        height="104%"
-      />
+    <div class="col-12 col-sm-4 order-first order-sm-last">
+      <app-image [src]="imageSrc" alt="Алексей Шварц" height="104%" />
     </div>
   </div>
 
-
-  @if (youtubeCookies) {
+  @if (youTubeS.cookie()) {
     @if (lastVideo$ | async; as lastVideo) {
       @if (lastVideo?.length && lastVideo[0]) {
         @if (lastVideo[0]; as video) {
           <hr />
           <h2>Новое видео</h2>
-          <div class="grid-row">
-            <div class="grid-col image" [class]="{ fixed: isMobile }">
+          <div class="row">
+            <div class="col-12 col-md-4">
               <button
                 type="button"
                 (click)="openModal(currentModalTriggerEl, video)"
                 aria-haspopup="dialog"
                 aria-controls="video-modal"
                 #currentModalTriggerEl
-                [attr.aria-expanded]="(isModalOpen$ | async) && ((modalTriggerEl$ | async) === currentModalTriggerEl)"
+                [attr.aria-expanded]="modalS.isOpen() && (modalS.triggerEl() === currentModalTriggerEl)"
                 class="card"
               >
                 <div class="card-image">
@@ -47,12 +42,12 @@
                 </div>
               </button>
             </div>
-            <div class="grid-col">
+            <div class="col">
               <p><strong>{{ video.snippet.title }}</strong></p>
               <p>{{ video.snippet.description }}</p>
             </div>
           </div>
-          @if (modalContent$ | async; as modalContent) {
+          @if (modalS.content(); as modalContent) {
             <app-modal-dialog
               id="video-modal"
               [title]="modalContent.snippet.title ?? ''"
@@ -68,12 +63,6 @@
     }
   } @else {
     <hr />
-    <p>
-      Для просмотра видео с моего канала на Youtube <button
-        type="button"
-        (click)="acceptCookies()"
-        class="link"
-      >примите все файлы cookie</button>.
-    </p>
+    <app-cookie />
   }
   </div>

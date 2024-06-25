@@ -10,12 +10,12 @@ import {
   standalone: true
 })
 export class AutoFocusDirective implements OnInit {
-  #el = inject(ElementRef)
+  #elementRef = inject(ElementRef)
   async ngOnInit () {
-    if (!this.#el.nativeElement['focus']) {
+    if (!this.#elementRef.nativeElement['focus']) {
       throw new Error('Element does not accept focus.')
     }
-    const element: HTMLInputElement = this.#el.nativeElement as HTMLInputElement
+    const element: HTMLInputElement = this.#elementRef.nativeElement as HTMLInputElement
     element.focus()
   }
 }

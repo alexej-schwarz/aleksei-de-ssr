@@ -1,8 +1,9 @@
-import { AsyncPipe } from '@angular/common'
+import { AsyncPipe, JsonPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
   Component,
+  effect,
   inject
 } from '@angular/core'
 import { RouterLinkActive, RouterLink } from '@angular/router'
@@ -13,6 +14,7 @@ import LOCALE_RU from '@angular/common/locales/ru'
 import { registerLocaleData } from '@angular/common'
 import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
+import { CookieComponent } from '../../components/cookie/cookie.component'
 
 @Component({
   selector: 'app-video-list',
@@ -26,35 +28,33 @@ import { DeviceDetectorService } from 'ngx-device-detector'
     RouterLink,
     ImageComponent,
     AsyncPipe,
-    TruncatePipe
+    TruncatePipe,
+    CookieComponent,
+    JsonPipe
   ]
 })
 export class VideoListPage {
   #deviceS = inject(DeviceDetectorService)
   #cookieS = inject(CookieService)
-  #youTubeS = inject(YoutubeService)
   isMobile = this.#deviceS.isMobile()
-  youtubeCookies = !!this.#cookieS.get('youtubde')
-  allPlayList$ = this.#youTubeS.allVideoPlaylist$
-  constructor() {
-    registerLocaleData(LOCALE_RU)
-    if (this.youtubeCookies) {
-      if (!this.#youTubeS.allVideoPlaylist$.value) {
-        this.#youTubeS.fetchAllPlaylistForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
-      }
-      afterNextRender(this.#youTubeS.loadFrameApiScript)
-    }
-  }
+  isTablet = this.#deviceS.isTablet()
 
-  acceptCookies = () => {
-    this.#cookieS.set('youtubde', '1')
-    this.youtubeCookies = true
-    this.#youTubeS.fetchAllPlaylistForChannel('UCvhVy-B6NypHeAFjYK2EmvA', 100)
-    this.#youTubeS.loadFrameApiScript()
+  constructor(
+    public youTubeS: YoutubeService
+  ) {
+    registerLocaleData(LOCALE_RU)
+    if (this.youTubeS.cookie()) {
+      afterNextRender(this.youTubeS.loadFrameApiScript)
+    }
+    effect(() => {
+      if (this.youTubeS.cookie() && !this.youTubeS.allVideoPlaylist$.value) {
+        this.youTubeS.fetchAllPlaylistForChannel(100)
+      }
+    })
   }
 
   setCurrentVideoPlaylistId = (playlist: any) => {
-    this.#youTubeS.currentVideoPlaylist = {
+    this.youTubeS.currentVideoPlaylist = {
       id: playlist.id,
       title: playlist.snippet.title,
       description: playlist.snippet.description,

@@ -1,12 +1,8 @@
-.grid-col {
-  width: var(--col-8-width);
-  &.image {
-    width: var(--col-4-width);
-    --card-image-fixed-width: 100%;
-  }
-  &.fixed {
-    order: -1;
-  }
+.card-image {
+  width: 100%;
+}
+.first {
+  order: -1
 }
 hr {
   margin-top: var(--h-spacer);

@@ -1,4 +1,4 @@
-@if (isOpen$ | async) {
+@if (modalS.isOpen()) {
   <div class="overlay-backdrop" (click)="closeModal()" tabindex="0"></div>
   <div class="modal-dialog" role="dialog">
     <div class="modal-dialog-header">
