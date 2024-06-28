@@ -41,10 +41,8 @@
         </div>
       }
 
-      @for (description of albumDetails.description; track $index) {
-        <p>
-          {{ description }}
-        </p>
+      @for (annotation of albumDetails.annotations; track $index) {
+        <p>{{ annotation }}</p>
       }
 
       @if (albumDetails?.tracks) {

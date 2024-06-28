@@ -35,8 +35,12 @@ export class AlbumDetailsComponent {
         this.#albumS.getAlbumDescriptionById(id)
       ])
     }),
-    map(([album, tracks, description]) => (
-      { ...album, tracks, description: [], ...description })
+    map(([album, tracks, descriptions]) => ({
+        ...album,
+        tracks,
+        descriptions: [],
+        ...descriptions
+      })
     )
   )
 }

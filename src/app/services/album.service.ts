@@ -37,8 +37,8 @@ export class AlbumService {
   }
   getAlbumDescriptionById = (albumId: string) => {
     const description$: Subject<AlbumDescription | undefined> = new Subject()
-    import('../data/audio/album-description').then(descriptions => {
-      description$.next(this.#findEntryById(descriptions, albumId))
+    import('../data/audio/album-description').then(albumDescription => {
+      description$.next(this.#findEntryById(albumDescription, albumId))
     })
     return description$
   }
@@ -53,7 +53,7 @@ export class AlbumService {
           tap(description => {
             const albumWithDescription = {
               ...album,
-              description: description?.description
+              annotations: description?.annotations
             }
             if (albumList$.value[0].id) {
               albumList$.next([ ...albumList$.value, albumWithDescription ])

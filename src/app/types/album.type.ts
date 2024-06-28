@@ -1,7 +1,7 @@
 export type Album = {
     author: string,
     teaser?: string,
-    description?: string[],
+    annotations?: string[],
     fixed?: boolean,
     id: string,
     coverImageSrc: string,
@@ -33,6 +33,6 @@ export type Member = {
 }
 
 export type AlbumDescription = {
-    description?: string[],
+    annotations?: string[],
     members?: Member[]
 }
