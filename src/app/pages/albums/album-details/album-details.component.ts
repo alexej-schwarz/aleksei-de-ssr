@@ -38,7 +38,6 @@ export class AlbumDetailsComponent {
     map(([album, tracks, descriptions]) => ({
         ...album,
         tracks,
-        descriptions: [],
         ...descriptions
       })
     )

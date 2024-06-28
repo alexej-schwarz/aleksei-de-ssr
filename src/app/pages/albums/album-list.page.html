@@ -25,7 +25,7 @@
                 <div class="card-description">
                   <span class="title">{{ album.title }}</span>
                   @if (album.fixed) {
-                    <span>{{ album.description?.[0] | truncate: 440 }}</span>
+                    <span>{{ album.annotations?.[0] | truncate: 440 }}</span>
                   }
                 </div>
               </div>
