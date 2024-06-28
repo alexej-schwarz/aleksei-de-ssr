@@ -11,6 +11,7 @@ import { ImageComponent } from '../../components/image/image.component'
 import { TruncatePipe } from '../../pipes/truncate.pipe'
 import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../data/audio/album'
 import { toSignal } from '@angular/core/rxjs-interop'
+import { DeviceDetectorService } from 'ngx-device-detector'
 
 @Component({
   selector: 'app-album-all',
@@ -28,6 +29,8 @@ import { toSignal } from '@angular/core/rxjs-interop'
   ]
 })
 export class AlbumListPage {
+  #deviceS = inject(DeviceDetectorService)
+  isMobile = this.#deviceS.isMobile()
   #albumS = inject(AlbumService)
   #albumListSchwarz = toSignal(this.#albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1))
   #albumListOther = toSignal(this.#albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2))

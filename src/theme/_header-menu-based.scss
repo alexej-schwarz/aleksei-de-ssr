@@ -5,7 +5,7 @@ header {
     font-weight: bold;
     color: var(--color-header);
     will-change: color;
-    transition: color var(--nav-menu-items-transition);
+    transition: color var(--transition-default);
   }
 
   a {
@@ -31,7 +31,7 @@ header {
     border: 2px solid transparent;
     border-radius: 50%;
     will-change: background-color;
-    transition: background-color var(--nav-menu-items-transition);
+    transition: background-color var(--transition-default);
     &:focus,
     &:hover {
       background-color: var(--lightgrey);

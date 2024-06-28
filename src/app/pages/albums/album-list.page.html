@@ -10,7 +10,11 @@
             routerLinkActive="active"
             ariaCurrentWhenActive="page"
           >
-            <a routerLink="/albums/{{ album.id }}" class="card">
+            <a
+              routerLink="/albums/{{ album.id }}"
+              class="card"
+              [class.horizontal]="isMobile"
+            >
               <div class="card-body">
                 <p class="card-header">
                   <span class="author">{{ album.author }}</span>&nbsp;
@@ -25,7 +29,7 @@
                   }
                 </div>
               </div>
-              <div class="card-image">
+              <div class="card-image" [class.w-40]="isMobile">
                 <app-image
                   [src]="album.coverImageSrc"
                   [alt]="'обложка альбома «' + album.title + '»'"

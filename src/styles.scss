@@ -1,6 +1,7 @@
+@import "theme/bootstrap";
 @import "theme/variables";
-@import "theme/typography";
 @import "theme/grid";
+@import "theme/typography";
 
 body {
   margin: 0;
@@ -20,13 +21,6 @@ body {
 ul {
   margin-top: 0;
   margin-bottom: 0;
-}
-
-.page {
-  transition: opacity .3s ease;
-  &.loading {
-    opacity: 0;
-  }
 }
 
 .sr-only {
@@ -77,68 +71,6 @@ h1, h2, h3, h4, h5, h6,
   color: var(--darkgray);
 }
 
-button,
-a {
-  &.card {
-    will-change: box-shadow, transform;
-    transition: 'box-shadow' var(--card-transition), 'transform' var(--card-transition);
-    box-shadow: var(--box-shadow);
-
-    &:hover,
-    &:focus {
-      transform: scale(99%);
-      box-shadow: var(--box-shadow-hover);
-    }
-  }
-}
-
-.card {
-  display: flex;
-  flex-direction: var(--card-flex-direction);
-  justify-content: flex-end;
-  width: 100%;
-  padding: var(--card-inner-padding);
-  margin: var(--grid-spacer) 0;
-  border: var(--border-primary);
-  background-color: var(--background-color-card);
-  border-radius: var(--border-radius-default);
-  text-decoration: none;
-  color: var(--text-color-primary);
-  text-align: start;
-
-  &-header {
-    font-weight: bold;
-    font-size: var(--card-text-small);
-  }
-
-  &-image,
-  &-body {
-    padding: var(--card-content-padding);
-  }
-
-  &-image {
-    width: var(--card-image-width);
-    flex-shrink: 0;
-    position: relative;
-  }
-  &-body p {
-    margin-bottom: 0;
-  }
-
-  &.horizontal {
-    flex-direction: var(--card-fixed-flex-direction);
-    padding: var(--card-inner-padding-fixed);
-
-    .card-image,
-    .card-body {
-      padding: var(--card-content-padding-fixed);
-    }
-    .card-image {
-      width: var(--card-image-fixed-width);
-    }
-  }
-}
-
 .outline {
   *:focus {
     border-radius: var(--border-radius-default);
@@ -147,3 +79,4 @@ a {
 }
 
 @import "theme/header-menu-based";
+@import "theme/card";

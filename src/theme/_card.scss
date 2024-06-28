@@ -1,0 +1,105 @@
+button,
+a {
+  &.card {
+    will-change: box-shadow, transform;
+    transition: 'box-shadow' var(--transition-default), 'transform' var(--transition-default);
+    box-shadow: var(--box-shadow);
+
+    &:hover,
+    &:focus {
+      transform: scale(99%);
+      box-shadow: var(--box-shadow-hover);
+    }
+  }
+}
+
+button.card {
+  align-items: flex-start;
+  .overlay,
+  .play-icon {
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity var(--transition-default);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0 var(--grid-spacer);
+    background-color: var(--darkgray);
+  }
+
+  .play-icon {
+    color: var(--lightgrey);
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &:after {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      width: 0;
+      height: 1.4rem;
+      border-top: .8rem solid transparent;
+      border-bottom: .8rem solid transparent;
+      border-left: 1rem solid;
+      top: 50%;
+      left: 55%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &:focus,
+  &:hover {
+    .overlay {
+      opacity: .8;
+    }
+    .play-icon {
+      opacity: 1;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  width: 100%;
+  padding: var(--grid-spacer) 0;
+  margin: var(--grid-spacer) 0;
+  border: var(--border-primary);
+  background-color: var(--background-color-card);
+  border-radius: var(--border-radius-default);
+  text-decoration: none;
+  color: var(--text-color-primary);
+  text-align: start;
+
+  &-header {
+    font-weight: bold;
+    font-size: var(--card-text-small);
+  }
+
+  &-image,
+  &-body {
+    padding: 0 var(--grid-spacer);
+  }
+
+  &-image {
+    flex-shrink: 0;
+    position: relative;
+  }
+  &-body p {
+    margin-bottom: 0;
+  }
+
+  &.horizontal {
+    flex-direction: row-reverse;
+  }
+}

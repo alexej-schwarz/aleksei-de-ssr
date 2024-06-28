@@ -11,8 +11,7 @@
           <a
             routerLink="/videos/playlist"
             (click)="setCurrentVideoPlaylistId(playList)"
-            class="card"
-            [class.horizontal]="!(isTablet || isMobile)"
+            class="card horizontal"
           >
             <div class="card-body">
               <p class="card-header">
@@ -24,7 +23,7 @@
                 </div>
               }
             </div>
-            <div class="card-image">
+            <div class="card-image w-40">
               <app-image
                 [src]="playList.snippet.thumbnails.high.url"
                 [alt]="'...'"

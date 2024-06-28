@@ -1,0 +1,16 @@
+@import "../../node_modules/bootstrap/scss/bootstrap-grid";
+$utilities: (
+  "width": (
+    property: width,
+    class: w,
+    values: (
+      25: 25%,
+      40: 40%,
+      60: 40%,
+      75: 75%,
+      100: 100%,
+      auto: auto
+    )
+  )
+);
+@import "../../node_modules/bootstrap/scss/utilities/api";

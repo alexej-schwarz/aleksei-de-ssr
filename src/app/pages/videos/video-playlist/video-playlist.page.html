@@ -12,6 +12,7 @@
           #currentModalTriggerEl
           [attr.aria-expanded]="modalS.isOpen() && (modalS.triggerEl() === currentModalTriggerEl)"
           class="card"
+          [class.horizontal]="isMobile"
         >
           <div class="card-body">
             <p class="card-header">
@@ -23,7 +24,12 @@
               </div>
             }
           </div>
-          <div class="card-image" aria-hidden="true">
+          <div
+            class="card-image"
+            [class.w-100]="!isMobile"
+            [class.w-40]="isMobile"
+            aria-hidden="true"
+          >
             <app-image
               [src]="video.snippet.thumbnails.high.url"
               [alt]="video.snippet.title"

@@ -3,67 +3,6 @@
   display: flex;
 }
 
-button {
-  align-items: flex-start;
-  .overlay,
-  .play-icon {
-    opacity: 0;
-    will-change: opacity;
-    transition: opacity 200ms ease;
-  }
-
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background-color: var(--darkgray);
-    margin: var(--card-content-padding);
-  }
-
-  .horizontal & {
-    .overlay {
-      margin: var(--card-content-padding-fixed);
-    }
-  }
-
-  .play-icon {
-    color: var(--lightgrey);
-    box-sizing: border-box;
-    position: absolute;
-    display: block;
-    width: 3rem;
-    height: 3rem;
-    border: 4px solid;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    &:after {
-      content: "";
-      display: block;
-      box-sizing: border-box;
-      position: absolute;
-      width: 0;
-      height: 1.4rem;
-      border-top: .8rem solid transparent;
-      border-bottom: .8rem solid transparent;
-      border-left: 1rem solid;
-      top: 50%;
-      left: 55%;
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  &:focus,
-  &:hover {
-    .overlay {
-      opacity: .8;
-    }
-    .play-icon {
-      opacity: 1;
-    }
-  }
-}
-
 app-youtube-player {
   width: auto;
 }

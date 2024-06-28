@@ -1,4 +1,4 @@
-import { AsyncPipe, JsonPipe } from '@angular/common'
+import { AsyncPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
@@ -29,8 +29,7 @@ import { CookieComponent } from '../../components/cookie/cookie.component'
     ImageComponent,
     AsyncPipe,
     TruncatePipe,
-    CookieComponent,
-    JsonPipe
+    CookieComponent
   ]
 })
 export class VideoListPage {

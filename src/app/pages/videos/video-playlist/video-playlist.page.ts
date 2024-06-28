@@ -11,6 +11,7 @@ import { ModalService } from '../../../services/modal.service'
 import { ModalDialogComponent } from '../../../components/modal-dialog/modal-dialog.component'
 import { YouTubePlayerComponent } from '../../../components/youtube-player/youtube-player.component'
 import { CookieService } from 'ngx-cookie-service'
+import { DeviceDetectorService } from 'ngx-device-detector'
 
 @Component({
   selector: 'app-video-playlist',
@@ -28,6 +29,8 @@ import { CookieService } from 'ngx-cookie-service'
 })
 
 export class VideoPlaylistPage {
+  #deviceS = inject(DeviceDetectorService)
+  isMobile = this.#deviceS.isMobile()
   #cookieS = inject(CookieService)
   #youTubeS = inject(YoutubeService)
   modalS = inject(ModalService)

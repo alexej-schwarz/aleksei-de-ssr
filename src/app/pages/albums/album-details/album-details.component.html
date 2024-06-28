@@ -9,15 +9,16 @@
         <wbr/><span> {{ albumDetails.releaseYear }}&nbsp;г.</span>
       }
     </h2>
-    <div class="row float">
-      <div class="grid-col image left">
-        <app-image
-          [src]="albumDetails.coverImageSrc"
-          [alt]="'обложка альбома «' + albumDetails.title + '»'"
-        />
-      </div>
-      <div class="grid-col">
-        @if (albumDetails.members?.length) {
+
+    <div class="grid-float">
+      <app-image
+        [src]="albumDetails.coverImageSrc"
+        [alt]="'обложка альбома «' + albumDetails.title + '»'"
+        class="left"
+      />
+
+      @if (albumDetails.members) {
+        <div>
           <p>Участники:</p>
           <div class="members-wrapper">
             <ul>
@@ -37,26 +38,28 @@
               }
             </ul>
           </div>
-        }
-        @for (description of albumDetails?.description; track $index) {
-          <p>
-            {{ description }}
-          </p>
-        }
-      </div>
+        </div>
+      }
+
+      @for (description of albumDetails.description; track $index) {
+        <p>
+          {{ description }}
+        </p>
+      }
+
       @if (albumDetails?.tracks) {
-        <ol class="grid-col tracks">
-          @for (track of (albumDetails.tracks); track $index) {
+        <ol class="tracks">
+          @for (song of (albumDetails.tracks); track $index) {
             <li>
-              <h3>{{ track.title }}</h3>
-              @if (track.url) {
-                <app-audio [src]="track.url" />
+              <h3>{{ song.title }}</h3>
+              @if (song.url) {
+                <app-audio [src]="song.url" />
               }
-              @if (track.author) {
+              @if (song.author) {
                 <app-author
-                  [author]="track.author"
-                  [class]="{ 'top-line': !track.url }"
-                ></app-author>
+                  [author]="song.author"
+                  [class]="{ 'top-line': !song.url }"
+                />
               }
             </li>
           }

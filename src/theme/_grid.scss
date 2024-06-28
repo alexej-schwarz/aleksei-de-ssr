@@ -1,0 +1,23 @@
+ul, ol {
+  &.row {
+    list-style: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+    margin-left: calc(-.5 * $container-padding-x);
+    margin-right: calc(-.5 * $container-padding-x);
+  }
+}
+
+.grid {
+  &-container {
+    width: 100%;
+    max-width: 1140px;
+    padding-left: var(--h-spacer);
+    padding-right: var(--h-spacer);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
