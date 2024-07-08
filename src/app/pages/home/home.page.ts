@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common'
+import { AsyncPipe, JsonPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
@@ -23,21 +23,23 @@ import { CookieComponent } from '../../components/cookie/cookie.component'
     ModalDialogComponent,
     YouTubePlayerComponent,
     AsyncPipe,
-    CookieComponent
+    CookieComponent,
+    JsonPipe
   ]
 })
 export class HomePage {
   modalS = inject(ModalService)
   imageSrc = `${environment.hostUrl}/assets/alex-schwarz-2.jpg`
-  lastVideo$ = this.youTubeS.lastVideo$
-  constructor(
-    public youTubeS: YoutubeService
-  ) {
-    if (this.youTubeS.cookie()) {
-      if (!this.youTubeS.lastVideo$.value) {
-        this.youTubeS.fetchLastVideo()
+  #youTubeS = inject(YoutubeService)
+  cookie = this.#youTubeS.cookie
+  lastVideo = this.#youTubeS.lastVideo
+
+  constructor() {
+    if (this.cookie()) {
+      if (!this.#youTubeS.lastVideo().length) {
+        this.#youTubeS.fetchLastVideo()
       }
-      afterNextRender(this.youTubeS.loadFrameApiScript)
+      afterNextRender(this.#youTubeS.loadFrameApiScript)
     }
   }
 

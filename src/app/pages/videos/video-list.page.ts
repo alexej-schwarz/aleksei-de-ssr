@@ -37,23 +37,24 @@ export class VideoListPage {
   #cookieS = inject(CookieService)
   isMobile = this.#deviceS.isMobile()
   isTablet = this.#deviceS.isTablet()
+  #youTubeS = inject(YoutubeService)
+  cookie = this.#youTubeS.cookie
+  allVideoPlaylist = this.#youTubeS.allVideoPlaylist
 
-  constructor(
-    public youTubeS: YoutubeService
-  ) {
+  constructor() {
     registerLocaleData(LOCALE_RU)
-    if (this.youTubeS.cookie()) {
-      afterNextRender(this.youTubeS.loadFrameApiScript)
+    if (this.cookie()) {
+      afterNextRender(this.#youTubeS.loadFrameApiScript)
     }
     effect(() => {
-      if (this.youTubeS.cookie() && !this.youTubeS.allVideoPlaylist$.value) {
-        this.youTubeS.fetchAllPlaylistForChannel(100)
+      if (this.cookie() && !this.allVideoPlaylist()) {
+        this.#youTubeS.fetchAllPlaylistForChannel(100)
       }
     })
   }
 
   setCurrentVideoPlaylistId = (playlist: any) => {
-    this.youTubeS.currentVideoPlaylist = {
+    this.#youTubeS.currentVideoPlaylist = {
       id: playlist.id,
       title: playlist.snippet.title,
       description: playlist.snippet.description,

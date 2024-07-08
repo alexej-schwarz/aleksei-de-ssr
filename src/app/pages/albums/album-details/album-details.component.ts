@@ -1,15 +1,17 @@
-import { AsyncPipe } from '@angular/common'
+import { AsyncPipe, JsonPipe } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
-  inject
+  computed,
+  inject, Signal
 } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { combineLatest, concatMap, map } from 'rxjs'
 import { ImageComponent } from '../../../components/image/image.component'
 import { AudioComponent } from '../../../components/audio/audio.component'
 import { AuthorComponent } from '../../../components/author/author.component'
 import { AlbumService } from '../../../services/album.service'
+import { toSignal } from '@angular/core/rxjs-interop'
+import { Album, AlbumDescription, Track } from '../../../types/album.type'
 @Component({
   selector: 'app-album-details',
   templateUrl: 'album-details.component.html',
@@ -20,26 +22,20 @@ import { AlbumService } from '../../../services/album.service'
     ImageComponent,
     AudioComponent,
     AuthorComponent,
-    AsyncPipe
+    AsyncPipe,
+    JsonPipe
   ]
 })
 export class AlbumDetailsComponent {
   #route = inject(ActivatedRoute)
+  id = toSignal(this.#route.paramMap)()?.get('id') ?? ''
   #albumS = inject(AlbumService)
-  albumDetails$ = this.#route.paramMap.pipe(
-    concatMap((params) => {
-      const id = params.get('id') as string
-      return combineLatest([
-        this.#albumS.getAlbumById(id),
-        this.#albumS.getAlbumPlaylistById(id),
-        this.#albumS.getAlbumDescriptionById(id)
-      ])
-    }),
-    map(([album, tracks, descriptions]) => ({
-        ...album,
-        tracks,
-        ...descriptions
-      })
-    )
-  )
+  albumAsSignal = this.#albumS.getAlbumByIdAsSignal(this.id)
+  playlistAsSignal = this.#albumS.getAlbumPlaylistByIdAsSignal(this.id)
+  descriptionAsSignal = this.#albumS.getAlbumDescriptionByIdAsSignal(this.id)
+  albumDetailsAsSignal: Signal<Album & AlbumDescription & { tracks: Track[] }> = computed(() => ({
+    ...this.albumAsSignal(),
+    tracks: this.playlistAsSignal(),
+    ...this.descriptionAsSignal()
+  }))
 }

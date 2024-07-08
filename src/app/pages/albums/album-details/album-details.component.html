@@ -1,4 +1,4 @@
-@if (albumDetails$ | async; as albumDetails) {
+@if (albumDetailsAsSignal(); as albumDetails) {
   <div class="grid-container">
     <h2>
       @if (albumDetails.author) {

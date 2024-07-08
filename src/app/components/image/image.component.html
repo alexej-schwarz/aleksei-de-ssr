@@ -3,12 +3,11 @@
   [style.width]="width$ | async"
   [style.padding-bottom]="paddingBottom$ | async"
 >
-  @if (imgSrc$ | async) {
+  @if (src) {
     <img alt="{{ alt }}" [lazyLoad]="src || ''" />
   } @else {
     <div class="place-holder">
       <span></span>
     </div>
   }
-
 </div>

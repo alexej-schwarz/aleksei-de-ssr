@@ -27,6 +27,7 @@ log.txt
 /node_modules
 npm-debug.log
 yarn-error.log
+.nvmrc
 
 # IDEs and editors
 .idea/

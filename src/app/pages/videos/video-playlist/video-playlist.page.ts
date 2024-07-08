@@ -12,6 +12,7 @@ import { ModalDialogComponent } from '../../../components/modal-dialog/modal-dia
 import { YouTubePlayerComponent } from '../../../components/youtube-player/youtube-player.component'
 import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
+import { toSignal } from '@angular/core/rxjs-interop'
 
 @Component({
   selector: 'app-video-playlist',
@@ -35,9 +36,11 @@ export class VideoPlaylistPage {
   #youTubeS = inject(YoutubeService)
   modalS = inject(ModalService)
   platformName = ''
-  videoList$ = this.#youTubeS.getPlaylistVideosForChannel(
-    this.#cookieS.get('videoPlaylistId') ?? '',
-    100
+  videoList = toSignal(
+    this.#youTubeS.getPlaylistVideosForChannel(
+      this.#cookieS.get('videoPlaylistId') ?? '',
+      100
+    )
   )
   title = this.#youTubeS.currentVideoPlaylist?.title ?? this.#cookieS.get('videoPlaylistTitle' ?? '')
   description = this.#youTubeS.currentVideoPlaylist?.description ?? this.#cookieS.get('videoPlaylistDescription') ?? ''

@@ -10,7 +10,6 @@ import { AlbumService } from '../../services/album.service'
 import { ImageComponent } from '../../components/image/image.component'
 import { TruncatePipe } from '../../pipes/truncate.pipe'
 import { ALBUM_LIST_DATA_1, ALBUM_LIST_DATA_2 } from '../../data/audio/album'
-import { toSignal } from '@angular/core/rxjs-interop'
 import { DeviceDetectorService } from 'ngx-device-detector'
 
 @Component({
@@ -32,11 +31,9 @@ export class AlbumListPage {
   #deviceS = inject(DeviceDetectorService)
   isMobile = this.#deviceS.isMobile()
   #albumS = inject(AlbumService)
-  #albumListSchwarz = toSignal(this.#albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_1))
-  #albumListOther = toSignal(this.#albumS.getPreparedAlbumListWithDescription(ALBUM_LIST_DATA_2))
 
   albumList = computed(() => [
-    { title: 'Сольные альбомы', list: this.#albumListSchwarz() },
-    { title: 'Aльбомы с моим участием', list: this.#albumListOther() }
+    { title: 'Сольные альбомы', list: this.#albumS.getSortByDateAlbumList(ALBUM_LIST_DATA_1) },
+    { title: 'Aльбомы с моим участием', list: this.#albumS.getSortByDateAlbumList(ALBUM_LIST_DATA_2) }
   ])
 }

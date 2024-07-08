@@ -16,51 +16,47 @@
     </div>
   </div>
 
-  @if (youTubeS.cookie()) {
-    @if (lastVideo$ | async; as lastVideo) {
-      @if (lastVideo?.length && lastVideo[0]) {
-        @if (lastVideo[0]; as video) {
-          <hr />
-          <h2>Новое видео</h2>
-          <div class="row">
-            <div class="col-12 col-sm-4">
-              <button
-                type="button"
-                (click)="openModal(currentModalTriggerEl, video)"
-                aria-haspopup="dialog"
-                aria-controls="video-modal"
-                #currentModalTriggerEl
-                [attr.aria-expanded]="modalS.isOpen() && (modalS.triggerEl() === currentModalTriggerEl)"
-                class="card"
-              >
-                <div class="card-image">
-                  <app-image
-                    [src]="video.snippet.thumbnails.high.url"
-                    [alt]="video.snippet.title"
-                    height="56.25%"
-                  />
-                  <div class="overlay"></div>
-                  <div class="play-icon"></div>
-                </div>
-              </button>
-            </div>
-            <div class="col">
-              <p><strong>{{ video.snippet.title }}</strong></p>
-              <p>{{ video.snippet.description }}</p>
-            </div>
-          </div>
-          @if (modalS.content(); as modalContent) {
-            <app-modal-dialog
-              id="video-modal"
-              [title]="modalContent.snippet.title ?? ''"
-            >
-              <app-youtube-player
-                [videoId]="modalContent.id.videoId"
-                [autoplay]="true"
+  @if (cookie()) {
+    @if (lastVideo()[0]; as video) {
+      <hr />
+      <h2>Новое видео</h2>
+      <div class="row">
+        <div class="col-12 col-sm-4">
+          <button
+            type="button"
+            (click)="openModal(currentModalTriggerEl, video)"
+            aria-haspopup="dialog"
+            aria-controls="video-modal"
+            #currentModalTriggerEl
+            [attr.aria-expanded]="modalS.isOpen() && (modalS.triggerEl() === currentModalTriggerEl)"
+            class="card"
+          >
+            <div class="card-image">
+              <app-image
+                [src]="video.snippet.thumbnails.high.url"
+                [alt]="video.snippet.title"
+                height="56.25%"
               />
-            </app-modal-dialog>
-          }
-        }
+              <div class="overlay"></div>
+              <div class="play-icon"></div>
+            </div>
+          </button>
+        </div>
+        <div class="col">
+          <p><strong>{{ video.snippet.title }}</strong></p>
+          <p>{{ video.snippet.description }}</p>
+        </div>
+      </div>
+      @if (modalS.content(); as modalContent) {
+        <app-modal-dialog
+          id="video-modal"
+          [title]="modalContent.snippet.title ?? ''"
+        >
+          <app-youtube-player
+            [videoId]="modalContent.id.videoId"
+            [autoplay]="true"
+          />
+        </app-modal-dialog>
       }
     }
   } @else {

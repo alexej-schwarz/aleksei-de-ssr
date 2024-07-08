@@ -1,12 +1,4 @@
-import { Injectable } from '@angular/core'
-import {
-  BehaviorSubject,
-  from,
-  map,
-  Subject,
-  take,
-  tap
-} from 'rxjs'
+import { Injectable, signal, WritableSignal } from '@angular/core'
 
 import { Album, AlbumDescription, Track } from '../types/album.type'
 
@@ -14,68 +6,36 @@ import { Album, AlbumDescription, Track } from '../types/album.type'
   providedIn: 'root',
 })
 export class AlbumService {
-  getAlbumById = (albumId: string) => {
+  getAlbumByIdAsSignal = (albumId: string) => {
+    const initialAlbum = { author: '', id: '', coverImageSrc: '', releaseYear: 0, title: '' }
     const allAlbum: Album[] = []
-    const allAlbum$: Subject<Album | undefined> = new Subject()
-
+    const albumSignal: WritableSignal<Album> = signal(initialAlbum)
     import('../data/audio/album').then(album => {
       Object.values(album).forEach(albumList => {
         if (albumList) {
           allAlbum.push(...albumList)
         }
       })
-      allAlbum$.next(allAlbum.find(album => album.id === albumId))
+        albumSignal.set(allAlbum.find(album => album.id === albumId) ?? initialAlbum)
     })
-    return allAlbum$
+    return albumSignal
   }
-  getAlbumPlaylistById = (albumId: string) => {
-    const playList$: Subject<Track[] | undefined> = new Subject()
+
+  getAlbumPlaylistByIdAsSignal = (albumId: string) => {
+    const playListAsSignal: WritableSignal<Track[]> = signal([])
     import('../data/audio/playlist').then(tracks => {
-      playList$.next(this.#findEntryById(tracks, albumId))
+        playListAsSignal.set(this.#findEntryById(tracks, albumId))
     })
-    return playList$
+    return playListAsSignal
   }
-  getAlbumDescriptionById = (albumId: string) => {
-    const description$: Subject<AlbumDescription | undefined> = new Subject()
+  getAlbumDescriptionByIdAsSignal = (albumId: string) => {
+    const descriptionAsSignal: WritableSignal<AlbumDescription | undefined> = signal(undefined)
     import('../data/audio/album-description').then(albumDescription => {
-      description$.next(this.#findEntryById(albumDescription, albumId))
+      descriptionAsSignal.set(this.#findEntryById(albumDescription, albumId))
     })
-    return description$
+    return descriptionAsSignal
   }
-  getPreparedAlbumListWithDescription = (albumList: Album[]) => {
-    const albumList$: BehaviorSubject<Album[]> = new BehaviorSubject([
-      { id: '' , author: '', title: '', coverImageSrc: '', releaseYear: 0 }
-    ])
-    const albumFromList$ = from(albumList).pipe(
-      tap(album => {
-        const descriptionById$ = this.getAlbumDescriptionById(album.id).pipe(
-          take(1),
-          tap(description => {
-            const albumWithDescription = {
-              ...album,
-              annotations: description?.annotations
-            }
-            if (albumList$.value[0].id) {
-              albumList$.next([ ...albumList$.value, albumWithDescription ])
-            } else {
-              albumList$.next([ albumWithDescription ])
-            }
-          })
-        )
-        descriptionById$.subscribe()
-      })
-    )
-    albumFromList$.subscribe()
-    return albumList$.pipe(
-      map(albumList => {
-        const albumListFixed = albumList
-          .sort((a, b) => b.releaseYear - a.releaseYear)
-          .filter(album => album.fixed)
-        const albumListWithoutFixed = albumList.filter(album => !album.fixed)
-        return [...albumListFixed, ...albumListWithoutFixed]
-      })
-    )
-  }
+  getSortByDateAlbumList = (albumList: Album[]) => albumList.sort((a, b) => b.releaseYear - a.releaseYear)
   #findEntryById = (obj: object, id: string) => Object.entries(obj).find(
     entry => entry[0] === id.replace(/-/g,'_').toUpperCase()
   )?.[1]

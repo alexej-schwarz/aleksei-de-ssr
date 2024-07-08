@@ -1,10 +1,14 @@
-import { inject, Injectable, signal } from '@angular/core'
+import {
+  inject,
+  Injectable,
+  signal,
+  WritableSignal
+} from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { map } from 'rxjs/operators'
-import { BehaviorSubject, take, tap } from 'rxjs'
+import { from, take, tap } from 'rxjs'
 import { environment } from '../../environments/environment'
 import { CookieService } from 'ngx-cookie-service'
-
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +20,11 @@ export class YoutubeService {
   #iframeApiUrl = 'https://www.youtube.com/iframe_api'
   #isFrameApiScriptLoaded = false
   currentVideoPlaylist: { id: string, title?: string, description?: string } | null = null
-  allVideoPlaylist$: BehaviorSubject<any> = new BehaviorSubject(null)
-  lastVideo$: BehaviorSubject<any> = new BehaviorSubject(null)
   http = inject(HttpClient)
   #cookieS = inject(CookieService)
   cookie = signal(!!this.#cookieS.get('youtube'))
+  lastVideo: WritableSignal<any> = signal([])
+  allVideoPlaylist: WritableSignal<any> = signal(null)
 
   loadFrameApiScript = (): void => {
     if (!this.#isFrameApiScriptLoaded && typeof document !== 'undefined') {
@@ -36,14 +40,14 @@ export class YoutubeService {
     this.http.get(url).pipe(
       take(1),
       tap((res: any) => {
-        this.lastVideo$.next(res.items)
+        this.lastVideo.set(res.items)
       })
     ).subscribe()
   }
 
   getPlaylistVideosForChannel = (playlistId: string, maxResults: string | number) => {
     const url = `${this.#apiUrl}/playlistItems?key=${this.#apiKey}&channelId=${this.#youTubeChannel}&playlistId=${playlistId}&order=date&part=snippet,contentDetails&maxResults=${maxResults}`
-    return playlistId ? this.http.get(url).pipe(map((res: any) => res.items)) : null
+    return playlistId ? this.http.get(url).pipe(map((res: any) => res.items)) : from([])
   }
 
   fetchAllPlaylistForChannel = (maxResults: string | number) => {
@@ -52,7 +56,7 @@ export class YoutubeService {
     this.http.get(url).pipe(
       take(1),
       tap((res: any) => {
-        this.allVideoPlaylist$.next(res.items)
+        this.allVideoPlaylist.set(res.items)
       })
     ).subscribe()
   }
