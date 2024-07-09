@@ -1,7 +1,7 @@
 <div
   class="wrapper-image"
-  [style.width]="width$ | async"
-  [style.padding-bottom]="paddingBottom$ | async"
+  [style.width]="widthParsed"
+  [style.padding-bottom]="paddingBottom"
 >
   @if (src) {
     <img alt="{{ alt }}" [lazyLoad]="src || ''" />

@@ -1,4 +1,3 @@
-import { AsyncPipe, JsonPipe } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
@@ -21,9 +20,7 @@ import { Album, AlbumDescription, Track } from '../../../types/album.type'
   imports: [
     ImageComponent,
     AudioComponent,
-    AuthorComponent,
-    AsyncPipe,
-    JsonPipe
+    AuthorComponent
   ]
 })
 export class AlbumDetailsComponent {

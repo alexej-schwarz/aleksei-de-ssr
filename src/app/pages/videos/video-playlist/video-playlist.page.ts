@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
@@ -24,7 +23,6 @@ import { toSignal } from '@angular/core/rxjs-interop'
     ImageComponent,
     ModalDialogComponent,
     YouTubePlayerComponent,
-    AsyncPipe,
     TruncatePipe
   ]
 })

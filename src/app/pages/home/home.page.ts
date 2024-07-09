@@ -1,4 +1,3 @@
-import { AsyncPipe, JsonPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
@@ -22,9 +21,7 @@ import { CookieComponent } from '../../components/cookie/cookie.component'
     ImageComponent,
     ModalDialogComponent,
     YouTubePlayerComponent,
-    AsyncPipe,
-    CookieComponent,
-    JsonPipe
+    CookieComponent
   ]
 })
 export class HomePage {

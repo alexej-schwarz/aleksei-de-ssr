@@ -1,4 +1,3 @@
-import { AsyncPipe, JsonPipe } from '@angular/common'
 import {
   ChangeDetectionStrategy,
   Component,
@@ -22,9 +21,7 @@ import { DeviceDetectorService } from 'ngx-device-detector'
     RouterLinkActive,
     RouterLink,
     ImageComponent,
-    AsyncPipe,
-    TruncatePipe,
-    JsonPipe
+    TruncatePipe
   ]
 })
 export class AlbumListPage {

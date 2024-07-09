@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common'
 import {
   afterNextRender,
   ChangeDetectionStrategy,
@@ -27,7 +26,6 @@ import { CookieComponent } from '../../components/cookie/cookie.component'
     RouterLinkActive,
     RouterLink,
     ImageComponent,
-    AsyncPipe,
     TruncatePipe,
     CookieComponent
   ]
