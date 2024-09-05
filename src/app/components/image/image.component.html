@@ -2,6 +2,7 @@
   class="wrapper-image"
   [style.width]="widthParsed"
   [style.padding-bottom]="paddingBottom"
+  [class.round]="round"
 >
   @if (src) {
     <img alt="{{ alt }}" [lazyLoad]="src || ''" />

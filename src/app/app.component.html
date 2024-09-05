@@ -1,11 +1,15 @@
+<a href="#main" class="to-content">
+  <strong>к основному содержанию страницы</strong>
+</a>
+
 <div
   (window:resize)="setOrientationCSSClass()"
   [class]="platformName"
   [class.landscape]="isLandscape"
   [class.outline]="accessibilityS.hasOutline"
 >
-  <app-header></app-header>
-  <main>
+  <app-header />
+  <main id="main">
     <div class="grid-container title-block">
       @if (hasBackButton) {
         <button

@@ -16,11 +16,11 @@
         >
           <div class="card-body">
             <p class="card-header">
-              <span class="sr-only">начать просмотр</span>{{ video.snippet.title }}
+              <span class="sr-only">начать просмотр</span>{{ video.snippet?.title }}
             </p>
-            @if (video.snippet.description) {
+            @if (video.snippet?.description) {
               <div class="card-description">
-                {{ video.snippet.description | truncate: 56 }}
+                {{ video.snippet?.description | truncate: 56 }}
               </div>
             }
           </div>
@@ -31,9 +31,9 @@
             aria-hidden="true"
           >
             <app-image
-              [src]="video.snippet.thumbnails.high.url"
-              [alt]="video.snippet.title"
-              height="75%"
+              [src]="video.snippet?.thumbnails?.high?.url"
+              [alt]="video.snippet?.title"
+              [height]="isMobile ? '75%' : '56.25%'"
             />
             <div class="overlay"></div>
             <div class="play-icon"></div>
@@ -48,7 +48,7 @@
             <div class="card-description">&nbsp;<br>&nbsp;</div>
           </div>
           <div class="card-image">
-            <app-image src="" height="75%" />
+            <app-image src="" [height]="isMobile ? '75%' : '56.25%'" />
           </div>
         </div>
       </li>

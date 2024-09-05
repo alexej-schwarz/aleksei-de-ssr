@@ -19,6 +19,7 @@ export class ImageComponent implements OnInit {
   @Input() height: number | string = '100%'
   @Input() src: string | undefined = ''
   @Input() alt: string | undefined = ''
+  @Input() round = false
   widthParsed = this.width
   paddingBottom = this.height
 

@@ -1,7 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  inject
+  inject,
+  Signal
 } from '@angular/core'
 import { YoutubeService } from '../../../services/youtube.service'
 import { ImageComponent } from '../../../components/image/image.component'
@@ -12,6 +13,7 @@ import { YouTubePlayerComponent } from '../../../components/youtube-player/youtu
 import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
 import { toSignal } from '@angular/core/rxjs-interop'
+import { YoutubeVideoPlayList } from '../../../types/album.type'
 
 @Component({
   selector: 'app-video-playlist',
@@ -34,7 +36,7 @@ export class VideoPlaylistPage {
   #youTubeS = inject(YoutubeService)
   modalS = inject(ModalService)
   platformName = ''
-  videoList = toSignal(
+  videoList: Signal<YoutubeVideoPlayList[]> = toSignal(
     this.#youTubeS.getPlaylistVideosForChannel(
       this.#cookieS.get('videoPlaylistId') ?? '',
       100

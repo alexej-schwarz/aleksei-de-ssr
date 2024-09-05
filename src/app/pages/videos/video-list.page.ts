@@ -3,7 +3,8 @@ import {
   ChangeDetectionStrategy,
   Component,
   effect,
-  inject
+  inject,
+  WritableSignal
 } from '@angular/core'
 import { RouterLinkActive, RouterLink } from '@angular/router'
 import { ImageComponent } from '../../components/image/image.component'
@@ -14,6 +15,7 @@ import { registerLocaleData } from '@angular/common'
 import { CookieService } from 'ngx-cookie-service'
 import { DeviceDetectorService } from 'ngx-device-detector'
 import { CookieComponent } from '../../components/cookie/cookie.component'
+import { YoutubeVideoPlayList } from '../../types/album.type'
 
 @Component({
   selector: 'app-video-list',
@@ -37,7 +39,7 @@ export class VideoListPage {
   isTablet = this.#deviceS.isTablet()
   #youTubeS = inject(YoutubeService)
   cookie = this.#youTubeS.cookie
-  allVideoPlaylist = this.#youTubeS.allVideoPlaylist
+  allVideoPlaylist: WritableSignal<YoutubeVideoPlayList[] | null> = this.#youTubeS.allVideoPlaylist
 
   constructor() {
     registerLocaleData(LOCALE_RU)
@@ -51,14 +53,12 @@ export class VideoListPage {
     })
   }
 
-  setCurrentVideoPlaylistId = (playlist: any) => {
-    this.#youTubeS.currentVideoPlaylist = {
-      id: playlist.id,
-      title: playlist.snippet.title,
-      description: playlist.snippet.description,
-    }
-    this.#cookieS.set('videoPlaylistId', playlist.id)
-    this.#cookieS.set('videoPlaylistTitle', playlist.snippet.title)
-    this.#cookieS.set('videoPlaylistDescription', playlist.snippet.description)
+  setCurrentVideoPlaylistId = ({ id, snippet }: YoutubeVideoPlayList) => {
+    const title = snippet?.title ?? ''
+    const description = snippet?.description ?? ''
+    this.#youTubeS.currentVideoPlaylist = { id, title, description }
+    this.#cookieS.set('videoPlaylistId', id)
+    this.#cookieS.set('videoPlaylistTitle', title)
+    this.#cookieS.set('videoPlaylistDescription', description)
   }
 }

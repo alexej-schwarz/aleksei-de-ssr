@@ -15,17 +15,17 @@
           >
             <div class="card-body">
               <p class="card-header">
-                {{ playList.snippet.title }}
+                {{ playList.snippet?.title }}
               </p>
-              @if (playList.snippet.description) {
+              @if (playList.snippet?.description) {
                 <div class="card-description">
-                  {{ playList.snippet.description | truncate: 20 }}
+                  {{ playList.snippet?.description | truncate: 20 }}
                 </div>
               }
             </div>
             <div class="card-image w-40">
               <app-image
-                [src]="playList.snippet.thumbnails.high.url"
+                [src]="playList.snippet?.thumbnails?.high?.url"
                 [alt]="'...'"
                 height="75%"
               />

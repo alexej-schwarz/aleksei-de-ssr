@@ -1,3 +1,23 @@
+.to-content {
+  position: absolute;
+  &:focus {
+    background-color: var(--lightgrey);
+    display: block;
+    margin: var(--v-spacer) var(--h-spacer);
+    padding: var(--v-spacer) var(--h-spacer);
+  }
+  &:not(:focus) {
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
 h1.small {
   font-size: 1rem;
   text-align: end;

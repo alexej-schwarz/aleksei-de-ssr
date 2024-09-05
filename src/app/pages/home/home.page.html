@@ -11,7 +11,7 @@
       </ul>
     </div>
 
-    <div class="col-12 col-sm-4 order-first order-sm-last">
+    <div class="col-12 col-sm-3 order-first order-sm-last">
       <app-image [src]="imageSrc" alt="Алексей Шварц" height="104%" />
     </div>
   </div>
@@ -33,8 +33,8 @@
           >
             <div class="card-image">
               <app-image
-                [src]="video.snippet.thumbnails.high.url"
-                [alt]="video.snippet.title"
+                [src]="video.snippet?.thumbnails?.high?.url"
+                [alt]="video.snippet?.title"
                 height="56.25%"
               />
               <div class="overlay"></div>
@@ -43,8 +43,8 @@
           </button>
         </div>
         <div class="col">
-          <p><strong>{{ video.snippet.title }}</strong></p>
-          <p>{{ video.snippet.description }}</p>
+          <p><strong>{{ video.snippet?.title }}</strong></p>
+          <p>{{ video.snippet?.description }}</p>
         </div>
       </div>
       @if (modalS.content(); as modalContent) {

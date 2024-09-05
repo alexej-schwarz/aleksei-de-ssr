@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators'
 import { from, take, tap } from 'rxjs'
 import { environment } from '../../environments/environment'
 import { CookieService } from 'ngx-cookie-service'
+import { YoutubeVideo, YoutubeVideoPlayList } from '../types/album.type'
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,12 @@ export class YoutubeService {
   #apiUrl = 'https://www.googleapis.com/youtube/v3'
   #iframeApiUrl = 'https://www.youtube.com/iframe_api'
   #isFrameApiScriptLoaded = false
-  currentVideoPlaylist: { id: string, title?: string, description?: string } | null = null
+  currentVideoPlaylist: YoutubeVideoPlayList | null = null
   http = inject(HttpClient)
   #cookieS = inject(CookieService)
   cookie = signal(!!this.#cookieS.get('youtube'))
-  lastVideo: WritableSignal<any> = signal([])
-  allVideoPlaylist: WritableSignal<any> = signal(null)
+  lastVideo: WritableSignal<YoutubeVideo[]> = signal([])
+  allVideoPlaylist: WritableSignal<YoutubeVideoPlayList[] | null> = signal(null)
 
   loadFrameApiScript = (): void => {
     if (!this.#isFrameApiScriptLoaded && typeof document !== 'undefined') {
